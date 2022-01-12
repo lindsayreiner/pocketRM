@@ -34,10 +34,10 @@ export default function Navbar() {
                 </label>
                 <div className="acctBtns container">
                     <section>
-                        <Link to="/login"><Button inverted color='violet'>
+                        <Link to="/login"><Button variant="outline-info">
                             Login
                         </Button></Link>
-                        <Link to="/register"> <Button inverted color='violet'>
+                        <Link to="/register"> <Button variant="outline-info">
                             Sign up
                         </Button></Link>
                     </section>
