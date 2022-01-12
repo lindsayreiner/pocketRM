@@ -10,15 +10,17 @@ export default function Navbar() {
     return (
         <>
             <nav className="navbar">
-                {/* <Link className="bizName" to="/"> */}
-                <img
-                    id="nav-logo"
-                    src={pocketRMLogo}
-                    alt="PocketRM Logo"
-                    height="60px"
-                />
-                {/* </Link> */}
+                <Link to="/">
+                    <img
+                        className="navLogo"
+                        src={pocketRMLogo}
+                        alt="PocketRM Logo"
+                        height="35px"
+                    />
+                </Link>
+
                 <input type="checkbox" id="navToggle" className="navToggle" />
+
                 <ul className="navBtnCont">
                     <li className="navBtn">
                         <NavLink className="navBtnLink" to="/dashboard">
@@ -41,20 +43,22 @@ export default function Navbar() {
                         </NavLink>
                     </li>
                 </ul>
+
                 <label htmlFor="navToggle" className="navToggleLabel">
                     <span></span>
                 </label>
-                <div className="acctBtns container">
-                    <section>
-                        <Link to="/login"><Button >
-                            Login
-                        </Button></Link>
-                        <Link to="/register"> <Button color='violet'>
-                            Sign up
-                        </Button></Link>
-                    </section>
+
+                <div className="acctBtns">
+
+                    <Link to="/login"><Button >
+                        Login
+                    </Button></Link>
+                    <Link to="/register"> <Button>
+                        Sign up
+                    </Button></Link>
                 </div>
             </nav>
+
         </>
     );
 }

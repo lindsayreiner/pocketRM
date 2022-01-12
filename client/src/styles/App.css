@@ -1,8 +1,8 @@
 /* @import-normalize; */
 
 :root {
-  --navbarBg: #1a1e20;
-  --violet: #625c96;
+  --navbarBg: #152a35;
+  --violet: #8f00ff;
 }
 /* --------------------*/
 /* Reset               */
@@ -22,9 +22,19 @@
 
 html,
 #root,
-main {
+main,
+body {
   height: 100%;
+  /* width: 100%; */
 }
+
+/* No text decoration for a links */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 
 /* Reset margins */
 
@@ -40,6 +50,15 @@ figure {
   margin: 0;
 }
 
+/* Unset all navbar presets */
+.navbar>.container {
+  all: unset;
+}
+
+.btn {  
+  margin: 0;
+}
+
 /* Set up the body */
 
 body {
@@ -51,7 +70,7 @@ body {
 main {
   position: relative;
   min-height: 100%;
-  padding-top: 70px;
+  
 }
 
 /*make images easier to work with */
@@ -159,9 +178,9 @@ body > footer {
 .navbar {
   background-color: var(--navbarBg);
   z-index: 999;
-  text-align: center;
-  position: fixed;
   width: 100%;
+  /* display: flex; */
+
 }
 
 .navBtnCont {
@@ -178,30 +197,35 @@ body > footer {
   transition: transform 400ms ease-in-out;
 }
 
-.bizName {
-  color: white;
-  font-size: 2rem;
-  margin: 0;
-  padding: 0;
-}
-
-.bizName:hover {
-  color: white;
-  opacity: 75%;
-}
-
-.acctBtns {
-  float: right;
-}
-
-#nav-logo img {
+.navLogo {
   max-width: unset;
+  margin: 1em;
+  margin-right: 1em;
+ 
+}
+
+ .acctBtns {
+  margin: 1em;
+  float: right;
+  
 }
 
 .navBtn {
   list-style: none;
   margin-bottom: 1em;
   margin-left: 1em;
+}
+
+.btn-primary,
+.btn-primary:hover {
+  background-color: var(--violet);
+  border-color: var(--violet);
+}
+
+.btn-primary:hover {
+  opacity: 75%;
+  background-color: var(--violet);
+  border-color: var(--violet);
 }
 
 .navBtnLink {
@@ -276,9 +300,13 @@ body > footer {
     grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
   }
 
-  .bizName {
-    grid-column: 2 / 3;
-  }
+ #nav-logo {
+   /* margin: 1em; */
+   display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* width: 40%; */
+ }
 
   .acctBtns {
     grid-column: 4 / 5;
@@ -289,7 +317,7 @@ body > footer {
     all: unset;
     grid-column: 3 / 4;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
   }
 
@@ -307,7 +335,7 @@ body > footer {
     content: "";
     display: block;
     height: 5px;
-    background-color: #625c96;
+    background-color: var(--violet);
     position: absolute;
     top: -0.75em;
     left: 0;
@@ -321,13 +349,18 @@ body > footer {
   }
 }
 
+@media screen and (min-width: 440px) {
+  .navLogo {
+    margin-left: 2em;
+  }
+}
+
 /* --------------------*/
 /* Registration        */
 /* --------------------*/
 
 .formCont {
   padding: 2em;
-  margin-top: 60px;
 }
 
 .form {
@@ -339,6 +372,20 @@ body > footer {
 .regTitle {
   text-align: center;
   margin-bottom: 1em;
+  color: var(--violet);
+}
+
+/* --------------------*/
+/* Login               */
+/* --------------------*/
+
+.loginCont {
+  margin: auto;
+  width: 50%;
+}
+
+.loginMsg {
+  color: var(--violet);
 }
 
 /* --------------------*/
@@ -379,4 +426,22 @@ body > footer {
   .slogan {
     padding-top: 2rem;
   }
+}
+
+/* --------------------*/
+/* Footer              */
+/* --------------------*/
+
+footer {
+  background-color: var(--navbarBg);
+  width: 100%;
+  min-height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footNavLogo {
+  height: 20px;
+
 }

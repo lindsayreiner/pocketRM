@@ -1,13 +1,13 @@
 import React from 'react'
-import { Button, Form, Col, Row } from 'react-bootstrap'
+import { Button, Form } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 
 export default function Login() {
     return (
         <>
-            <Row className="loginCont container" style={{ height: '100vh', verticalAlign: 'middle', textAlign: 'center' }}>
-                <Col style={{ maxWidth: 450 }}>
-                    <h2 className="loginMsg" style={{ color: 'violet', textAlign: 'center' }}>
+            <section className="loginCont " style={{ height: '100vh' }}>
+                <div style={{ maxWidth: 450 }}>
+                    <h2 className="loginMsg">
                         Log-in to your account
                     </h2>
                     <Form size='large'>
@@ -26,10 +26,10 @@ export default function Login() {
 
                     </Form>
                     <div>
-                        New to PocketRM? <Link to='/register'>Sign Up</Link>
+                        New to PocketRM? <Link to='/register'><b>Sign Up</b></Link>
                     </div>
-                </Col>
-            </Row>
+                </div>
+            </section>
         </>
     )
 }
