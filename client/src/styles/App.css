@@ -1,11 +1,7 @@
 /* @import-normalize; */
 
 :root {
-<<<<<<< HEAD
   --navbarBg: #152a35;
-=======
-  --navbarBg: #1a1e20;
->>>>>>> main
   --violet: #8f00ff;
 }
 /* --------------------*/
@@ -39,7 +35,6 @@ a {
   color: inherit;
 }
 
-
 /* Reset margins */
 
 body,
@@ -55,11 +50,11 @@ figure {
 }
 
 /* Unset all navbar presets */
-.navbar>.container {
+.navbar > .container {
   all: unset;
 }
 
-.btn {  
+.btn {
   margin: 0;
 }
 
@@ -74,7 +69,6 @@ body {
 main {
   position: relative;
   min-height: 100%;
-  
 }
 
 /*make images easier to work with */
@@ -184,7 +178,6 @@ body > footer {
   z-index: 999;
   width: 100%;
   /* display: flex; */
-
 }
 
 .navBtnCont {
@@ -205,25 +198,11 @@ body > footer {
   max-width: unset;
   margin: 1em;
   margin-right: 1em;
- 
 }
 
- .acctBtns {
+.acctBtns {
   margin: 1em;
   float: right;
-<<<<<<< HEAD
-  
-=======
-}
-
-.nav-acct-buttons {
-  padding-left: 0.7em;
-}
-
-#nav-logo {
-  max-width: unset;
-  margin-left: 3%;
->>>>>>> main
 }
 
 .navBtn {
@@ -320,13 +299,13 @@ body > footer {
     grid-template-columns: 1fr auto minmax(600px, 100fr) 1fr;
   }
 
- #nav-logo {
-   /* margin: 1em; */
-   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  /* width: 40%; */
- }
+  #nav-logo {
+    /* margin: 1em; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 40%; */
+  }
 
   .acctBtns {
     grid-column: 5 / 5;
@@ -508,5 +487,4 @@ footer {
 
 .footNavLogo {
   height: 20px;
-
 }
