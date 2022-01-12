@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Button, Container, Row, Col } from "react-bootstrap";
+import { Button, Container, Row, Col, Image } from "react-bootstrap";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import beachWoman from "../images/women-on-beach.jpg";
@@ -8,20 +8,10 @@ import beachWoman from "../images/women-on-beach.jpg";
 export default function LandingPage() {
   return (
     <>
-      <Container text className="hero container">
-        {/* <Header
-                    as='h1'
-                    content='PocketRM'
-                    inverted
-                    className='bizName'
-                    style={{
-                        fontSize: '4em',
-                        fontWeight: 'normal',
-                        color: 'black'
-                    }}
-                /> */}
+      <Container className="hero container">
+
         <h2
-          className="slogan"
+          className='slogan'
           style={{
             fontSize: "2.25em",
             fontWeight: "normal",
@@ -67,18 +57,18 @@ export default function LandingPage() {
               </p>
             </div>
           </Col>
-          <Col floated="right" width={6}>
-            <img src={beachWoman} alt="friends-on-beach" />
+          <Col floated='right' width={6}>
+            <Image size='large' src={beachWoman} alt="friends-on-beach" />
           </Col>
         </Row>
-        {/* <Row>
-          <Col textAlign="center">
-            <Button size="huge" color="violet">
-              Check Them Out
-            </Button>
+        <Row>
+          <Col style={{ textAlign: 'center' }}>
+            <Button size='huge' color="violet">Check Them Out</Button>
           </Col>
-        </Row> */}
-      </div>
+        </Row>
+
+      </div >
+
     </>
-  );
+  )
 }
