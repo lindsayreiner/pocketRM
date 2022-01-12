@@ -2,7 +2,7 @@
 
 :root {
   --navbarBg: #1a1e20;
-  --violet: #625c96;
+  --violet: #8f00ff;
 }
 /* --------------------*/
 /* Reset               */
@@ -194,8 +194,13 @@ body > footer {
   float: right;
 }
 
-#nav-logo img {
+.nav-acct-buttons {
+  padding-left: 0.7em;
+}
+
+#nav-logo {
   max-width: unset;
+  margin-left: 3%;
 }
 
 .navBtn {
@@ -216,6 +221,10 @@ body > footer {
 .navBtnLink:hover {
   color: white;
   opacity: 75%;
+}
+
+#login-button {
+  width: 85.72px;
 }
 
 .navToggle {
@@ -273,7 +282,7 @@ body > footer {
 
   .navbar {
     display: grid;
-    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+    grid-template-columns: 1fr auto minmax(600px, 100fr) 1fr;
   }
 
   .bizName {
@@ -281,8 +290,7 @@ body > footer {
   }
 
   .acctBtns {
-    grid-column: 4 / 5;
-    width: 30em;
+    grid-column: 5 / 5;
   }
 
   .navBtnCont {
@@ -303,11 +311,22 @@ body > footer {
     margin-bottom: 0;
   }
 
+  .btn-primary {
+    background-color: var(--violet);
+    border-color: var(--violet);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--violet);
+    border-color: var(--violet);
+    opacity: 80%;
+  }
+
   .navBtnLink::before {
     content: "";
     display: block;
     height: 5px;
-    background-color: #625c96;
+    background-color: var(--violet);
     position: absolute;
     top: -0.75em;
     left: 0;
@@ -318,6 +337,11 @@ body > footer {
 
   .navBtnLink:hover::before {
     transform: scale(1, 1);
+  }
+
+  a {
+    color: unset;
+    text-decoration: unset;
   }
 }
 
@@ -352,7 +376,11 @@ body > footer {
   background-position: center;
   width: 100% !important;
   height: 100vh;
-  margin: 0 auto;
+  margin: 0;
+}
+
+.hero.container.container {
+  max-width: 100%;
 }
 
 .slogan {
@@ -363,10 +391,36 @@ body > footer {
 
 .getStartedBtn {
   margin-left: 3rem !important;
+  margin-top: 1em;
+}
+
+.landing-body {
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+.landing-text {
+  margin-bottom: 1.5em;
+}
+
+h3 {
+  margin-bottom: 0.2em;
 }
 
 .ui.text.container {
   max-width: 100% !important;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  height: 3em;
+}
+
+.copyright-notice {
+  display: inline-block;
+  margin-top: 0.75em;
 }
 
 @media only screen and (min-width: 767px) {
