@@ -1,5 +1,3 @@
 # pocketRM
 
-Track your personal relationships and acquaintances with PocketCRM.
-
-PocketRM
+Track your personal relationships and acquaintances with PocketRM.
