@@ -1,32 +1,44 @@
-import React from 'react';
+import React from "react";
 import { NavLink, Link } from "react-router-dom";
-import { Button } from 'react-bootstrap'
+import { Button } from "react-bootstrap";
+import pocketRMLogo from "../images/pocketrm-logo.png";
 
-import 'normalize.css';
-import '../styles/App.css'
-
-
+import "normalize.css";
+import "../styles/App.css";
 
 export default function Navbar() {
     return (
         <>
-
             <nav className="navbar">
-                <Link className="bizName" to="/"><b>PocketRM</b></Link>
+                {/* <Link className="bizName" to="/"> */}
+                <img
+                    id="nav-logo"
+                    src={pocketRMLogo}
+                    alt="PocketRM Logo"
+                    height="60px"
+                />
+                {/* </Link> */}
                 <input type="checkbox" id="navToggle" className="navToggle" />
                 <ul className="navBtnCont">
-
                     <li className="navBtn">
-                        <NavLink className="navBtnLink" to="/dashboard">Dashboard</NavLink>
+                        <NavLink className="navBtnLink" to="/dashboard">
+                            Dashboard
+                        </NavLink>
                     </li>
                     <li className="navBtn">
-                        <NavLink className="navBtnLink" to="/contacts">Contacts</NavLink>
+                        <NavLink className="navBtnLink" to="/contacts">
+                            Contacts
+                        </NavLink>
                     </li>
                     <li className="navBtn">
-                        <NavLink className="navBtnLink" to="/calendar">Calendar</NavLink>
+                        <NavLink className="navBtnLink" to="/calendar">
+                            Calendar
+                        </NavLink>
                     </li>
                     <li className="navBtn">
-                        <NavLink className="navBtnLink" to="/reminders" >Reminders</NavLink>
+                        <NavLink className="navBtnLink" to="/reminders">
+                            Reminders
+                        </NavLink>
                     </li>
                 </ul>
                 <label htmlFor="navToggle" className="navToggleLabel">
@@ -42,7 +54,7 @@ export default function Navbar() {
                         </Button></Link>
                     </section>
                 </div>
-            </nav >
-        </ >
-    )
+            </nav>
+        </>
+    );
 }

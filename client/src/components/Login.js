@@ -14,14 +14,6 @@ export default function Login() {
                         <Form.Group>
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" placeholder="name@example.com" />
-                            {/* <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' /> */}
-                            {/* <Form.Input
-                                fluid
-                                icon='lock'
-                                iconPosition='left'
-                                placeholder='Password'
-                                type='password'
-                            /> */}
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
