@@ -29,15 +29,15 @@ export default function Navbar() {
                         <NavLink className="navBtnLink" to="/reminders" >Reminders</NavLink>
                     </li>
                 </ul>
-                <label for="navToggle" className="navToggleLabel">
+                <label htmlFor="navToggle" className="navToggleLabel">
                     <span></span>
                 </label>
                 <div className="acctBtns container">
                     <section>
-                        <Link to="/login"><Button inverted color='violet'>
+                        <Link to="/login"><Button >
                             Login
                         </Button></Link>
-                        <Link to="/register"> <Button inverted color='violet'>
+                        <Link to="/register"> <Button color='violet'>
                             Sign up
                         </Button></Link>
                     </section>

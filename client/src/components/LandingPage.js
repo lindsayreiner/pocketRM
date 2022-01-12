@@ -16,18 +16,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default function LandingPage() {
     return (
         <>
-            <Container text className="hero container">
-                {/* <Header
-                    as='h1'
-                    content='PocketRM'
-                    inverted
-                    className='bizName'
-                    style={{
-                        fontSize: '4em',
-                        fontWeight: 'normal',
-                        color: 'black'
-                    }}
-                /> */}
+            <Container className="hero container">
+
                 <h2
                     className='slogan'
                     style={{
@@ -37,20 +27,13 @@ export default function LandingPage() {
                         color: 'black'
                     }}
                 >Keep track of what matters.</h2>
-                <a href="./Login"><Button primary size='huge' className='getStartedBtn' color='violet'>
+                <a href="./Login"><Button size='huge' className='getStartedBtn' color='violet'>
                     Get Started
                     <FontAwesomeIcon icon="arrow-right" />
                 </Button></a>
             </Container>
-            {/* <Divider
-                as='h4'
-                className='header'
-                horizontal
-                style={{ margin: '3em 0em', textTransform: 'uppercase' }}
-            >
-                <a href='#'>Case Studies</a>
-            </Divider> */}
-            <div style={{ padding: '8em 0em' }} vertical>
+
+            <div style={{ padding: '8em 0em' }}>
 
                 <Row>
                     <Col width={8}>
@@ -68,11 +51,11 @@ export default function LandingPage() {
                         </p>
                     </Col>
                     <Col floated='right' width={6}>
-                        <Image bordered rounded size='large' src='../images/women-on-beach.jpg' alt="friends-on-beach" />
+                        <Image size='large' src='../images/women-on-beach.jpg' alt="friends-on-beach" />
                     </Col>
                 </Row>
                 <Row>
-                    <Col textAlign='center'>
+                    <Col style={{ textAlign: 'center' }}>
                         <Button size='huge' color="violet">Check Them Out</Button>
                     </Col>
                 </Row>
