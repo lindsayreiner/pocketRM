@@ -1,0 +1,381 @@
+@import-normalize;
+
+:root {
+    --navbarBg: #1a1e20;
+    --violet: #625c96;
+}
+/* --------------------*/
+/* Reset               */
+/* --------------------*/
+
+/* https://piccalil.li/blog/a-modern-css-rest/ */
+
+/* Box Sizing */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Default font size - 1em = 16px - 2.1rem = 21px */
+
+html,
+#root,
+main {
+  height: 100%;
+}
+
+/* Reset margins */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+picture,
+figure {
+  margin: 0;
+}
+
+/* Set up the body */
+
+body {
+  line-height: 1.5;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+}
+
+main {
+  position: relative;
+  min-height: 100%;
+  padding-top: 70px
+}
+
+/*make images easier to work with */
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* make form elements easier to work with */
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* remove animations for people who've turned them off */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* Sticky footer */
+ 
+body > footer {
+  position: sticky;
+  top: 100vh;
+} 
+
+/* --------------------*/
+/* Utility classes     */
+/* --------------------*/
+
+.flex {
+    display: flex;
+    gap: var(--gap, 1rem);
+  }
+
+  .container {
+    padding-inline: 2em; /*looking at inline access of container (left and right side, not top and bottom)*/
+    margin-inline: auto;
+    max-width: 80rem;
+  }
+  
+  .justify-center {
+    justify-content: center;
+  }
+  
+  .justify-end {
+    justify-content: end;
+  }
+  
+  .space-evenly {
+    justify-content: space-evenly;
+  }
+  
+  .align-center {
+    align-items: center;
+  }
+
+  .active {
+      border-bottom: 5px solid var(--violet);
+  }
+
+/* --------------------*/
+/* Scrollbar           */
+/* --------------------*/
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #37444d;
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1a2024;
+  }
+
+   /* --------------------*/
+  /* Navbar             */
+  /* --------------------*/
+
+  .navbar {
+    background-color: var(--navbarBg);
+    z-index: 999;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+  }
+
+  .navBtnCont {
+   position: absolute;
+   text-align: left;
+   top: 100%;
+   left: 0;
+   margin: 0;
+   padding: 0;
+   background-color: var(--navbarBg);
+   width: 100%;
+   transform: scale(1, 0);
+   transform-origin: top;
+   transition: transform 400ms ease-in-out;
+  }
+
+  .bizName {
+      color: white;
+      font-size: 2rem;
+      margin: 0;
+      padding: 0;
+  }
+
+  .bizName:hover {
+      color: white;
+      opacity: 75%;
+  }
+
+  .acctBtns {
+      float: right;
+  }
+
+  .navBtn { 
+    list-style: none;
+    margin-bottom: 1em;
+    margin-left: 1em;
+  }
+
+ .navBtnLink {
+     text-decoration: none;
+     color: white;
+     font-size: 1.2rem;
+     text-transform: uppercase;
+     opacity: 0;
+     transition: opacity 150ms ease-in-out;
+ }
+
+ .navBtnLink:hover {
+    color:white;
+    opacity: 75%;
+ }
+
+ .navToggle {
+     display: none;
+ }
+
+ .navToggle:checked ~ ul {
+      transform: scale(1,1);
+ }
+
+ .navToggle:checked ~ ul .navBtnLink {
+     opacity: 1;
+     transition: opacity 250ms ease-in-out 250ms;
+ }
+
+ .navToggleLabel {
+     position: absolute;
+     top: 0;
+     left: 0;
+     margin-left: 1em;
+     height: 100%;
+     display: flex;
+     align-items: center;
+ }
+
+ .navToggleLabel span,
+ .navToggleLabel span::before,
+ .navToggleLabel span::after {
+    display: block;
+    background-color: #fff;
+    height: 2px;
+    width: 2em;
+    border-radius: 2px;
+    position: relative;
+ }
+
+ .navToggleLabel span::before,
+ .navToggleLabel span::after {
+     content: '';
+     position: absolute;
+
+ }
+
+ .navToggleLabel span::before {
+     bottom: 7px;
+ }
+
+ .navToggleLabel span::after {
+     top: 7px;
+ }
+
+ @media screen and (min-width: 1020px) {
+     .navToggleLabel {
+         display: none;
+     }
+
+     .navbar {
+         display: grid;
+         grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+     }
+
+     .bizName {
+         grid-column: 2 / 3;
+     }
+
+     .acctBtns {
+         grid-column: 4 / 5;
+         width: 30em;
+     }
+
+     .navBtnCont {
+         all: unset;
+         grid-column: 3 / 4;
+         display: flex;
+         justify-content: flex-end;
+         align-items: center;
+     }
+
+     .navBtnLink {
+         opacity: 1;
+         position: relative;
+     }
+
+     .navBtn {
+         margin-left: 3em;
+         margin-bottom: 0;
+     }
+
+     .navBtnLink::before {
+         content: "";
+         display: block;
+         height: 5px;
+         background-color: #625c96;
+         position: absolute;
+         top: -.75em;
+         left: 0;
+         right: 0;
+         transform: scale(0, 1);
+         transition: transform ease-in-out 250ms;
+     }
+
+     .navBtnLink:hover::before {
+         transform: scale(1,1);
+     }
+ }
+
+  /* --------------------*/
+  /* Registration        */
+  /* --------------------*/
+
+  .formCont {
+      padding: 2em;
+      margin-top: 60px;
+  }
+
+  .form {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;   
+  }
+
+  .regTitle {
+      text-align: center;
+      margin-bottom: 1em;
+  }
+
+  /* --------------------*/
+  /* Landing Page        */
+  /* --------------------*/
+
+  .hero {
+      background-image: url(../images/clock-and-calendar.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      width: 100% !important;
+      height: 100vh;
+      margin: 0 auto;
+  }
+
+  
+      .slogan {
+        margin-top: 0 !important;
+        padding-top: 3rem !important;
+        padding-left: 3rem !important;
+      }
+
+      .getStartedBtn {
+          margin-left: 3rem !important;
+      }
+
+  .ui.text.container {
+      max-width: 100% !important;
+  }
+
+  @media only screen and (min-width: 767px) {
+      .ui.container {
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+      }
+
+      .bizName,
+      .slogan {
+        padding-top: 2rem;
+      }
+  }
