@@ -23,7 +23,7 @@ export default function LandingPage() {
         <h2
           className="slogan"
           style={{
-            fontSize: "1.7em",
+            fontSize: "2.25em",
             fontWeight: "normal",
             marginTop: "1.5em",
             color: "black",
@@ -32,9 +32,8 @@ export default function LandingPage() {
           Keep track of what matters.
         </h2>
         <a href="./Login">
-          <Button primary size="huge" className="getStartedBtn" color="violet">
-            Get Started
-            <FontAwesomeIcon icon="arrow-right" />
+          <Button primary className="getStartedBtn btn-lg" color="violet">
+            Get Started <FontAwesomeIcon icon="arrow-right" />
           </Button>
         </a>
       </Container>
@@ -46,36 +45,39 @@ export default function LandingPage() {
             >
                 <a href='#'>Case Studies</a>
             </Divider> */}
-      <div style={{ padding: "8em 0em" }} vertical>
+      <div style={{ padding: "6em 0em" }} vertical className="landing-body">
         <Row>
           <Col width={8}>
-            <h3 style={{ fontSize: "2em" }}>
-              Never forget your family and friends special moments.
-            </h3>
-            <p style={{ fontSize: "1.33em" }}>
-              PocketRM remembers the important things, so you don't have to.
-              Never forget another birthday, anniversary,
-            </p>
-            <h3 style={{ fontSize: "2em" }}>
-              Dating and Networking made easy.
-            </h3>
-            <p style={{ fontSize: "1.33em" }}>
-              Met a recruiter at a job fair? On so many dating apps you can't
-              keep track of all the fish in your sea? PocketRM stores these
-              contacts in groups that make it easy to keep track of who is who.
-            </p>
+            <div className="landing-text">
+              <h3 style={{ fontSize: "2em" }}>Never forget special moments.</h3>
+              <p style={{ fontSize: "1.33em" }}>
+                PocketRM remembers the important things, so you don't have to.
+                Never forget another birthday, anniversary,
+              </p>
+            </div>
+            <div className="landing-text">
+              <h3 style={{ fontSize: "2em" }}>
+                Dating and Networking made easy.
+              </h3>
+              <p style={{ fontSize: "1.33em" }}>
+                Met a recruiter at a job fair? On so many dating apps you can't
+                keep track of all the fish in your sea? PocketRM stores these
+                contacts in groups that make it easy to keep track of who is
+                who.
+              </p>
+            </div>
           </Col>
           <Col floated="right" width={6}>
             <img src={beachWoman} alt="friends-on-beach" />
           </Col>
         </Row>
-        <Row>
+        {/* <Row>
           <Col textAlign="center">
             <Button size="huge" color="violet">
               Check Them Out
             </Button>
           </Col>
-        </Row>
+        </Row> */}
       </div>
     </>
   );
