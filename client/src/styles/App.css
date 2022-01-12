@@ -1,4 +1,4 @@
-@import-normalize;
+/* @import-normalize; */
 
 :root {
   --navbarBg: #1a1e20;
@@ -194,7 +194,7 @@ body > footer {
   float: right;
 }
 
-#nav-logo {
+#nav-logo img {
   max-width: unset;
 }
 
