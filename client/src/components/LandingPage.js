@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/LandingPage.css";
 
 import { Button, Container, Row, Col, Image } from "react-bootstrap";
 
@@ -9,9 +10,8 @@ export default function LandingPage() {
   return (
     <>
       <Container className="hero container">
-
         <h2
-          className='slogan'
+          className="slogan"
           style={{
             fontSize: "2.25em",
             fontWeight: "normal",
@@ -57,18 +57,18 @@ export default function LandingPage() {
               </p>
             </div>
           </Col>
-          <Col floated='right' width={6}>
-            <Image size='large' src={beachWoman} alt="friends-on-beach" />
+          <Col floated="right" width={6}>
+            <Image size="large" src={beachWoman} alt="friends-on-beach" />
           </Col>
         </Row>
         <Row>
-          <Col style={{ textAlign: 'center' }}>
-            <Button size='huge' color="violet">Check Them Out</Button>
+          <Col style={{ textAlign: "center" }}>
+            <Button size="huge" color="violet">
+              Check Them Out
+            </Button>
           </Col>
         </Row>
-
-      </div >
-
+      </div>
     </>
-  )
+  );
 }
