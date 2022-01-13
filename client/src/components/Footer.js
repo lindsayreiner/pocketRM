@@ -1,11 +1,17 @@
-import React from 'react'
+import React from "react";
 
 export default function Footer() {
-    return (
-        <>
-            <footer>
-                <h1>Footer</h1>
-            </footer>
-        </>
-    )
+  return (
+    <>
+      <footer>
+        <div className="copyright-notice">
+          <span>&copy;</span>
+          <span property="dc:date" datatype="xsd:gYear">
+            2022
+          </span>
+          <span> PocketRM. All Rights Reserved.</span>
+        </div>
+      </footer>
+    </>
+  );
 }
