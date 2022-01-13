@@ -2,7 +2,7 @@
 
 footer {
   position: relative;
-  top: 75%;
+  bottom: 0;
   background-color: var(--navbarBg);
   width: 100%;
   min-height: 3rem;
