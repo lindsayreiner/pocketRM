@@ -18,20 +18,6 @@ export default function Login() {
               <Form.Control type="password" placeholder="Password" />
             </Form.Group>
 
-<<<<<<< HEAD
-                        <Button>
-                            Login
-                        </Button>
-
-                    </Form>
-                    <div>
-                        New to PocketRM? <Link to='/register'><b>Sign Up</b></Link>
-                    </div>
-                </div>
-            </section>
-        </>
-    )
-=======
             <Button>Login</Button>
           </Form>
           <div>
@@ -44,5 +30,4 @@ export default function Login() {
       </section>
     </>
   );
->>>>>>> main
 }

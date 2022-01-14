@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
-import { Button } from "react-bootstrap";
+import { Button, Form, FormControl } from "react-bootstrap";
 import pocketRMLogo from "../images/pocketrm-logo.png";
-import { MDBCol } from "mdbreact";
+
 
 import "normalize.css";
 import "../styles/App.css";
@@ -28,16 +28,7 @@ export default function Navbar() {
               Dashboard
             </NavLink>
           </li>
-          <li id="contact-search-bar">
-            <MDBCol md="6">
-              <input
-                className="form-control"
-                type="text"
-                placeholder="Search Contacts"
-                aria-label="Search"
-              />
-            </MDBCol>
-          </li>
+
           {/* <li className="navBtn">
             <NavLink className="navBtnLink" to="/contacts">
               Contacts
@@ -59,6 +50,16 @@ export default function Navbar() {
         <label htmlFor="navToggle" className="navToggleLabel">
           <span></span>
         </label>
+
+        <Form className="d-flex">
+          <FormControl
+            type="search"
+            placeholder="Search"
+            className="me-2"
+            aria-label="Search"
+          />
+          <Button>Search</Button>
+        </Form>
 
         <div className="acctBtns">
           <Link to="/login">
