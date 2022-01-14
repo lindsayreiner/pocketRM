@@ -242,6 +242,11 @@ body > footer {
 #login-button {
   width: 85.72px;
   margin-right: 0.5em;
+  border: none;
+}
+
+#register-button {
+  border: none;
 }
 
 .navToggle {
@@ -341,6 +346,12 @@ body > footer {
     background-color: var(--violet);
     border-color: var(--violet);
     opacity: 80%;
+  }
+
+  .btn-primary:focus {
+    box-shadow: unset;
+    background-color: var(--violet);
+    border-color: unset;
   }
 
   .navBtnLink::before {
