@@ -99,3 +99,7 @@ const contactSchema = new Schema({
     ref: "User",
   },
 });
+
+const Contact = model('Contact', contactSchema);
+
+module.exports = Contact;
