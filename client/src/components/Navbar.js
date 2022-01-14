@@ -37,11 +37,12 @@ export default function Navbar() {
               Calendar
             </NavLink>
           </li>
-          <li className="navBtn">
+          {/* Removing reminders nav button for now */}
+          {/* <li className="navBtn">
             <NavLink className="navBtnLink" to="/reminders">
               Reminders
             </NavLink>
-          </li>
+          </li> */}
         </ul>
 
         <label htmlFor="navToggle" className="navToggleLabel">
