@@ -20,7 +20,7 @@ export default function Login() {
                             <Form.Control type="password" placeholder="Password" />
                         </Form.Group>
 
-                        <Button color='violet' size='large'>
+                        <Button>
                             Login
                         </Button>
 
