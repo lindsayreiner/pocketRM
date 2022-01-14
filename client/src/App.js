@@ -4,7 +4,6 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Dashboard from "./components/Dashboard";
 import Profile from "./components/Profile";
-import Calendar from "./components/Calendar";
 import Reminders from "./components/Reminders";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -24,7 +23,6 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/contacts" element={<Contacts />} />
-            <Route path="/calendar" element={<Calendar />} />
             <Route path="/reminders" element={<Reminders />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/login" element={<Login />} />

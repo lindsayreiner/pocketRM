@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import pocketRMLogo from "../images/pocketrm-logo.png";
+import { MDBCol } from "mdbreact";
 
 import "normalize.css";
 import "../styles/App.css";
@@ -27,7 +28,17 @@ export default function Navbar() {
               Dashboard
             </NavLink>
           </li>
-          <li className="navBtn">
+          <li id="contact-search-bar">
+            <MDBCol md="6">
+              <input
+                className="form-control"
+                type="text"
+                placeholder="Search Contacts"
+                aria-label="Search"
+              />
+            </MDBCol>
+          </li>
+          {/* <li className="navBtn">
             <NavLink className="navBtnLink" to="/contacts">
               Contacts
             </NavLink>
@@ -36,12 +47,13 @@ export default function Navbar() {
             <NavLink className="navBtnLink" to="/calendar">
               Calendar
             </NavLink>
-          </li>
-          <li className="navBtn">
+          </li> */}
+          {/* Removing reminders nav button for now */}
+          {/* <li className="navBtn">
             <NavLink className="navBtnLink" to="/reminders">
               Reminders
             </NavLink>
-          </li>
+          </li> */}
         </ul>
 
         <label htmlFor="navToggle" className="navToggleLabel">
