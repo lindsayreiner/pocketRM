@@ -199,7 +199,7 @@ body > footer {
   /* display: flex; */
 }
 
-.navBtnCont {
+/* .navBtnCont {
   position: absolute;
   text-align: left;
   top: 100%;
@@ -211,12 +211,16 @@ body > footer {
   transform: scale(1, 0);
   transform-origin: top;
   transition: transform 400ms ease-in-out;
-}
+} */
 
 .navLogo {
   max-width: unset;
   margin: 1em;
   margin-right: 1em;
+}
+
+#contact-search-bar {
+  margin-left: 1rem;
 }
 
 .acctBtns {
@@ -326,10 +330,10 @@ body > footer {
     display: none;
   }
 
-  .navbar {
+  /* .navbar {
     display: grid;
     grid-template-columns: 1fr auto minmax(600px, 100fr) 1fr;
-  }
+  } */
 
   #nav-logo {
     /* margin: 1em; */
