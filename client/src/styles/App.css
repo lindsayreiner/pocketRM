@@ -408,8 +408,10 @@ body > footer {
 /* --------------------*/
 
 .loginCont {
-  margin: auto;
+  margin: 2rem auto;
   width: 50%;
+  display: flex;
+  justify-content: center;
 }
 
 .loginMsg {
