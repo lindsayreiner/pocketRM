@@ -22,7 +22,6 @@
 
 html,
 #root,
-main,
 body {
   height: 100%;
   /* width: 100%; */
@@ -49,6 +48,16 @@ figure {
   margin: 0;
 }
 
+.app-wrapper {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.app-wrapper > main {
+  flex: 1 0 auto;
+}
+
 /* Unset all navbar presets */
 .navbar > .container {
   all: unset;
@@ -68,7 +77,6 @@ body {
 
 main {
   position: relative;
-  min-height: 100%;
 }
 
 /*make images easier to work with */
@@ -86,6 +94,14 @@ button,
 textarea,
 select {
   font: inherit;
+}
+
+.form div {
+  margin-bottom: 0.85rem;
+}
+
+.form div:nth-last-child(2) {
+  margin-bottom: 1.5rem;
 }
 
 /* remove animations for people who've turned them off */
@@ -242,6 +258,11 @@ body > footer {
 #login-button {
   width: 85.72px;
   margin-right: 0.5em;
+  border: none;
+}
+
+#register-button {
+  border: none;
 }
 
 .navToggle {
@@ -343,6 +364,12 @@ body > footer {
     opacity: 80%;
   }
 
+  .btn-primary:focus {
+    box-shadow: unset;
+    background-color: var(--violet);
+    border-color: unset;
+  }
+
   .navBtnLink::before {
     content: "";
     display: block;
@@ -397,8 +424,10 @@ body > footer {
 /* --------------------*/
 
 .loginCont {
-  margin: auto;
+  margin: 2rem auto;
   width: 50%;
+  display: flex;
+  justify-content: center;
 }
 
 .loginMsg {
