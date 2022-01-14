@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function Login() {
   return (
     <>
-      <section className="loginCont " style={{ height: "100vh" }}>
+      <section className="loginCont ">
         <div style={{ maxWidth: 450 }}>
           <h2 className="loginMsg">Log-in to your account</h2>
           <Form size="large">
