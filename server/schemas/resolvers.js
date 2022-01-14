@@ -1,18 +1,18 @@
-const { User, Contact, Calendar, Reminder } = require("../models");
+const { User, Contact, Notes, Reminder } = require("../models");
 
 const resolvers = {
   Query: {
     users: async () => {
-      return await User.find({}).populate("contacts");
+      return await User.find({}).populate("contacts", "reminders");
     },
     contacts: async () => {
-      return await Contact.find({}).populate("married", "children", "pets");
+      return await Contact.find({}).populate("notes", "reminders", "user");
     },
-    calendar: async () => {
-      return await Calendar.find({});
+    notes: async () => {
+      return await Notes.find({}).populate("contacts");
     },
-    reminder: async () => {
-      return await Reminder.find({});
+    reminders: async () => {
+      return await Reminder.find({}).populate("users", "contacts");
     },
   },
 };

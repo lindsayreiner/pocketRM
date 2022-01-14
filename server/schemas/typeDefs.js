@@ -6,9 +6,8 @@ const typeDefs = gql`
     name: String
     email: String
     password: String
-    calendar: [Calendar]
-    reminder: [Reminder]
     contacts: [Contact]
+    reminders: [Reminder]
   }
 
   type Contact {
@@ -20,35 +19,28 @@ const typeDefs = gql`
     address: String
     birthday: String
     occupation: String
-    married: [Married]
-    children: [Children]
-    pets: [Pet]
+    company: String
+    partner: Boolean
+    partnerName: String
+    children: Boolean
+    childName: String
+    childBirthday: String
+    pets: Boolean
+    petName: String
     interestsHobbies: String
     importantDates: String
     giftIdeas: String
+    metAt: String
+    notes: [Notes]
+    reminders: [Reminder]
+    users: [User]
+  }
+
+  type Notes {
+    _id: ID
     notes: String
-  }
-
-  type Married {
-    _id: ID
-    spouseName: String
-    anniversary: String
-  }
-
-  type Children {
-    _id: ID
-    name: String
-    birthday: String
-  }
-
-  type Pet {
-    _id: ID
-    name: String
-    birthday: String
-  }
-
-  type Calendar {
-    _id: ID
+    date: String
+    contacts: [Contact]
   }
 
   type Reminder {
@@ -56,12 +48,14 @@ const typeDefs = gql`
     name: String
     date: String
     time: Int
+    users: [User]
+    contacts: [Contact]
   }
 
   type Query {
     users: [User]
     contacts: [Contact]
-    calendar: [Calendar]
+    notes: [Notes]
     reminders: [Reminder]
   }
 `;

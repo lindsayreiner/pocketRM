@@ -54,7 +54,7 @@ export default function Navbar() {
           </Link>
           <Link to="/register">
             {" "}
-            <Button>Sign up</Button>
+            <Button id="register-button">Sign up</Button>
           </Link>
         </div>
       </nav>
