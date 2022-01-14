@@ -13,7 +13,7 @@ const contactSchema = new Schema({
   },
   email: {
     type: String,
-    required: true,
+    required: false,
   },
   phone: {
     type: Number,
@@ -21,42 +21,81 @@ const contactSchema = new Schema({
   },
   address: {
     type: String,
-    required: true,
+    required: false,
   },
   birthday: {
     type: String,
-    required: true,
+    required: false,
   },
   occupation: {
     type: String,
-    required: true,
+    required: false,
   },
-  married: {
-    type: Schema.Types.ObjectId,
-    ref: "Married",
+  partner: {
+    type: Boolean,
+    required: false,
   },
+
+  partnerName: {
+    type: String,
+    required: false,
+  },
+
   children: {
-    type: Schema.Types.ObjectId,
-    ref: "Children",
+    type: Boolean,
+    required: false,
   },
+
+  childrenName: {
+    type: String,
+    required: false,
+  },
+
+  childBirthday: {
+    type: String,
+    required: false,
+  },
+
   pets: {
-    type: Schema.Types.ObjectId,
-    ref: "Pet",
+    type: String,
+    required: false,
   },
+
+  petName: {
+    type: String,
+    required: false,
+  },
+
   interestHobbies: {
     type: String,
-    required: true,
+    required: false,
   },
   importantDates: {
     type: String,
-    required: true,
+    required: false,
   },
   giftIdeas: {
     type: String,
-    required: true,
+    required: false,
   },
-  notes: {
+
+  metAt: {
     type: String,
-    required: true,
+    required: false,
+  },
+
+  notes: {
+    type: Schema.Types.ObjectId,
+    ref: "Notes",
+  },
+
+  reminders: {
+    type: Schema.Types.ObjectId,
+    ref: "Reminders",
+  },
+
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
   },
 });
