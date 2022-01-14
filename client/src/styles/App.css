@@ -179,6 +179,8 @@ body > footer {
   background-color: var(--navbarBg);
   z-index: 999;
   width: 100%;
+  position: sticky;
+  top: 0;
   /* display: flex; */
 }
 
@@ -248,6 +250,7 @@ body > footer {
 
 #login-button {
   width: 85.72px;
+  margin-right: 0.5em;
 }
 
 .navToggle {
