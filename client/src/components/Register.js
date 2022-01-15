@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
+
 
 // eslint-disable-next-line no-useless-escape
 const emailValidation =
@@ -10,15 +11,21 @@ const passwordValidation =
   /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 
 export default function Register() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit, control, reset, formState: { errors } } = useForm({
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: ''
+    }
+  });
 
   const onSubmit = (data) => {
     console.log(data);
   };
+
+
+
 
   return (
     <>
@@ -31,10 +38,10 @@ export default function Register() {
         >
           <Form.Group>
             <Form.Label>First Name</Form.Label>
-            <Form.Control
-              placeholder="First Name"
-              type="text"
-              {...register("firstName", { required: true })}
+            <Controller
+              name="firstName"
+              control={control}
+              render={({ field }) => <Form.Control {...field} {...register('firstName', { required: true })} />}
             />
           </Form.Group>
           {errors.firstName && (
@@ -42,10 +49,10 @@ export default function Register() {
           )}
           <Form.Group>
             <Form.Label>Last Name</Form.Label>
-            <Form.Control
-              placeholder="Last Name"
-              type="text"
-              {...register("lastName", { required: true })}
+            <Controller
+              name="lastName"
+              control={control}
+              render={({ field }) => <Form.Control {...field} {...register('lastName', { required: true })} />}
             />
           </Form.Group>
           {errors.lastName && (
@@ -53,29 +60,26 @@ export default function Register() {
           )}
           <Form.Group>
             <Form.Label>Email Address</Form.Label>
-            <Form.Control
-              placeholder="Email Address"
-              type="email"
-              {...register("email", {
-                required: true,
-                pattern: { emailValidation },
-              })}
+            <Controller
+              name="email"
+              control={control}
+              render={({ field }) => <Form.Control {...field} {...register('email', { required: true })} />}
             />
           </Form.Group>
           {errors.email && <p style={{ color: "red" }}>Invalid email.</p>}
           <Form.Group>
             <Form.Label>Password</Form.Label>
-            <Form.Control
-              placeholder="Password"
-              type="password"
-              {...register("password", {
-                required: true,
-                pattern: { passwordValidation },
-              })}
+            <Controller
+              name="password"
+              control={control}
+              render={({ field }) => <Form.Control {...field} {...register('password', { required: true, minLength: 8 })} />}
             />
           </Form.Group>
-          {errors.password && (
+          {(errors.password && errors.password.type === 'required') && (
             <p style={{ color: "red" }}>Password field is required.</p>
+          )}
+          {(errors.password && errors.password.type === 'maxLength') && (
+            <p style={{ color: "red" }}>Minimum password length is 7.</p>
           )}
           <Form.Group>
             <Form.Check

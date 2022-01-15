@@ -1,7 +1,13 @@
 const { Schema, model } = require("mongoose");
 
 const contactSchema = new Schema({
-  name: {
+  firstName: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+  },
+  lastName: {
     type: String,
     required: true,
     unique: true,
