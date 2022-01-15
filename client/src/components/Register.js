@@ -1,20 +1,17 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 
-// eslint-disable-next-line no-useless-escape
-const emailValidation =
-  /^ (([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1, 3}\.[0-9]{1, 3}\.[0-9]{1, 3}\.[0-9]{1, 3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-const passwordValidation =
-  /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 
 export default function Register() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit, control, formState: { errors } } = useForm({
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: ''
+    }
+  });
 
   const onSubmit = (data) => {
     console.log(data);
@@ -31,59 +28,62 @@ export default function Register() {
         >
           <Form.Group>
             <Form.Label>First Name</Form.Label>
-            <Form.Control
-              placeholder="First Name"
-              type="text"
-              {...register("firstName", { required: true })}
+            <Controller
+              name="firstName"
+              control={control}
+              render={({ field }) => <Form.Control {...field} {...register('firstName', { required: true, pattern: /^[a-z ,.'-]+$/i })} />}
             />
           </Form.Group>
-          {errors.firstName && (
-            <p style={{ color: "red" }}>Please enter your first name.</p>
+          {(errors.firstName && errors.firstName.type === 'required') && (
+            <p style={{ color: "red", marginBottom: "0.85rem" }}>First name field is required.</p>
+          )}
+          {(errors.firstName && errors.firstName.type === 'pattern') && (
+            <p style={{ color: "red", marginBottom: "0.85rem" }}>Fix first name spelling.</p>
           )}
           <Form.Group>
             <Form.Label>Last Name</Form.Label>
-            <Form.Control
-              placeholder="Last Name"
-              type="text"
-              {...register("lastName", { required: true })}
+            <Controller
+              name="lastName"
+              control={control}
+              render={({ field }) => <Form.Control {...field} {...register('lastName', { required: true, pattern: /^[a-z ,.'-]+$/i })} />}
             />
           </Form.Group>
-          {errors.lastName && (
-            <p style={{ color: "red" }}>Please enter your last name.</p>
+          {(errors.lastName && errors.lastName.type === 'required') && (
+            <p style={{ color: "red", marginBottom: "0.85rem" }}>Last name field is required.</p>
+          )}
+          {(errors.lastName && errors.lastName.type === 'pattern') && (
+            <p style={{ color: "red", marginBottom: "0.85rem" }}>Fix last name spelling.</p>
           )}
           <Form.Group>
             <Form.Label>Email Address</Form.Label>
-            <Form.Control
-              placeholder="Email Address"
-              type="email"
-              {...register("email", {
-                required: true,
-                pattern: { emailValidation },
-              })}
+            <Controller
+              name="email"
+              control={control}
+              // eslint-disable-next-line no-useless-escape
+              render={({ field }) => <Form.Control {...field} {...register('email', { required: true, pattern: /^ (([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1, 3}\.[0-9]{1, 3}\.[0-9]{1, 3}\.[0-9]{1, 3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ })} />}
             />
           </Form.Group>
-          {errors.email && <p style={{ color: "red" }}>Invalid email.</p>}
-          <Form.Group>
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              placeholder="Password"
-              type="password"
-              {...register("password", {
-                required: true,
-                pattern: { passwordValidation },
-              })}
-            />
-          </Form.Group>
-          {errors.password && (
-            <p style={{ color: "red" }}>Password field is required.</p>
+          {(errors.email && errors.email.type === 'required') && (
+            <p style={{ color: "red", marginBottom: "0.85rem" }}>Email field is required.</p>
+          )}
+          {(errors.email && errors.email.type === 'pattern') && (
+            <p style={{ color: "red", marginBottom: "0.85rem" }}>Enter a valid email address.</p>
           )}
           <Form.Group>
-            <Form.Check
-              type="checkbox"
-              label="I agree to the Terms and Conditions"
+            <Form.Label>Password</Form.Label>
+            <Controller
+              name="password"
+              control={control}
+              render={({ field }) => <Form.Control {...field} {...register('password', { required: true, pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/ })} />}
             />
           </Form.Group>
-          <Button type="submit" color="violet">
+          {(errors.password && errors.password.type === 'required') && (
+            <p style={{ color: "red", marginBottom: "0.85rem" }}>Password field is required.</p>
+          )}
+          {(errors.password && errors.password.type === 'pattern') && (
+            <p style={{ color: "red", marginBottom: "0.85rem" }}>Passwords must be a minimum of 8 characters, and include at least one letter and one number.</p>
+          )}
+          <Button type="submit">
             Submit
           </Button>
         </Form>
