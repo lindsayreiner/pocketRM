@@ -1,13 +1,17 @@
 const db = require('../config/connection');
-const { Profile } = require('../models');
+const { Contact, User } = require('../models');
 
-const profileData = require('./profileSeeds.json');
+const contactData = require('./contactSeeds.json');
+const userData = require('./userSeeds.json')
 
 db.once('open', async () => {
-  await Profile.deleteMany({});
+  await Contact.deleteMany({});
+  await User.deleteMany({});
 
-  const profiles = await Profile.insertMany(profileData);
+  const contacts = await Contact.insertMany(contactData);
+  const users = await User.insertMany(userData);
 
-  console.log('Profiles seeded!');
+  console.log('Contacts seeded!');
+  console.log('Users seeded!');
   process.exit(0);
 });
