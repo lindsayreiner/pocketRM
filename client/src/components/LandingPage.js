@@ -28,14 +28,6 @@ export default function LandingPage() {
             </Button>
           </a>
         </Container>
-        {/* <Divider
-                as='h4'
-                className='header'
-                horizontal
-                style={{ margin: '3em 0em', textTransform: 'uppercase' }}
-            >
-                <a href='#'>Case Studies</a>
-            </Divider> */}
         <div style={{ padding: "6em 0em" }} vertical className="landing-body">
           <Row>
             <Col width={8}>
@@ -64,13 +56,6 @@ export default function LandingPage() {
               <Image size="large" src={beachWoman} alt="friends-on-beach" />
             </Col>
           </Row>
-          {/* <Row>
-            <Col style={{ textAlign: "center" }}>
-              <Button size="huge" color="violet">
-                Check Them Out
-              </Button>
-            </Col>
-          </Row> */}
         </div>
       </section>
     </>

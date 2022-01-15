@@ -1,8 +1,9 @@
-/* @import-normalize; */
+@import-normalize;
 
 :root {
   --navbarBg: #152a35;
   --violet: #8f00ff;
+  --main: #e8e9e3;
 }
 /* --------------------*/
 /* Reset               */
@@ -239,7 +240,14 @@ body > footer {
   border-color: var(--violet);
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:active {
+  opacity: 75%;
+  background-color: var(--violet);
+  border-color: var(--violet);
+}
+
+.btn-primary:active {
   opacity: 75%;
   background-color: var(--violet);
   border-color: var(--violet);
