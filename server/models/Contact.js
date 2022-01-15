@@ -1,7 +1,13 @@
 const { Schema, model } = require("mongoose");
 
 const contactSchema = new Schema({
-  name: {
+  firstName: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+  },
+  lastName: {
     type: String,
     required: true,
     unique: true,
@@ -13,7 +19,9 @@ const contactSchema = new Schema({
   },
   email: {
     type: String,
-    required: false,
+    required: true,
+    unique: true,
+    match: [/.+@.+\..+/, "Must match an email address!"],
   },
   phone: {
     type: Number,
@@ -91,7 +99,7 @@ const contactSchema = new Schema({
 
   reminders: {
     type: Schema.Types.ObjectId,
-    ref: "Reminders",
+    ref: "Reminder",
   },
 
   user: {
@@ -100,6 +108,6 @@ const contactSchema = new Schema({
   },
 });
 
-const Contact = model('Contact', contactSchema);
+const Contact = model("Contact", contactSchema);
 
 module.exports = Contact;
