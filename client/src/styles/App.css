@@ -415,7 +415,8 @@ body > footer {
 /* Registration        */
 /* --------------------*/
 
-.formCont {
+.formCont,
+.loginCont {
   padding: 2em;
 }
 
@@ -425,7 +426,8 @@ body > footer {
   margin: 0 auto;
 }
 
-.regTitle {
+.regTitle,
+.loginTitle {
   text-align: center;
   margin-bottom: 1em;
   color: var(--violet);
@@ -439,11 +441,8 @@ body > footer {
   margin: 2rem auto;
   width: 50%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-}
-
-.loginMsg {
-  color: var(--violet);
 }
 
 /* --------------------*/
