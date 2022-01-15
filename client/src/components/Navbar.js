@@ -46,15 +46,19 @@ export default function Navbar({ isLoggedIn }) {
           <> </>
         )}
         ;{/* login/registration buttons */}
-        <div className="acctBtns">
-          <Link to="/login">
-            <Button id="login-button">Login</Button>
-          </Link>
-          <Link to="/register">
-            {" "}
-            <Button id="register-button">Sign up</Button>
-          </Link>
-        </div>
+        {isLoggedIn ? (
+          <></>
+        ) : (
+          <div className="acctBtns">
+            <Link to="/login">
+              <Button id="login-button">Login</Button>
+            </Link>
+            <Link to="/register">
+              {" "}
+              <Button id="register-button">Sign up</Button>
+            </Link>
+          </div>
+        )}
       </nav>
     </>
   );
