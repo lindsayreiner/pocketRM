@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Wesley Taylor",
+    "email": "wesleytaylor@pocketrm.com",
+    "password": "password01"
+  },
+  {
+    "name": "Lyman Connor",
+    "email": "lymanconnor@pocketrm.com",
+    "password": "password02"
+  },
+  {
+    "name": "Teja Mantena",
+    "email": "tejamantena@pocketrm.com",
+    "password": "password03"
+  },
+  {
+    "name": "Jordan DuBose",
+    "email": "jordandubose@pocketrm.com",
+    "password": "password04"
+  },
+  {
+    "name": "Lindsay Reiner",
+    "email": "lindsayreiner@pocketrm.com",
+    "password": "password05"
+  },
+  {
+    "name": "Sean McCarthy",
+    "email": "smccarthy@gmail.com",
+    "password": "password06"
+  },
+  {
+    "name": "Neal Smith",
+    "email": "nsmith@yahoo.com",
+    "password": "password07"
+  },
+  {
+    "name": "Jacob Parris",
+    "email": "jparris@hotmail.com",
+    "password": "password08"
+  },
+  {
+    "name": "jbodhe@gmail.com",
+    "email": "jbodhe@yahoo.com",
+    "password": "password09"
+  },
+  {
+    "name": "Alper Gokcehan",
+    "email": "alperg@outlook.com",
+    "password": "password10"
+  },
+  {
+    "name": "Carl Vega",
+    "email": "carlvega@hotmail.com",
+    "password": "password10"
+  }
+]
