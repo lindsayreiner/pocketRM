@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from "react";
-
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Dashboard from "./components/Dashboard";
@@ -14,7 +12,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 import "./styles/App.css";
-import auth from "./utils/auth";
 
 const client = new ApolloClient({
   uri: "/graphql",
@@ -22,29 +19,11 @@ const client = new ApolloClient({
 });
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  useEffect(() => {
-    const displaySearchBar = async () => {
-      try {
-        const expired = auth.loggedIn();
-
-        if (!expired) {
-          return false;
-        }
-
-        setIsLoggedIn(expired);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-
-    displaySearchBar();
-  }, [isLoggedIn]);
   return (
     <ApolloProvider client={client}>
       <div className="app-wrapper">
         <Router>
-          <Navbar isLoggedIn={isLoggedIn} />
+          <Navbar />
           <main>
             <Routes>
               <Route path="/" element={<LandingPage />} />
