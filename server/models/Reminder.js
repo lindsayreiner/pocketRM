@@ -13,8 +13,9 @@ const reminderSchema = new Schema({
       required: true,
     },
     time: {
-        type: int,
-        required: true,
+      // assign a different type
+      type: Number,
+      required: true,
       },
     user: {
         type: Schema.Types.ObjectId,
