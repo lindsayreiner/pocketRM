@@ -23,12 +23,12 @@ export default function LandingPage() {
             Keep track of what matters.
           </h2>
           <a href="/register">
-            <Button primary className="getStartedBtn btn-lg" color="violet">
+            <Button className="getStartedBtn btn-lg" color="violet">
               Get Started <FontAwesomeIcon icon="arrow-right" />
             </Button>
           </a>
         </Container>
-        <div style={{ padding: "6em 0em" }} vertical className="landing-body">
+        <div style={{ padding: "6em 0em" }} className="landing-body">
           <Row>
             <Col width={8}>
               <div className="landing-text">
