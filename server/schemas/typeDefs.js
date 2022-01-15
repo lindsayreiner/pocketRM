@@ -17,7 +17,7 @@ const typeDefs = gql`
     lastName: String
     relationship: String
     email: String
-    phone: Int
+    phone: Number
     address: String
     birthday: String
     occupation: String
@@ -41,15 +41,15 @@ const typeDefs = gql`
   type Notes {
     _id: ID
     notes: String
-    createdAt: String
+    createdAt: Date
     contacts: [Contact]
   }
 
   type Reminder {
     _id: ID
     name: String
-    date: String
-    time: Int
+    date: Date
+    time: Number
     users: [User]
     contacts: [Contact]
   }
