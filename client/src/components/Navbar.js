@@ -3,11 +3,10 @@ import { NavLink, Link } from "react-router-dom";
 import { Button, Form, FormControl } from "react-bootstrap";
 import pocketRMLogo from "../images/pocketrm-logo.png";
 
-
 import "normalize.css";
 import "../styles/App.css";
 
-export default function Navbar() {
+export default function Navbar({ isLoggedIn }) {
   return (
     <>
       <nav className="navbar">
@@ -19,57 +18,47 @@ export default function Navbar() {
             height="40px"
           />
         </Link>
-
         <input type="checkbox" id="navToggle" className="navToggle" />
-
-        <ul className="navBtnCont">
-          <li className="navBtn">
-            <NavLink className="navBtnLink" to="/dashboard">
-              Dashboard
-            </NavLink>
-          </li>
-
-          {/* <li className="navBtn">
-            <NavLink className="navBtnLink" to="/contacts">
-              Contacts
-            </NavLink>
-          </li>
-          <li className="navBtn">
-            <NavLink className="navBtnLink" to="/calendar">
-              Calendar
-            </NavLink>
-          </li> */}
-          {/* Removing reminders nav button for now */}
-          {/* <li className="navBtn">
-            <NavLink className="navBtnLink" to="/reminders">
-              Reminders
-            </NavLink>
-          </li> */}
-        </ul>
-
         <label htmlFor="navToggle" className="navToggleLabel">
           <span></span>
         </label>
-
-        <Form className="d-flex">
-          <FormControl
-            type="search"
-            placeholder="Search Contacts"
-            className="me-2"
-            aria-label="Search"
-          />
-          <Button>Search</Button>
-        </Form>
-
-        <div className="acctBtns">
-          <Link to="/login">
-            <Button id="login-button">Login</Button>
-          </Link>
-          <Link to="/register">
-            {" "}
-            <Button id="register-button">Sign up</Button>
-          </Link>
-        </div>
+        {/* Search Bar */}
+        {isLoggedIn ? (
+          <>
+            <ul className="navBtnCont">
+              <li className="navBtn">
+                <NavLink className="navBtnLink" to="/dashboard">
+                  Dashboard
+                </NavLink>
+              </li>
+            </ul>
+            <Form className="d-flex">
+              <FormControl
+                type="search"
+                placeholder="Search Contacts"
+                className="me-2"
+                aria-label="Search"
+              />
+              <Button>Search</Button>
+            </Form>
+          </>
+        ) : (
+          <> </>
+        )}
+        ;{/* login/registration buttons */}
+        {isLoggedIn ? (
+          <></>
+        ) : (
+          <div className="acctBtns">
+            <Link to="/login">
+              <Button id="login-button">Login</Button>
+            </Link>
+            <Link to="/register">
+              {" "}
+              <Button id="register-button">Sign up</Button>
+            </Link>
+          </div>
+        )}
       </nav>
     </>
   );
