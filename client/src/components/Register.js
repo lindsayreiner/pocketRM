@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { useForm, Controller } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 
 export default function Register() {
@@ -87,6 +88,12 @@ export default function Register() {
             Submit
           </Button>
         </Form>
+        <div className="mt-3 d-flex justify-center">
+          Already have an account?{" "}
+          <Link to="/login">
+            <b>Log in</b>
+          </Link>
+        </div>
       </section>
     </>
   );

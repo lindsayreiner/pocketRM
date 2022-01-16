@@ -52,6 +52,11 @@ export default function Navbar() {
                     Dashboard
                   </NavLink>
                 </li>
+                <li className="navBtn">
+                  <NavLink className="navBtnLink" to="/contacts">
+                    Contact
+                  </NavLink>
+                </li>
               </ul>
               <Form className="d-flex">
                 <FormControl
