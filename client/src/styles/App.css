@@ -3,8 +3,16 @@
 :root {
   --navbarBg: #152a35;
   --violet: #8f00ff;
-  --main: #e8e9e3;
+  --main: #dfdfdf;
 }
+
+/* --------------------*/
+/* Fonts               */
+/* --------------------*/
+
+/* font-family: 'Great Vibes', cursive;
+font-family: 'Poppins', sans-serif; */
+
 /* --------------------*/
 /* Reset               */
 /* --------------------*/
@@ -74,6 +82,7 @@ body {
   line-height: 1.5;
   min-height: 100vh;
   font-family: "Poppins", sans-serif;
+  background-color: var(--main);
 }
 
 main {
@@ -199,7 +208,7 @@ body > footer {
   /* display: flex; */
 }
 
-/* .navBtnCont {
+.navBtnCont {
   position: absolute;
   text-align: left;
   top: 100%;
@@ -211,7 +220,7 @@ body > footer {
   transform: scale(1, 0);
   transform-origin: top;
   transition: transform 400ms ease-in-out;
-} */
+}
 
 .navLogo {
   max-width: unset;
@@ -365,11 +374,13 @@ body > footer {
     margin-bottom: 0;
   }
 
-  .btn-primary {
+  .btn-primary,
+  .addContactBtn {
     background-color: var(--violet);
     border-color: var(--violet);
   }
 
+  .addContactBtn:hover,
   .btn-primary:hover {
     background-color: var(--violet);
     border-color: var(--violet);
@@ -513,6 +524,52 @@ footer {
   .slogan {
     padding-top: 2rem;
   }
+}
+
+/* --------------------*/
+/* Dashboard/Contacts */
+/* --------------------*/
+
+.dashboardCont {
+  display: flex;
+  flex-direction: row;
+}
+
+.searchCont {
+  border: 1px solid rgb(179, 179, 179, 0.5);
+  max-width: 350px;
+  margin: 1rem;
+  height: 90%;
+  background-color: rgb(179, 179, 179, 0.5);
+  overflow: scroll;
+  border-radius: 8px;
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--violet);
+  color: white;
+}
+
+.upcomingCont {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.upcomingTitle {
+  font-size: 1.5em;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 1rem;
+}
+
+.upcomingDiv {
+  border: 3px double var(--violet);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
 }
 
 /* --------------------*/

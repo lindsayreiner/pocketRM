@@ -7,14 +7,19 @@ export default function Contacts() {
     return (
         <>
             <section className="contactList">
-                <Form className="d-flex">
+                <Form
+                    className="d-flex"
+                    style={{
+                        maxWidth: 350,
+                        padding: '1em'
+                    }}>
                     <FormControl
                         type="search"
-                        placeholder="Search"
+                        placeholder="Search Contacts"
                         className="me-2"
                         aria-label="Search"
                     />
-                    <Button variant="outline-success">Search</Button>
+                    <Button variant="outline-secondary">Search</Button>
                 </Form>
 
             </section>
