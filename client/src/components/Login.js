@@ -49,8 +49,7 @@ export default function Login() {
             <Controller
               name="password"
               control={control}
-              type="password"
-              render={({ field }) => <Form.Control {...field} {...register('password', { required: true, pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/ })} />}
+              render={({ field }) => <Form.Control type="password" {...field} {...register('password', { required: true, pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/ })} />}
             />
           </Form.Group>
           {(errors.password && errors.password.type === 'required') && (
