@@ -60,6 +60,41 @@ const typeDefs = gql`
     notes: [Notes]
     reminders: [Reminder]
   }
+
+  input ContactInput{
+    _id: ID
+    firstName: String
+    lastName: String
+    relationship: String
+    email: String
+    phone: Int
+    address: String
+    birthday: String
+    occupation: String
+    company: String
+    partner: Boolean
+    partnerName: String
+    children: Boolean
+    childName: String
+    childBirthday: String
+    pets: Boolean
+    petName: String
+    interestsHobbies: String
+    importantDates: String
+    giftIdeas: String
+    metAt: String
+
+  }
+    type Mutation {
+    login(email: String!, password: String!): Auth
+    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+    addContact(contactInput: ContactInput, notes: String!, reminders: String!, users: String!): User
+    deleteContact(contactId: ID!): User
+  }
+  type Auth {
+    token: ID!
+    user: User
+  }
 `;
 
 module.exports = typeDefs;

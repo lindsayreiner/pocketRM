@@ -16,7 +16,7 @@ const resolvers = {
     reminders: async (parent, {contactId}) => {
      return Reminder.find({_id: contactId}).populate("reminders");
     },
-
+  },
   Mutation: {
       addUser: async (parent, { firstName, lastName, email, password }) => {
         const user = await User.create({ firstName, lastName, email, password });
@@ -60,7 +60,6 @@ const resolvers = {
         }
       },
     },
-  },
 };
 
 module.exports = resolvers;
