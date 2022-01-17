@@ -1,57 +1,68 @@
 [
   {
-    "name": "Wesley Taylor",
+    "firstName": "Wesley",
+    "lastName": "Taylor",
     "email": "wesleytaylor@pocketrm.com",
     "password": "password01"
   },
   {
-    "name": "Lyman Connor",
+    "firstName": "Lyman",
+    "lastName": "Connor",
     "email": "lymanconnor@pocketrm.com",
     "password": "password02"
   },
   {
-    "name": "Teja Mantena",
+    "firstName": "Teja",
+    "lastName": "Mantena",
     "email": "tejamantena@pocketrm.com",
     "password": "password03"
   },
   {
-    "name": "Jordan DuBose",
+    "firstName": "Jordan",
+    "lastName": "DuBose",
     "email": "jordandubose@pocketrm.com",
     "password": "password04"
   },
   {
-    "name": "Lindsay Reiner",
+    "firstName": "Lindsay",
+    "lastName": "Reiner",
     "email": "lindsayreiner@pocketrm.com",
     "password": "password05"
   },
   {
-    "name": "Sean McCarthy",
+    "firstName": "Sean",
+    "lastName": "McCarthy",
     "email": "smccarthy@gmail.com",
     "password": "password06"
   },
   {
-    "name": "Neal Smith",
+    "firstName": "Neal",
+    "lastName": "Smith",
     "email": "nsmith@yahoo.com",
     "password": "password07"
   },
   {
-    "name": "Jacob Parris",
+    "firstName": "Jacob",
+    "lastName": "Parris",
     "email": "jparris@hotmail.com",
     "password": "password08"
   },
   {
-    "name": "jbodhe@gmail.com",
-    "email": "dknuth@techfriends.dev",
+    "firstName": "Joshua",
+    "lastName": "Bodhe",
+    "email": "jbodhe@gmail.com",
     "password": "password09"
   },
   {
-    "name": "Alper Gokcehan",
+    "firstName": "Alper",
+    "lastName": "Gokcehan",
     "email": "alperg@outlook.com",
     "password": "password10"
   },
   {
-    "name": "Carl Vega",
-    "email": "alperg@outlook.com",
+    "firstName": "Carl",
+    "lastName": "Vega",
+    "email": "cvega@hotmail.com",
     "password": "password10"
   }
 ]
