@@ -10,7 +10,7 @@ export default function LandingPage() {
   return (
     <>
       <section>
-        <Container className="hero container">
+        <Container className="hero container" data-aos="">
           <h2
             className="slogan"
             style={{
@@ -28,7 +28,11 @@ export default function LandingPage() {
             </Button>
           </a>
         </Container>
-        <div style={{ padding: "6em 0em" }} className="landing-body">
+        <div
+          style={{ padding: "6em 0em" }}
+          className="landing-body"
+          data-aos="fade-up"
+        >
           <Row>
             <Col width={8}>
               <div className="landing-text">

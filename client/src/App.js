@@ -9,9 +9,12 @@ import Contacts from "./components/Contacts";
 import LandingPage from "./components/LandingPage";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import AOS from "aos";
 
 import "./styles/App.css";
+import "aos/dist/aos.css";
 
 const client = new ApolloClient({
   uri: "/graphql",
@@ -19,6 +22,12 @@ const client = new ApolloClient({
 });
 
 function App() {
+  // AOS init
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
+
   return (
     <ApolloProvider client={client}>
       <div className="app-wrapper">

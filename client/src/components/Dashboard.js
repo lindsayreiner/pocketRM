@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function Dashboard() {
     return (
         <>
-            <section className="dashboardCont">
+            <section className="dashboardCont" data-aos="fade-up" data-aos-delay="10">
                 <div className="contactList">
                     <div className="searchCont">
                         <Form
@@ -55,11 +55,10 @@ export default function Dashboard() {
                         </div>
                     </div>
 
-                    <div className="wrapper">
-                        <p className="upcomingTitle">Anniversaries</p>
-                        <div id="anniversaries" className="upcomingDiv"></div>
-                    </div>
-
+          <div className="wrapper">
+            <p className="upcomingTitle">Anniversaries</p>
+            <div id="anniversaries" className="upcomingDiv"></div>
+          </div>
                     <div className="wrapper">
                         <p className="upcomingTitle">Reminders</p>
                         <div id="reminders" className="upcomingDiv">
@@ -69,5 +68,5 @@ export default function Dashboard() {
                 </div>
             </section>
         </>
-    )
+    );
 }
