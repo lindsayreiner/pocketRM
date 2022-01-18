@@ -27,7 +27,6 @@ function App() {
     AOS.init();
     AOS.refresh();
   }, []);
-
   return (
     <ApolloProvider client={client}>
       <div className="app-wrapper">
