@@ -3,8 +3,8 @@ import React from "react";
 import { Button, Form, Container } from "react-bootstrap";
 import { useForm, Controller } from "react-hook-form";
 import { Link } from "react-router-dom";
-
-
+import { Container } from "react-bootstrap";
+// import Contacts from "./Contacts";
 
 export default function Login() {
   const {
@@ -35,12 +35,16 @@ export default function Login() {
             onSubmit={handleSubmit(onSubmit)}
             style={{ maxWidth: 450 }}
           >
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
             <Form.Group>
               <Form.Label>Email Address</Form.Label>
               <Controller
                 name="email"
                 control={control}
+<<<<<<< HEAD
                 render={({ field }) => <Form.Control {...field} {...register('email', { required: true, pattern: /^ (([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1, 3}\.[0-9]{1, 3}\.[0-9]{1, 3}\.[0-9]{1, 3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ })} />}
               />
             </Form.Group>
@@ -49,12 +53,36 @@ export default function Login() {
             )}
             {(errors.email && errors.email.type === "pattern") && (
               <p style={{ color: "red", marginBottom: "0.85rem" }}>Enter a valid email address.</p>
+=======
+                render={({ field }) => (
+                  <Form.Control
+                    {...field}
+                    {...register("email", {
+                      required: true,
+                      pattern:
+                        /^ (([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1, 3}\.[0-9]{1, 3}\.[0-9]{1, 3}\.[0-9]{1, 3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                    })}
+                  />
+                )}
+              />
+            </Form.Group>
+            {errors.email && errors.email.type === "required" && (
+              <p style={{ color: "red", marginBottom: "0.85rem" }}>
+                Email field is required.
+              </p>
+            )}
+            {errors.email && errors.email.type === "pattern" && (
+              <p style={{ color: "red", marginBottom: "0.85rem" }}>
+                Enter a valid email address.
+              </p>
+>>>>>>> main
             )}
             <Form.Group>
               <Form.Label>Password</Form.Label>
               <Controller
                 name="password"
                 control={control}
+<<<<<<< HEAD
                 render={({ field }) => <Form.Control type="password" {...field} {...register("password", { required: true, pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/ })} />}
               />
             </Form.Group>
@@ -67,6 +95,32 @@ export default function Login() {
             <Button type="submit">
               Login
             </Button>
+=======
+                render={({ field }) => (
+                  <Form.Control
+                    type="password"
+                    {...field}
+                    {...register("password", {
+                      required: true,
+                      pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+                    })}
+                  />
+                )}
+              />
+            </Form.Group>
+            {errors.password && errors.password.type === "required" && (
+              <p style={{ color: "red", marginBottom: "0.85rem" }}>
+                Password field is required.
+              </p>
+            )}
+            {errors.password && errors.password.type === "pattern" && (
+              <p style={{ color: "red", marginBottom: "0.85rem" }}>
+                Passwords must be a minimum of 8 characters, and include at
+                least one letter and one number.
+              </p>
+            )}
+            <Button type="submit">Login</Button>
+>>>>>>> main
           </Form>
 
           <div className="mt-3 d-flex justify-center">
