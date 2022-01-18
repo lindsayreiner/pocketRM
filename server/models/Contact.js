@@ -1,5 +1,9 @@
 const { Schema, model } = require("mongoose");
 
+//const noteSchema = require("./Notes");
+//const userSchema = require("./User");
+//const reminderSchema = require("./Reminder");
+
 const contactSchema = new Schema({
   firstName: {
     type: String,
@@ -105,6 +109,10 @@ const contactSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
+
+  //savedNotes: [noteSchema],
+  //savedReminders: [reminderSchema]
+
 });
 
 const Contact = model("Contact", contactSchema);

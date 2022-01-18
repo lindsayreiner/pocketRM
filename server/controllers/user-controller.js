@@ -45,7 +45,7 @@ module.exports = {
         try {
             const updatedUser = await User.findOneAndUpdate(
                 { _id: user._id },
-                { $addToSet: { savedContacts: body } },
+                { $addToSet: { contacts: body } },
                 { new: true, runValidators: true }
             );
             return res.json(updatedUser);
@@ -58,11 +58,11 @@ module.exports = {
     async deleteContact({ user, params }, res) {
         const updatedUser = await User.findOneAndUpdate(
             { _id: user._id },
-            { $pull: { savedContacts: { contactId: params.contactId } } },
+            { $pull: { contacts: { contactId: params.contactId } } },
             { new: true }
         );
         if (!updatedUser) {
-            return res.status(404).json({ message: "Couldn't find user with this id!" });
+            return res.status(404).json({ message: "Couldn't find contact with this id!" });
         }
         return res.json(updatedUser);
     },

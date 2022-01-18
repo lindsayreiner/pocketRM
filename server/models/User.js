@@ -1,6 +1,9 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 
+//const contactSchema = require("./Contact")
+//const reminderSchema = require("./Reminder")
+
 const userSchema = new Schema({
   firstName: {
     type: String,
@@ -37,6 +40,8 @@ const userSchema = new Schema({
       ref: "Reminder",
     },
   ],
+  //savedContacts: [contactSchema],
+ // savedReminders: [reminderSchema]
 });
 
 userSchema.pre("save", async function (next) {
