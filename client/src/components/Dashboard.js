@@ -30,10 +30,10 @@ export default function Dashboard() {
                         </Form>
                         <div className="searchContactList">
                             <ul className="contactListUl">
-                                <li className="contactListLi"><Link className="profileLink" to="/profile:id">Aaron Hernandez</Link></li>
-                                <li className="contactListLi"><Link className="profileLink" to="/profile:id">Andrew Matthews</Link></li>
-                                <li className="contactListLi"><Link className="profileLink" to="/profile:id">Anita Smith</Link></li>
-                                <li className="contactListLi"><Link className="profileLink" to="/profile:id">Brian Cruz</Link></li>
+                                <li className="contactListLi"><Button className="profileBtn" to="/profileclassName">Aaron Fernandez</Button></li>
+                                <li className="contactListLi"><Button className="profileBtn" to="/profile:id">Andrew Matthews</Button></li>
+                                <li className="contactListLi"><Button className="profileBtn" to="/profile:id">Anita Smith</Button></li>
+                                <li className="contactListLi"><Button className="profileBtn" to="/profile:id">Brian Cruz</Button></li>
                             </ul>
                         </div>
                     </div>

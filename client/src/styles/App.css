@@ -4,7 +4,7 @@
   --navbarBg: #152a35;
   --violet: #8f00ff;
   --main: #dfdfdf;
-  --darker: #390163;
+  --darker: #085b87;
 }
 
 /* --------------------*/
@@ -566,7 +566,6 @@ footer {
 .upcomingMain {
   font-size: 2.5rem;
   font-weight: bold;
-  font-family: "Great Vibes", cursive;
   padding-top: 2rem;
   width: 100%;
   text-align: center;
@@ -576,11 +575,8 @@ footer {
   padding: 0.9rem;
   margin-right: 1rem;
   margin-top: 1rem;
-  background: linear-gradient(
-    288deg,
-    rgb(65, 80, 95) 0%,
-    rgb(168, 173, 179) 100%
-  );
+  background-color: var(--darker);
+  color: white;
 }
 
 .reminderCont {
@@ -602,23 +598,19 @@ footer {
   font-size: 2em;
   text-align: center;
   font-weight: bold;
-  font-family: "Great Vibes", cursive;
   border: 2px solid #23162c;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   padding: 0.9rem;
-  background: linear-gradient(
-    288deg,
-    rgb(65, 80, 95) 0%,
-    rgb(168, 173, 179) 100%
-  );
+  background-color: var(--darker);
+  color: white;
 }
 
 .upcomingDiv {
   border: 2px solid var(--darker);
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
-  background-color: rgb(163, 166, 170);
+  background-color: white;
   overflow: scroll;
 }
 
@@ -632,7 +624,6 @@ footer {
 
 .upcomingUl {
   padding: 0.3rem;
-  color: rgb(238, 225, 255);
 }
 
 .contactListUl {
@@ -641,9 +632,6 @@ footer {
 
 .contactListLi {
   list-style: none;
-  padding: 0.5rem;
-  margin: 0.3rem;
-  background-color: rgb(230, 228, 228);
   text-align: center;
   border-radius: 8px;
 }
@@ -652,16 +640,23 @@ footer {
   list-style: none;
   padding: 0.5rem;
   margin: 0.3rem;
-  background: linear-gradient(
-    137deg,
-    rgb(122, 0, 153) 0%,
-    rgb(203, 161, 245) 100%
-  );
 }
 
-.profileLink:hover {
+.profileBtn {
+  background-color: rgb(230, 228, 228) !important;
+  color: black !important;
+  border: unset;
+  padding: 0.5rem;
+  margin: 0.3rem;
+  background-color: rgb(230, 228, 228);
+  width: 100%;
+  border: 1px solid rgb(179, 179, 179, 0.5);
+}
+
+.profileBtn:hover {
   font-weight: bold;
   color: inherit;
+  border: 1px gray solid;
 }
 
 /* --------------------*/
