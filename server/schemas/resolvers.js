@@ -7,21 +7,24 @@ const resolvers = {
     users: async () => {
       return await User.find({});
     },
-    contacts: async (parent, {userId}) => {
-      return Contact.find({_id: userId}).populate('contacts')
+    contacts: async (parent, args) => {
+      return User.find(args.id).populate('contacts')
     },
-    notes: async (parent, {contactId}) => {
-     return Notes.find({_id: contactId}).populate("notes");
+    notes: async (parent, args) => {
+     return Contact.find(args.id).populate("notes");
     },
-    reminders: async (parent, {contactId}) => {
-     return Reminder.find({_id: contactId}).populate("reminders");
+    remindersContact: async (parent, args) => {
+     return Contact.find(args.id).populate("reminders");
     },
+    remindersUser: async (parent, args) => {
+      return User.find(args.id).populate("reminders");
+     }
   },
   Mutation: {
       addUser: async (parent, { firstName, lastName, email, password }) => {
         const user = await User.create({ firstName, lastName, email, password });
         const token = signToken(user);
-        return { token, user };
+        return user;
       },
       login: async (parent, { email, password }) => {
         const user = await User.findOne({email});
@@ -36,10 +39,14 @@ const resolvers = {
         return { token, user };
       },
       addContact: async (parent, args) => {
+        console.log(args); // { id: "61e75985920d77064a3ff74a" }
         try {
           const addToUserContact = await User.findOneAndUpdate(
-            { _id },
-            { $addToSet: { contacts: args } },
+            { _id: args.id },
+            { $addToSet: { contacts: {
+              notes: args.notes,
+              reminders: args.reminders
+            } } },
             { new: true, runValidators: true }
           );
           return addToUserContact;
