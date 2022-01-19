@@ -88,8 +88,8 @@ const typeDefs = gql`
     type Mutation {
     login(email: String!, password: String!): Auth
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): User
-    addContact(contactInput: ContactInput, notes: String!, reminders: String!, users: String!): User
-    deleteContact(contactId: ID!): User
+    addContact(contactInput: ContactInput, notes: String!, reminders: String!, users: String!): Contact
+    deleteContact(contactId: ID!): Contact
   }
   type Auth {
     token: ID!
