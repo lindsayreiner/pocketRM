@@ -1,0 +1,51 @@
+.searchCont {
+  border: 1px solid rgb(179, 179, 179, 0.5);
+  max-width: 350px;
+  margin: 1rem;
+  /* min-height: 90%; */
+  background-color: rgb(179, 179, 179, 0.5);
+  border-radius: 8px;
+  box-shadow: 5px 10px 8px #888888;
+}
+
+.dashSearch {
+  background-color: rgb(230, 228, 228);
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--btnColor);
+  color: white;
+}
+
+.contactList {
+  width: 45%;
+  height: 45%;
+}
+
+.contactListUl {
+  padding: 0.3rem;
+  overflow: scroll;
+  height: 100%;
+}
+
+.contactListLi {
+  list-style: none;
+  text-align: center;
+  border-radius: 8px;
+  margin-right: 1rem;
+}
+
+.profileBtn {
+  color: black !important;
+  background-color: rgb(230, 228, 228) !important;
+  border: 2px outset rgb(179, 179, 179, 0.5) !important;
+  padding: 0.5rem;
+  margin-bottom: 0.3rem !important;
+  background-color: rgb(230, 228, 228);
+  width: 100%;
+}
+
+.profileBtn:hover {
+  font-weight: bold;
+  color: inherit;
+}

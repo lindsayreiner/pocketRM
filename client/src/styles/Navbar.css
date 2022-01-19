@@ -1,0 +1,201 @@
+.navbar {
+  background-color: var(--navbarBg);
+  z-index: 999;
+  width: 100%;
+  position: sticky;
+  top: 0;
+}
+
+.navLogo {
+  max-width: unset;
+  margin: 1em;
+  margin-right: 1em;
+}
+
+#contact-search-bar {
+  margin-left: 1rem;
+}
+
+.acctBtns {
+  margin: 1em;
+  float: right;
+}
+
+.navBtn {
+  list-style: none;
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+
+#login-button {
+  width: 85.72px;
+  margin-right: 0.5em;
+  border: 3px outset var(--btnColor);
+}
+
+#register-button {
+  border: 3px outset var(--btnColor);
+}
+
+@media screen and (min-width: 440px) {
+}
+
+/* --------------------*/
+/* Responsive Nav      */
+/* --------------------*/
+
+/* .navBtnCont {
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background-color: var(--navbarBg);
+    width: 100%;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+  } */
+
+/* .navBtnLink {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+  } */
+
+/* .navBtnLink:hover {
+    color: white;
+    opacity: 75%;
+  } */
+
+/* .navToggle {
+    display: none;
+  }
+  
+  .navToggle:checked ~ ul {
+    transform: scale(1, 1);
+  }
+  
+  .navToggle:checked ~ ul .navBtnLink {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
+  }
+  
+  .navToggleLabel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navToggleLabel span,
+  .navToggleLabel span::before,
+  .navToggleLabel span::after {
+    display: block;
+    background-color: #fff;
+    height: 2px;
+    width: 2em;
+    border-radius: 2px;
+    position: relative;
+  }
+  
+  .navToggleLabel span::before,
+  .navToggleLabel span::after {
+    content: "";
+    position: absolute;
+  }
+  
+  .navToggleLabel span::before {
+    bottom: 7px;
+  }
+  
+  .navToggleLabel span::after {
+    top: 7px;
+  } */
+
+/* @media screen and (min-width: 1020px) {
+    .navToggleLabel {
+      display: none;
+    }
+  
+    /* .navbar {
+      display: grid;
+      grid-template-columns: 1fr auto minmax(600px, 100fr) 1fr;
+    } */
+
+/* #nav-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  } */
+
+/* .acctBtns {
+      grid-column: 5 / 5;
+    }
+  
+    .navBtnCont {
+      all: unset;
+      grid-column: 3 / 4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .navBtnLink {
+      opacity: 1;
+      position: relative;
+    }
+  
+    .navBtn {
+      margin-left: 3em;
+      margin-bottom: 0;
+    }
+  
+    .btn-primary,
+    .addContactBtn {
+      background-color: var(--btnColor);
+      border: 3px outset var(--btnColor);
+    }
+  
+    .addContactBtn:hover,
+    .btn-primary:hover {
+      background-color: var(--btnColor);
+      border: 3px outset var(--btnColor);
+      opacity: 80%;
+    }
+  
+    .btn-primary:focus {
+      box-shadow: unset;
+      background-color: var(--btnColor);
+      border-color: unset;
+    }
+  
+    .navBtnLink::before {
+      content: "";
+      display: block;
+      height: 5px;
+      background-color: var(--btnColor);
+      position: absolute;
+      top: -0.75em;
+      left: 0;
+      right: 0;
+      transform: scale(0, 1);
+      transition: transform ease-in-out 250ms;
+    }
+  
+    .navBtnLink:hover::before {
+      transform: scale(1, 1);
+    }
+  
+    a {
+      color: unset;
+      text-decoration: unset;
+    }
+  } */

@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/Register.css";
 import { Button, Form, Container } from "react-bootstrap";
 import { useForm, Controller } from "react-hook-form";
 import { Link } from "react-router-dom";
@@ -26,7 +27,7 @@ export default function Register() {
   return (
     <>
       <section className="formCont container">
-        <Container data-aos="zoom-in" data-aos-delay="10">
+        <Container data-aos="zoom-in" data-aos-delay="2">
           <h1 className="regTitle">Register for PocketRM</h1>
           <Form
             className="form"
