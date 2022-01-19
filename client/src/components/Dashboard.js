@@ -51,6 +51,7 @@ export default function Dashboard() {
                                     <li className="upcomingLi"><b>Dad's Birthday:</b> February 24</li>
                                     <li className="upcomingLi"><b>Liz's child Birthday:</b> April 1</li>
                                     <li className="upcomingLi"><b>Kaley's partner birthday:</b> April 4</li>
+
                                 </ul>
                             </div>
                         </div>

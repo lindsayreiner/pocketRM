@@ -1,11 +1,19 @@
 @import-normalize;
 
 :root {
-  --navbarBg: #152a35;
-  --violet: #8f00ff;
+  --navbarBg: #11222b;
+  --btnColor: #875c74;
   --main: #dfdfdf;
-  --darker: #085b87;
+  --darker: #084f75;
 }
+
+/* #b68f40 */
+/* #6f8f72 */
+/* #646f4b */
+/* #744253 */
+/* #d35269 */
+/* #3e885b */
+/* #b33f62 */
 
 /* --------------------*/
 /* Fonts               */
@@ -167,7 +175,7 @@ body > footer {
 }
 
 .active {
-  border-bottom: 5px solid var(--violet);
+  border-bottom: 5px solid var(--btnColor);
 }
 
 /* --------------------*/
@@ -246,21 +254,21 @@ body > footer {
 
 .btn-primary,
 .btn-primary:hover {
-  background-color: var(--violet);
-  border-color: var(--violet);
+  background-color: var(--btnColor);
+  border: 3px outset var(--btnColor);
 }
 
 .btn-primary:hover,
 .btn-primary:active {
   opacity: 75%;
-  background-color: var(--violet);
-  border-color: var(--violet);
+  background-color: var(--btnColor);
+  border: 3px outset var(--btnColor);
 }
 
 .btn-primary:active {
   opacity: 75%;
-  background-color: var(--violet);
-  border-color: var(--violet);
+  background-color: var(--btnColor);
+  border: 3px outset var(--btnColor);
 }
 
 .navBtnLink {
@@ -280,11 +288,11 @@ body > footer {
 #login-button {
   width: 85.72px;
   margin-right: 0.5em;
-  border: none;
+  border: 3px outset var(--btnColor);
 }
 
 #register-button {
-  border: none;
+  border: 3px outset var(--btnColor);
 }
 
 .navToggle {
@@ -377,20 +385,20 @@ body > footer {
 
   .btn-primary,
   .addContactBtn {
-    background-color: var(--violet);
-    border-color: var(--violet);
+    background-color: var(--btnColor);
+    border: 3px outset var(--btnColor);
   }
 
   .addContactBtn:hover,
   .btn-primary:hover {
-    background-color: var(--violet);
-    border-color: var(--violet);
+    background-color: var(--btnColor);
+    border: 3px outset var(--btnColor);
     opacity: 80%;
   }
 
   .btn-primary:focus {
     box-shadow: unset;
-    background-color: var(--violet);
+    background-color: var(--btnColor);
     border-color: unset;
   }
 
@@ -398,7 +406,7 @@ body > footer {
     content: "";
     display: block;
     height: 5px;
-    background-color: var(--violet);
+    background-color: var(--btnColor);
     position: absolute;
     top: -0.75em;
     left: 0;
@@ -442,7 +450,7 @@ body > footer {
 .loginTitle {
   text-align: center;
   margin-bottom: 1em;
-  color: var(--violet);
+  color: var(--btnColor);
 }
 
 /* --------------------*/
@@ -462,7 +470,7 @@ body > footer {
 /* --------------------*/
 
 .hero {
-  background-image: url(../images/clock-and-calendar.jpg);
+  background-image: url(../images/calendar.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -477,8 +485,10 @@ body > footer {
 
 .slogan {
   margin-top: 0 !important;
-  padding-top: 3rem !important;
-  padding-left: 3rem !important;
+  background-color: rgb(255, 255, 255, 0.4);
+  text-align: center;
+  max-width: 35rem;
+  /* border-radius: 8px; */
 }
 
 .getStartedBtn {
@@ -542,8 +552,9 @@ footer {
   margin: 1rem;
   min-height: 90%;
   background-color: rgb(179, 179, 179, 0.5);
-  overflow: scroll;
+  overflow: auto;
   border-radius: 8px;
+  box-shadow: 5px 10px 8px #888888;
 }
 
 .dashSearch {
@@ -551,7 +562,7 @@ footer {
 }
 
 .btn-outline-secondary:hover {
-  background-color: var(--violet);
+  background-color: var(--btnColor);
   color: white;
 }
 
@@ -564,12 +575,12 @@ footer {
 }
 
 .upcomingMain {
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   font-weight: bold;
   padding-top: 2rem;
   width: 100%;
   text-align: center;
-  border: 2px solid #23162c;
+  border: 2px outset var(--darker);
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   padding: 0.9rem;
@@ -577,16 +588,18 @@ footer {
   margin-top: 1rem;
   background-color: var(--darker);
   color: white;
+  box-shadow: 5px 10px 8px #888888;
 }
 
 .reminderCont {
   display: flex;
   flex-flow: row wrap;
   width: 100%;
-  border: 5px double #23162c;
+  border: 5px outset gray;
   margin-right: 1rem;
   margin-bottom: 1rem;
   background-color: rgb(199, 201, 202);
+  box-shadow: 5px 10px 8px #888888;
 }
 
 .contactList {
@@ -595,23 +608,23 @@ footer {
 }
 
 .upcomingTitle {
-  font-size: 2em;
+  font-size: 1.8em;
   text-align: center;
   font-weight: bold;
-  border: 2px solid #23162c;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  padding: 0.9rem;
+  padding: 0.3rem;
   background-color: var(--darker);
   color: white;
 }
 
 .upcomingDiv {
-  border: 2px solid var(--darker);
+  /* border: 2px solid var(--darker); */
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   background-color: white;
-  overflow: scroll;
+  overflow: auto;
+  height: 100%;
 }
 
 .wrapper {
@@ -620,10 +633,14 @@ footer {
   margin: 1rem;
   width: 45%;
   height: auto;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 5px 10px 8px #888888;
 }
 
 .upcomingUl {
   padding: 0.3rem;
+  max-height: 10rem;
 }
 
 .contactListUl {
