@@ -8,7 +8,6 @@ const typeDefs = gql`
     email: String
     password: String
     contacts: [Contact]
-    reminders: [Reminder]
   }
 
   type Contact {
@@ -17,7 +16,7 @@ const typeDefs = gql`
     lastName: String
     relationship: String
     email: String
-    phone: Int
+    phone: String
     address: String
     birthday: String
     occupation: String
@@ -35,14 +34,12 @@ const typeDefs = gql`
     metAt: String
     notes: [Notes]
     reminders: [Reminder]
-    users: [User]
   }
 
   type Notes {
     _id: ID
     notes: String
     createdAt: String
-    contacts: [Contact]
   }
 
   type Reminder {
@@ -50,15 +47,52 @@ const typeDefs = gql`
     name: String
     date: String
     time: Int
-    users: [User]
-    contacts: [Contact]
   }
 
   type Query {
     users: [User]
-    contacts: [Contact]
+    user(id: ID!): User
     notes: [Notes]
-    reminders: [Reminder]
+    remindersContact: [Contact]
+    remindersUser: [User]
+  }
+
+  input ContactInput {
+    firstName: String!
+    lastName: String!
+    relationship: String!
+    email: String
+    phone: String!
+    address: String
+    birthday: String
+    occupation: String
+    company: String
+    partner: Boolean
+    partnerName: String
+    children: Boolean
+    childName: String
+    childBirthday: String
+    pets: Boolean
+    petName: String
+    interestsHobbies: String
+    importantDates: String
+    giftIdeas: String
+    metAt: String!
+  }
+  type Mutation {
+    login(email: String!, password: String!): Auth
+    addUser(
+      firstName: String!
+      lastName: String!
+      email: String!
+      password: String!
+    ): User
+    addContact(id: ID!, contactInput: ContactInput!): Contact
+    deleteContact(contactId: ID!): Contact
+  }
+  type Auth {
+    token: ID!
+    user: User
   }
 `;
 
