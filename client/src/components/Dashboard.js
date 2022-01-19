@@ -1,44 +1,13 @@
 import React from 'react';
+import "../styles/Dashboard.css"
 import { Link } from "react-router-dom";
-import { Button, Form, FormControl } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Contacts from "./Contacts"
 
 export default function Dashboard() {
     return (
         <>
             <section className="dashboardCont" data-aos="fade-up" data-aos-delay="10">
-                <div className="contactList">
-                    <div className="searchCont">
-                        <Form
-                            className="d-flex"
-                            style={{
-                                maxWidth: 350,
-                                padding: '1em'
-                            }}>
-                            <FormControl
-                                type="search"
-                                placeholder="Search Contacts"
-                                className="dashSearch me-2"
-                                aria-label="Search"
-                            />
-                            <Button variant="outline-secondary">Search</Button>
-                            <Button className="addContactBtn"
-                                style={{
-                                    marginLeft: '1em'
-                                }}
-                            ><FontAwesomeIcon icon="plus" /></Button>
-                        </Form>
-                        <div className="searchContactList">
-                            <ul className="contactListUl">
-                                <li className="contactListLi"><Button className="profileBtn" to="/profileclassName">Aaron Fernandez</Button></li>
-                                <li className="contactListLi"><Button className="profileBtn" to="/profile:id">Andrew Matthews</Button></li>
-                                <li className="contactListLi"><Button className="profileBtn" to="/profile:id">Anita Smith</Button></li>
-                                <li className="contactListLi"><Button className="profileBtn" to="/profile:id">Brian Cruz</Button></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
+                <Contacts />
 
                 <div className="upcomingCont">
                     <h1 className="upcomingMain">Upcoming</h1>

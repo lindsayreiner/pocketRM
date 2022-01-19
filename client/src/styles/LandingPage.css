@@ -5,9 +5,41 @@ picture {
   display: block;
 }
 
+.hero {
+  background-image: url(../images/calendar.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100% !important;
+  height: 100vh;
+  margin: 0;
+}
+
+.hero.container.container {
+  max-width: 100%;
+}
+
+.slogan {
+  margin-top: 0 !important;
+  margin-bottom: 1rem;
+  background-color: rgb(255, 255, 255, 0.4);
+  text-align: center;
+  max-width: 35rem;
+  /* border-radius: 8px; */
+}
+
+.getStartedBtn {
+  margin-left: 3rem !important;
+  margin-top: 1em;
+}
+
 .landing-body {
   margin-left: 4em;
   margin-right: 4em;
+}
+
+.landing-text {
+  margin-bottom: 1.5em;
 }
 
 .solid {

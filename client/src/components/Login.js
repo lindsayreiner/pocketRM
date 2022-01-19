@@ -27,7 +27,7 @@ export default function Login() {
   return (
     <>
       <section className="loginCont container">
-        <Container data-aos="zoom-in" data-aos-delay="10">
+        <Container data-aos="zoom-in" data-aos-delay="2">
           <h1 className="loginTitle">Log-in to your account</h1>
           <Form
             className="form"
