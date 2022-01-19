@@ -39,21 +39,24 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addContact: async (parent, args) => {
-      console.log(args); // { id: "61e75985920d77064a3ff74a" }
+    addContact: async (parent, { id, contactInput }) => {
+      console.log(id, contactInput); // { id: "61e75985920d77064a3ff74a" }
       try {
-        const newContact = await Contact.create({
-          firstName: args.contactInput.firstName,
-          lastName: args.contactInput.lastName,
-          relationship: args.contactInput.relationship,
-          phone: args.contactInput.phone,
-          metAt: args.contactInput.metAt,
-        });
-        const addToUserContact = await User.findOneAndUpdate(
-          { _id: args.id },
-          { $addToSet: { contacts: newContact._id } },
+        const newContact = await Contact.create(contactInput);
+        console.log(User);
+
+        // const addToUserContact = await
+        // prettier-ignore
+        User.findOneAndUpdate(
+          { _id: id },
+          
+          { $addToSet: { "contacts": newContact._id } },
           { new: true, runValidators: true }
-        );
+        ).then((res) => {
+          console.log(res);
+          return res;
+        });
+
         return addToUserContact;
       } catch (e) {
         return `Unable to save contacts due to error: ${e}`;
