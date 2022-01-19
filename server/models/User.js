@@ -33,13 +33,7 @@ const userSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: "Contact",
     },
-  ],
-  reminders: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Reminder",
-    },
-  ],
+  ]
   //savedContacts: [contactSchema],
  // savedReminders: [reminderSchema]
 });
