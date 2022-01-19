@@ -23,7 +23,7 @@ const contactSchema = new Schema({
   },
   email: {
     type: String,
-    required: true,
+    required: false,
     unique: true,
     match: [/.+@.+\..+/, "Must match an email address!"],
   },
@@ -52,7 +52,6 @@ const contactSchema = new Schema({
     type: String,
     required: false,
   },
-
   children: {
     type: Boolean,
     required: false,
@@ -69,7 +68,7 @@ const contactSchema = new Schema({
   },
 
   pets: {
-    type: String,
+    type: Boolean,
     required: false,
   },
 
@@ -93,7 +92,7 @@ const contactSchema = new Schema({
 
   metAt: {
     type: String,
-    required: false,
+    required: true,
   },
 
   notes: {

@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import { Button, Form, FormControl } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Dashboard() {
     return (
         <>
-            <section className="dashboardCont">
+            <section className="dashboardCont" data-aos="fade-up" data-aos-delay="10">
                 <div className="contactList">
                     <div className="searchCont">
                         <Form
@@ -17,7 +18,7 @@ export default function Dashboard() {
                             <FormControl
                                 type="search"
                                 placeholder="Search Contacts"
-                                className="me-2"
+                                className="dashSearch me-2"
                                 aria-label="Search"
                             />
                             <Button variant="outline-secondary">Search</Button>
@@ -27,26 +28,71 @@ export default function Dashboard() {
                                 }}
                             ><FontAwesomeIcon icon="plus" /></Button>
                         </Form>
+                        <div className="searchContactList">
+                            <ul className="contactListUl">
+                                <li className="contactListLi"><Link className="profileLink" to="/profile:id">Aaron Hernandez</Link></li>
+                                <li className="contactListLi"><Link className="profileLink" to="/profile:id">Andrew Matthews</Link></li>
+                                <li className="contactListLi"><Link className="profileLink" to="/profile:id">Anita Smith</Link></li>
+                                <li className="contactListLi"><Link className="profileLink" to="/profile:id">Brian Cruz</Link></li>
+                            </ul>
+                        </div>
                     </div>
+
                 </div>
 
                 <div className="upcomingCont">
-                    <div className="wrapper">
-                        <p className="upcomingTitle">Birthdays</p>
-                        <div id="birthdays" className="upcomingDiv"></div>
-                    </div>
+                    <h1 className="upcomingMain">Upcoming</h1>
+                    <div className="reminderCont">
+                        <div className="wrapper">
+                            <p className="upcomingTitle">Birthdays</p>
+                            <div id="birthdays" className="upcomingDiv">
+                                <ul className="upcomingUl">
+                                    <li className="upcomingLi"><b><Link className="profileLink" to="/profile:id">Melanie's</Link> Birthday:</b> January 6</li>
+                                    <li className="upcomingLi"><b>Dad's Birthday:</b> February 24</li>
+                                    <li className="upcomingLi"><b>Liz's child Birthday:</b> April 1</li>
+                                    <li className="upcomingLi"><b>Kaley's partner birthday:</b> April 4</li>
+                                </ul>
+                            </div>
+                        </div>
 
-                    <div className="wrapper">
-                        <p className="upcomingTitle">Anniversaries</p>
-                        <div id="anniversaries" className="upcomingDiv"></div>
-                    </div>
+                        <div className="wrapper">
+                            <p className="upcomingTitle">Anniversaries</p>
+                            <div id="anniversaries" className="upcomingDiv">
+                                <ul className="upcomingUl">
+                                    <li className="upcomingLi"><b><Link className="profileLink" to="/profile:id">Melanie</Link> and Mike's Anniversary:</b> January 6</li>
+                                    <li className="upcomingLi"><b>Dad and Dena Anniversary:</b> February 24</li>
+                                    <li className="upcomingLi"><b>Liz and Sam Anniversary:</b> April 1</li>
+                                    {/* <li className="upcomingLi"><b>Kaley and Justin Anniversary:</b> April 4</li> */}
+                                </ul>
+                            </div>
+                        </div>
 
-                    <div className="wrapper">
-                        <p className="upcomingTitle">Reminders</p>
-                        <div id="reminders" className="upcomingDiv"></div>
+                        <div className="wrapper">
+                            <p className="upcomingTitle">Important Dates</p>
+                            <div id="importantDates" className="upcomingDiv">
+                                <ul className="upcomingUl">
+                                    <li className="upcomingLi"><b><Link className="profileLink" to="/profile:id">Melanie's</Link> Birthday:</b> January 6</li>
+                                    <li className="upcomingLi"><b>Dad's Birthday:</b> February 24</li>
+                                    <li className="upcomingLi"><b>Liz's child Birthday:</b> April 1</li>
+                                    <li className="upcomingLi"><b>Kaley's partner birthday:</b> April 4</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="wrapper">
+                            <p className="upcomingTitle">Reminders</p>
+                            <div id="reminders" className="upcomingDiv">
+                                <ul className="upcomingUl">
+                                    <li className="upcomingLi"><b><Link className="profileLink" to="/profile:id">Melanie</Link>:</b> January 6</li>
+                                    <li className="upcomingLi"><b>Dad's Birthday:</b> February 24</li>
+                                    <li className="upcomingLi"><b>Liz's Birthday:</b> April 1</li>
+                                    <li className="upcomingLi"><b>Kaley's Birthday:</b> April 4</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
         </>
-    )
+    );
 }
