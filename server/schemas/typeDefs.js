@@ -51,20 +51,18 @@ const typeDefs = gql`
 
   type Query {
     users: [User]
-    contacts: [Contact]
+    user(id: ID!): User
     notes: [Notes]
     remindersContact: [Contact]
     remindersUser: [User]
-
   }
 
-  input ContactInput{
-    _id: ID
-    firstName: String
-    lastName: String
-    relationship: String
+  input ContactInput {
+    firstName: String!
+    lastName: String!
+    relationship: String!
     email: String
-    phone: Int
+    phone: String!
     address: String
     birthday: String
     occupation: String
@@ -79,13 +77,22 @@ const typeDefs = gql`
     interestsHobbies: String
     importantDates: String
     giftIdeas: String
-    metAt: String
-
+    metAt: String!
   }
-    type Mutation {
+  type Mutation {
     login(email: String!, password: String!): Auth
-    addUser(firstName: String!, lastName: String!, email: String!, password: String!): User
-    addContact(id: String!, notes: String, reminders: String, contactInput: ContactInput): User
+    addUser(
+      firstName: String!
+      lastName: String!
+      email: String!
+      password: String!
+    ): User
+    addContact(
+      id: ID!
+      notes: String
+      reminders: String
+      contactInput: ContactInput!
+    ): User
     deleteContact(contactId: ID!): Contact
   }
   type Auth {

@@ -107,7 +107,6 @@ const contactSchema = new Schema({
 
   //savedNotes: [noteSchema],
   //savedReminders: [reminderSchema]
-
 });
 
 const Contact = model("Contact", contactSchema);
