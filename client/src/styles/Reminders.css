@@ -41,3 +41,16 @@
 .remindersTitle {
   font-size: 1.9rem;
 }
+
+.btn-secondary {
+  margin-right: 1rem !important;
+  background-color: var(--darker);
+  border: 3px outset var(--darker);
+}
+
+.btn-secondary:hover,
+.btn-secondary:active {
+  opacity: 75%;
+  background-color: var(--darker);
+  border: 3px outset var(--darker);
+}
