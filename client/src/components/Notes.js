@@ -1,15 +1,15 @@
-import React from 'react';
-import "../styles/Reminders.css"
+import React from "react";
+import "../styles/Notes.css";
 import { Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function Reminders() {
+export default function Notes() {
     return (
         <>
-            <div className="remindersCont">
+            <div className="notesCont">
 
-                <div className="remindersHead orange flex justify-center">
-                    <h1 className="remindersTitle">Reminders</h1>
+                <div className="notesHead green flex justify-center">
+                    <h1 className="notesTitle">Notes</h1>
 
 
                     <Button className="addContactBtn"
