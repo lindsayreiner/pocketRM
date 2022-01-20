@@ -145,7 +145,7 @@ export default function Register() {
           </Form>
           <div className="mt-3 d-flex justify-center">
             Already have an account?{" "}
-            <Link to="/login">
+            <Link to="/login" id="login-link">
               <b>Log in</b>
             </Link>
           </div>

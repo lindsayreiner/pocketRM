@@ -5,7 +5,7 @@ import { Button, Container, Row, Col, Image } from "react-bootstrap";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import beachWoman from "../images/women-on-beach.jpg";
-import placeholderImg from "../images/clock-and-calendar.jpg"
+import placeholderImg from "../images/clock-and-calendar.jpg";
 
 export default function LandingPage() {
   return (
@@ -21,7 +21,14 @@ export default function LandingPage() {
               color: "black",
             }}
           >
-            Keep track of what matters.
+            <span
+              style={{
+                background: "rgb(255, 255, 255, 0.4)",
+                padding: "0.3rem",
+              }}
+            >
+              Keep track of what matters.
+            </span>
           </h2>
           <a href="/register">
             <Button className="getStartedBtn btn-lg" color="violet">
@@ -41,7 +48,9 @@ export default function LandingPage() {
                   Be the friend you want to have.
                 </h3>
                 <p style={{ fontSize: "1.33em" }}>
-                  PocketRM remembers the important things, so you don't have to. Never miss another birthday, anniversary, or important day for the people in your life.
+                  PocketRM remembers the important things, so you don't have to.
+                  Never miss another birthday, anniversary, or important day for
+                  the people in your life.
                 </p>
               </div>
               <div className="landing-text">
@@ -61,7 +70,7 @@ export default function LandingPage() {
             </Col>
             <hr className="solid"></hr>
           </Row>
-          <Row>
+          <Row data-aos="fade-up">
             <Col floated="right" width={6}>
               <Image size="large" src={placeholderImg} alt="demo" />
             </Col>
@@ -71,7 +80,9 @@ export default function LandingPage() {
                   Be the friend you want to have.
                 </h3>
                 <p style={{ fontSize: "1.33em" }}>
-                  PocketRM remembers the important things, so you don't have to. Never miss another birthday, anniversary, or important day for the people in your life.
+                  PocketRM remembers the important things, so you don't have to.
+                  Never miss another birthday, anniversary, or important day for
+                  the people in your life.
                 </p>
               </div>
               {/* <div className="landing-text">
@@ -86,10 +97,7 @@ export default function LandingPage() {
                 </p>
               </div> */}
             </Col>
-
-
           </Row>
-
         </div>
       </section>
     </>

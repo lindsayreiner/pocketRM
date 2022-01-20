@@ -295,6 +295,16 @@ body > footer {
   border: 3px outset var(--btnColor);
 }
 
+#sign-up-link,
+#login-link {
+  margin-left: 0.3rem;
+}
+
+#sign-up-link:hover,
+#login-link:hover {
+  color: var(--btnColor);
+}
+
 .navToggle {
   display: none;
 }
@@ -485,15 +495,15 @@ body > footer {
 
 .slogan {
   margin-top: 0 !important;
-  background-color: rgb(255, 255, 255, 0.4);
+  /* background-color: rgb(255, 255, 255, 0.4); */
   text-align: center;
   max-width: 35rem;
   /* border-radius: 8px; */
 }
 
 .getStartedBtn {
-  margin-left: 3rem !important;
-  margin-top: 1em;
+  margin-left: 1.7rem !important;
+  margin-top: 1.5rem;
 }
 
 .landing-body {

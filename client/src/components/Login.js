@@ -28,7 +28,7 @@ export default function Login() {
     <>
       <section className="loginCont container">
         <Container data-aos="fade-in">
-          <h1 className="loginTitle">Log-in to your account</h1>
+          <h1 className="loginTitle">Login to your account</h1>
           <Form
             className="form"
             onSubmit={handleSubmit(onSubmit)}
@@ -93,8 +93,8 @@ export default function Login() {
           </Form>
 
           <div className="mt-3 d-flex justify-center">
-            New to PocketRM?{" "}
-            <Link to="/register">
+            New to PocketRM?
+            <Link to="/register" id="sign-up-link">
               <b>Sign Up</b>
             </Link>
           </div>
