@@ -1,6 +1,22 @@
 /* Landing Page Style Sheet */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
 
 .landing-body {
   margin-left: 4em;
   margin-right: 4em;
+}
+
+.solid {
+  border: 1px solid black;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.vl {
+  border-left: 6px solid gray;
+  height: 500px;
 }

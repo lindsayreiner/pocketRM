@@ -1,16 +1,18 @@
 const { Schema, model } = require("mongoose");
 
+//const noteSchema = require("./Notes");
+//const userSchema = require("./User");
+//const reminderSchema = require("./Reminder");
+
 const contactSchema = new Schema({
   firstName: {
     type: String,
     required: true,
-    unique: true,
     trim: true,
   },
   lastName: {
     type: String,
     required: true,
-    unique: true,
     trim: true,
   },
   relationship: {
@@ -20,11 +22,10 @@ const contactSchema = new Schema({
   email: {
     type: String,
     required: false,
-    unique: true,
     match: [/.+@.+\..+/, "Must match an email address!"],
   },
   phone: {
-    type: Number,
+    type: String,
     required: true,
   },
   address: {
@@ -91,20 +92,18 @@ const contactSchema = new Schema({
     required: true,
   },
 
-  notes: {
-    type: Schema.Types.ObjectId,
-    ref: "Notes",
-  },
+  // notes: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: "Notes",
+  // },
 
-  reminders: {
-    type: Schema.Types.ObjectId,
-    ref: "Reminder",
-  },
+  // reminders: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: "Reminder",
+  // },
 
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
-  },
+  //savedNotes: [noteSchema],
+  //savedReminders: [reminderSchema]
 });
 
 const Contact = model("Contact", contactSchema);
