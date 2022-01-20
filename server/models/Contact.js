@@ -8,13 +8,11 @@ const contactSchema = new Schema({
   firstName: {
     type: String,
     required: true,
-    unique: true,
     trim: true,
   },
   lastName: {
     type: String,
     required: true,
-    unique: true,
     trim: true,
   },
   relationship: {
@@ -24,7 +22,9 @@ const contactSchema = new Schema({
   email: {
     type: String,
     required: false,
+
     unique: true,
+
   },
   phone: {
     type: String,
@@ -94,6 +94,7 @@ const contactSchema = new Schema({
     required: true,
   },
 
+
  // notes: {
  //   type: Schema.Types.ObjectId,
  //   ref: "Notes",
@@ -106,7 +107,6 @@ const contactSchema = new Schema({
 
   //savedNotes: [noteSchema],
   //savedReminders: [reminderSchema]
-
 });
 
 const Contact = model("Contact", contactSchema);

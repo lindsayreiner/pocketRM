@@ -4,6 +4,7 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
+
     user: async (parent, args, context) => {
 
       if(context.user) {
@@ -17,6 +18,7 @@ const resolvers = {
       throw new AuthenticationError('Not logged in') },
 
     contacts: async (parent, args) => {
+      
       console.log(args.id);
       return User.findOne({ _id: args.id }).populate("contacts");
     },
