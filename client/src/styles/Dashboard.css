@@ -1,3 +1,28 @@
+:root {
+  --navbarBg: #11222b;
+  --btnColor: #875c74;
+  --main: #dfdfdf;
+  --darker: #084f75;
+  --profile: #648767;
+  --profile2: #be7c4d;
+}
+
+.green {
+  background-color: var(--profile);
+}
+
+.blue {
+  background-color: var(--darker);
+}
+
+.pink {
+  background-color: var(--btnColor);
+}
+
+.orange {
+  background-color: var(--profile2);
+}
+
 .dashboardCont {
   display: flex;
   flex-direction: row;
@@ -6,7 +31,6 @@
 .upcomingCont {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   width: 100%;
   height: auto;
@@ -47,12 +71,10 @@
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   padding: 0.3rem;
-  background-color: var(--darker);
   color: white;
 }
 
 .upcomingDiv {
-  /* border: 2px solid var(--darker); */
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   background-color: white;

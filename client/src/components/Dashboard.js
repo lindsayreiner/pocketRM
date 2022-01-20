@@ -13,7 +13,7 @@ export default function Dashboard() {
                     <h1 className="upcomingMain">Upcoming</h1>
                     <div className="reminderCont">
                         <div className="wrapper">
-                            <p className="upcomingTitle">Birthdays</p>
+                            <p className="upcomingTitle pink">Birthdays</p>
                             <div id="birthdays" className="upcomingDiv">
                                 <ul className="upcomingUl">
                                     <li className="upcomingLi"><b><Link className="profileLink" to="/profile:id">Melanie's</Link> Birthday:</b> January 6</li>
@@ -26,7 +26,7 @@ export default function Dashboard() {
                         </div>
 
                         <div className="wrapper">
-                            <p className="upcomingTitle">Anniversaries</p>
+                            <p className="upcomingTitle green">Anniversaries</p>
                             <div id="anniversaries" className="upcomingDiv">
                                 <ul className="upcomingUl">
                                     <li className="upcomingLi"><b><Link className="profileLink" to="/profile:id">Melanie</Link> and Mike's Anniversary:</b> January 6</li>
@@ -38,7 +38,7 @@ export default function Dashboard() {
                         </div>
 
                         <div className="wrapper">
-                            <p className="upcomingTitle">Important Dates</p>
+                            <p className="upcomingTitle orange">Important Dates</p>
                             <div id="importantDates" className="upcomingDiv">
                                 <ul className="upcomingUl">
                                     <li className="upcomingLi"><b><Link className="profileLink" to="/profile:id">Melanie's</Link> Birthday:</b> January 6</li>
@@ -50,7 +50,7 @@ export default function Dashboard() {
                         </div>
 
                         <div className="wrapper">
-                            <p className="upcomingTitle">Reminders</p>
+                            <p className="upcomingTitle blue">Reminders</p>
                             <div id="reminders" className="upcomingDiv">
                                 <ul className="upcomingUl">
                                     <li className="upcomingLi"><b><Link className="profileLink" to="/profile:id">Melanie</Link>:</b> January 6</li>

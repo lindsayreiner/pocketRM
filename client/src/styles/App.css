@@ -186,7 +186,7 @@ body > footer {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #37444d;
+  background: var(--navbarBg);
   border-radius: 10px;
 }
 
