@@ -17,7 +17,7 @@ export default function Reminders() {
         <>
             <div className="remindersCont">
 
-                <div className="remindersHead orange flex justify-center">
+                <div className="remindersHead green flex justify-center">
                     <h1 className="remindersTitle">Reminders</h1>
 
                     <Button variant="primary" onClick={handleShow}>
