@@ -27,7 +27,7 @@ export default function Profile() {
 
           <div className="contactTop">
             <div className="mainDetails">
-              <h2 className="sectionTitle green">Personal Info</h2>
+              <h2 className="sectionTitle orange">Personal Info</h2>
               <ul className="profileContentUl">
                 <li className="profileContentLi">Met at: </li>
                 <li className="profileContentLi">Phone: </li>
