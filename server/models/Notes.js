@@ -12,10 +12,6 @@ const noteSchema = new Schema({
         default: Date.now,
         get: (timestamp) => dateFormat(timestamp),
     },
-    contact: {
-      type: Schema.Types.ObjectId,
-      ref: "Contact",
-    },
   });
   
 const Notes = model('Notes', noteSchema);
