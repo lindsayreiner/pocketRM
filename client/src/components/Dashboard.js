@@ -30,10 +30,10 @@ export default function Dashboard() {
                         </Form>
                         <div className="searchContactList">
                             <ul className="contactListUl">
-                                <li className="contactListLi"><Link className="profileLink" to="/profile:id">Aaron Hernandez</Link></li>
-                                <li className="contactListLi"><Link className="profileLink" to="/profile:id">Andrew Matthews</Link></li>
-                                <li className="contactListLi"><Link className="profileLink" to="/profile:id">Anita Smith</Link></li>
-                                <li className="contactListLi"><Link className="profileLink" to="/profile:id">Brian Cruz</Link></li>
+                                <li className="contactListLi"><Button className="profileBtn" to="/profileclassName">Aaron Fernandez</Button></li>
+                                <li className="contactListLi"><Button className="profileBtn" to="/profile:id">Andrew Matthews</Button></li>
+                                <li className="contactListLi"><Button className="profileBtn" to="/profile:id">Anita Smith</Button></li>
+                                <li className="contactListLi"><Button className="profileBtn" to="/profile:id">Brian Cruz</Button></li>
                             </ul>
                         </div>
                     </div>
@@ -51,6 +51,7 @@ export default function Dashboard() {
                                     <li className="upcomingLi"><b>Dad's Birthday:</b> February 24</li>
                                     <li className="upcomingLi"><b>Liz's child Birthday:</b> April 1</li>
                                     <li className="upcomingLi"><b>Kaley's partner birthday:</b> April 4</li>
+
                                 </ul>
                             </div>
                         </div>
