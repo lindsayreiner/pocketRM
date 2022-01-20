@@ -4,7 +4,11 @@ const bcrypt = require("bcrypt");
 //const contactSchema = require("./Contact")
 //const reminderSchema = require("./Reminder")
 
-const userSchema = new Schema({
+//import contact schema
+const contactSchema = require('./Contact').schema
+
+const userSchema = new Schema(
+  {
   firstName: {
     type: String,
     required: true,
@@ -28,12 +32,7 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  contacts: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Contact",
-    },
-  ]
+  contacts: [contactSchema]
   //savedContacts: [contactSchema],
  // savedReminders: [reminderSchema]
 });
