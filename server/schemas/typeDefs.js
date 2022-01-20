@@ -9,7 +9,6 @@ const typeDefs = gql`
     password: String
     contacts: [Contact]
   }
-
   type Contact {
     _id: ID
     firstName: String
@@ -35,28 +34,26 @@ const typeDefs = gql`
     notes: [Notes]
     reminders: [Reminder]
   }
-
   type Notes {
     _id: ID
     notes: String
     createdAt: String
   }
-
   type Reminder {
     _id: ID
     name: String
     date: String
     time: Int
   }
-
   type Query {
     users: [User]
-    user(id: ID!): User
+
+    user: User
+    contacts(id: ID!): User
     notes: [Notes]
     remindersContact: [Contact]
     remindersUser: [User]
   }
-
   input ContactInput {
     firstName: String!
     lastName: String!

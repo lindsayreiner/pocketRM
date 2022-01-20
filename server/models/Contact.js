@@ -22,7 +22,9 @@ const contactSchema = new Schema({
   email: {
     type: String,
     required: false,
-    match: [/.+@.+\..+/, "Must match an email address!"],
+
+    unique: true,
+
   },
   phone: {
     type: String,
@@ -92,15 +94,16 @@ const contactSchema = new Schema({
     required: true,
   },
 
-  // notes: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: "Notes",
-  // },
 
-  // reminders: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: "Reminder",
-  // },
+ // notes: {
+ //   type: Schema.Types.ObjectId,
+ //   ref: "Notes",
+  //},
+
+ // reminders: {
+ //   type: Schema.Types.ObjectId,
+ //   ref: "Reminder",
+  //}
 
   //savedNotes: [noteSchema],
   //savedReminders: [reminderSchema]
