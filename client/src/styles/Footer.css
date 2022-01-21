@@ -8,8 +8,12 @@ footer {
   min-height: 3rem;
   display: flex;
   justify-content: center;
-  align-items: unset;
   color: white;
   text-align: center;
   height: 3em;
+}
+
+.copyright-notice {
+  display: inline-block;
+  margin-top: 0.75em;
 }

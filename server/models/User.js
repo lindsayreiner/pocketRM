@@ -5,10 +5,9 @@ const bcrypt = require("bcrypt");
 //const reminderSchema = require("./Reminder")
 
 //import contact schema
-const contactSchema = require('./Contact').schema
+const contactSchema = require("./Contact").schema;
 
-const userSchema = new Schema(
-  {
+const userSchema = new Schema({
   firstName: {
     type: String,
     required: true,
@@ -25,16 +24,16 @@ const userSchema = new Schema(
     type: String,
     required: true,
     unique: true,
-    match: [/.+@.+\..+/, "Must match an email address!"],
+    // match: [/.+@.+\..+/, "Must match an email address!"],
   },
   password: {
     type: String,
     required: true,
     minlength: 5,
   },
-  contacts: [contactSchema]
+  contacts: [contactSchema],
   //savedContacts: [contactSchema],
- // savedReminders: [reminderSchema]
+  // savedReminders: [reminderSchema]
 });
 
 userSchema.pre("save", async function (next) {
