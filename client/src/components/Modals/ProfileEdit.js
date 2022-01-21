@@ -21,8 +21,24 @@ export default function ProfileEdit() {
       // TODO: Need to query for default values
       firstName: "",
       lastName: "",
+      relationship: "",
       email: "",
-      password: "",
+      phone: "",
+      address: "",
+      birthday: "",
+      occupation: "",
+      company: "",
+      partner: "",
+      partnerName: "",
+      children: "",
+      childName: "",
+      childBirthday: "",
+      pets: "",
+      petName: "",
+      interestsHobbies: "",
+      importantDates: "",
+      giftIdeas: "",
+      metAt: "",
     },
   });
 
@@ -65,10 +81,17 @@ export default function ProfileEdit() {
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Last Name</Form.Label>
-              <Form.Control
-                required="true"
-                type="input"
-                placeholder="Query last name"
+              <Controller
+                name="lastName"
+                control={control}
+                render={({ field }) => (
+                  <Form.Control
+                    {...field}
+                    {...register("lastName", {
+                      required: true,
+                    })}
+                  />
+                )}
               />
             </Form.Group>
             <Form.Group className="mb-3">
