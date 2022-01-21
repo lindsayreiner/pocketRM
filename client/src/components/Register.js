@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/Register.css";
 import { Button, Form, Container } from "react-bootstrap";
 import { useForm, Controller } from "react-hook-form";
 import { Link } from "react-router-dom";
@@ -26,7 +27,7 @@ export default function Register() {
   return (
     <>
       <section className="formCont container">
-        <Container data-aos="fade-in">
+        <Container data-aos="zoom-in" data-aos-delay="2">
           <h1 className="regTitle">Register for PocketRM</h1>
           <Form
             className="form"
@@ -92,16 +93,7 @@ export default function Register() {
                 name="email"
                 control={control}
                 // eslint-disable-next-line no-useless-escape
-                render={({ field }) => (
-                  <Form.Control
-                    {...field}
-                    {...register("email", {
-                      required: true,
-                      pattern:
-                        /^ (([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1, 3}\.[0-9]{1, 3}\.[0-9]{1, 3}\.[0-9]{1, 3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                    })}
-                  />
-                )}
+                render={({ field }) => <Form.Control {...field} {...register('email', { required: true, pattern: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/ })} />}
               />
             </Form.Group>
             {errors.email && errors.email.type === "required" && (
@@ -119,15 +111,7 @@ export default function Register() {
               <Controller
                 name="password"
                 control={control}
-                render={({ field }) => (
-                  <Form.Control
-                    {...field}
-                    {...register("password", {
-                      required: true,
-                      pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-                    })}
-                  />
-                )}
+                render={({ field }) => <Form.Control type="password"{...field} {...register('password', { required: true, pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/ })} />}
               />
             </Form.Group>
             {errors.password && errors.password.type === "required" && (

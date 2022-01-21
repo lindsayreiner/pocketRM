@@ -11,7 +11,7 @@ export default function LandingPage() {
   return (
     <>
       <section>
-        <Container className="hero container" data-aos="">
+        <Container className="hero container">
           <h2
             className="slogan"
             style={{
@@ -41,10 +41,10 @@ export default function LandingPage() {
           className="landing-body"
           data-aos="fade-up"
         >
-          <Row>
+          <Row >
             <Col width={8}>
               <div className="landing-text">
-                <h3 style={{ fontSize: "2em", fontWeight: "bold" }}>
+                <h3 style={{ fontSize: "2em", fontWeight: "bold", marginBottom: '0.2em' }}>
                   Be the friend you want to have.
                 </h3>
                 <p style={{ fontSize: "1.33em" }}>
