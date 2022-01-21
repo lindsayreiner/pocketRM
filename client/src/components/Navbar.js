@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button, Form, FormControl } from "react-bootstrap";
 import pocketRMLogo from "../images/pocketrm-logo.png";
 import auth from "../utils/auth";
 
 import "normalize.css";
-import "../styles/App.css";
+import "../styles/Navbar.css";
 
 export default function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -30,7 +30,7 @@ export default function Navbar() {
   return (
     <>
       <nav className="navbar">
-        <Link to="/">
+        <Link className="navLogoCont" to="/">
           <img
             className="navLogo"
             src={pocketRMLogo}
@@ -38,17 +38,17 @@ export default function Navbar() {
             height="40px"
           />
         </Link>
-        <input type="checkbox" id="navToggle" className="navToggle" />
+        {/* <input type="checkbox" id="navToggle" className="navToggle" />
         <label htmlFor="navToggle" className="navToggleLabel">
           <span></span>
-        </label>
+        </label> */}
         {/* Search Bar */}
         {location.pathname !== "/login" ? (
           location.pathname !== "/register" ? (
             location.pathname !== "/dashboard" ? (
               isLoggedIn ? (
                 <>
-                  <ul className="navBtnCont">
+                  {/* <ul className="navBtnCont">
                     <li className="navBtn">
                       <NavLink className="navBtnLink" to="/dashboard">
                         Dashboard
@@ -59,7 +59,7 @@ export default function Navbar() {
                         Contact
                       </NavLink>
                     </li>
-                  </ul>
+                  </ul> */}
                   <Form className="d-flex">
                     <FormControl
                       type="search"
