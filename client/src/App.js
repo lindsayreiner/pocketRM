@@ -28,6 +28,8 @@ const client = new ApolloClient({
       }
     })
   },
+  cache: new InMemoryCache(),
+  
   uri: '/graphql'
 });
 
