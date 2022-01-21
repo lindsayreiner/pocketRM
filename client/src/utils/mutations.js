@@ -20,7 +20,6 @@ mutation addUser($username: String!, $password: String!, $email: String!) {
       username
       email
       contacts {
-        _id
         firstName
         lastName
         relationship
