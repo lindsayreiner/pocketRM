@@ -7,18 +7,13 @@ import { Link } from "react-router-dom";
 import "../styles/Login.css";
 
 export default function Login() {
-  const {
-    register,
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm({
+  const { register, handleSubmit, control, formState: { errors } } = useForm({
     defaultValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-    },
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: ''
+    }
   });
 
   const onSubmit = (data) => {
@@ -39,65 +34,49 @@ export default function Login() {
             <Controller
               name="email"
               control={control}
-              render={({ field }) => (
-                <Form.Control
-                  {...field}
-                  {...register("email", {
-                    required: true,
-                    pattern: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
-                  })}
-                />
-              )}
+              render={({ field }) => <Form.Control {...field} {...register('email', { required: true, pattern: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/ })} />}
             />
           </Form.Group>
-          {errors.email && errors.email.type === "required" && (
-            <p style={{ color: "red", marginBottom: "0.85rem" }}>
-              Email field is required.
-            </p>
-          )}
-          {errors.email && errors.email.type === "pattern" && (
-            <p style={{ color: "red", marginBottom: "0.85rem" }}>
-              Enter a valid email address.
-            </p>
-          )}
+          {
+            (errors.email && errors.email.type === 'required') && (
+              <p style={{ color: "red", marginBottom: "0.85rem" }}>Email field is required.</p>
+            )
+          }
+          {
+            (errors.email && errors.email.type === 'pattern') && (
+              <p style={{ color: "red", marginBottom: "0.85rem" }}>Enter a valid email address.</p>
+            )
+          }
           <Form.Group>
             <Form.Label>Password</Form.Label>
             <Controller
               name="password"
               control={control}
-              render={({ field }) => (
-                <Form.Control
-                  type="password"
-                  {...field}
-                  {...register("password", {
-                    required: true,
-                    pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-                  })}
-                />
-              )}
+              render={({ field }) => <Form.Control type="password" {...field} {...register('password', { required: true, pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/ })} />}
             />
           </Form.Group>
-          {errors.password && errors.password.type === "required" && (
-            <p style={{ color: "red", marginBottom: "0.85rem" }}>
-              Password field is required.
-            </p>
-          )}
-          {errors.password && errors.password.type === "pattern" && (
-            <p style={{ color: "red", marginBottom: "0.85rem" }}>
-              Passwords must be a minimum of 8 characters, and include at least
-              one letter and one number.
-            </p>
-          )}
-          <Button type="submit">Login</Button>
-        </Form>
+          {
+            (errors.password && errors.password.type === 'required') && (
+              <p style={{ color: "red", marginBottom: "0.85rem" }}>Password field is required.</p>
+            )
+          }
+          {
+            (errors.password && errors.password.type === 'pattern') && (
+              <p style={{ color: "red", marginBottom: "0.85rem" }}>Passwords must be a minimum of 8 characters, and include at least one letter and one number.</p>
+            )
+          }
+          <Button type="submit">
+            Login
+          </Button>
+        </Form >
 
         <div className="mt-3 d-flex justify-center">
-          New to PocketRM?
-          <Link to="/register" id="login-link">
+          New to PocketRM?{" "}
+          <Link to="/register">
             <b>Sign Up</b>
           </Link>
         </div>
-      </section>
+      </section >
     </>
   );
 }
