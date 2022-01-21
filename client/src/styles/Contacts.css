@@ -23,7 +23,6 @@
 
 .contactListUl {
   padding: 0.3rem;
-  overflow: scroll;
   height: 100%;
 }
 
@@ -31,7 +30,7 @@
   list-style: none;
   text-align: center;
   border-radius: 8px;
-  margin-right: 1rem;
+  margin: 0 0.5rem;
 }
 
 .profileBtn {
@@ -47,4 +46,9 @@
 .profileBtn:hover {
   font-weight: bold;
   color: inherit;
+}
+
+.searchContactList {
+  overflow-y: scroll;
+  max-height: 500px;
 }
