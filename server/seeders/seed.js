@@ -8,11 +8,11 @@ db.once("open", async () => {
   await Contact.deleteMany({});
   await User.deleteMany({});
 
-  // const contacts = await
+  // Contact.insertMany(contactData).then((dataResponse) => {
+  //   console.log(dataResponse);
+  // });
 
-  Contact.insertMany(contactData).then((dataResponse) => {
-    console.log(dataResponse);
-  });
+  const contacts = await Contact.insertMany(contactData);
   const users = await User.insertMany(userData);
 
   console.log("Contacts seeded!");
