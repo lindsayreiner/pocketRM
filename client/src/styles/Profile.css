@@ -89,6 +89,13 @@
   background-color: var(--profile2);
 }
 
+.btn-primary:focus {
+  background-color: var(--btnColor);
+  border: unset;
+  box-shadow: unset;
+  border: 3px outset var(--btnColor);
+}
+
 .profileContentUl {
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
@@ -151,4 +158,14 @@
   box-shadow: 5px 10px 8px #888888;
   border: 5px inset gray;
   margin: 0 1rem;
+}
+
+/* Modal */
+.modal-content {
+  border: none;
+}
+
+.my-modal {
+  width: 40vw; /* Occupy the 90% of the screen width */
+  max-width: 40vw;
 }
