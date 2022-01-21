@@ -3,10 +3,12 @@ import "../styles/Profile.css";
 // import { Button, Card } from "react-bootstrap";
 // import { Link } from "react-router-dom";
 import defaultProfilePicture from "../images/avatar.jpg";
-// import { Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Contacts from "./Contacts";
 import Reminders from "./Reminders";
 import Notes from "./Notes";
+import ProfileEdit from "../components/Modals/ProfileEdit";
 
 // import fbLogo from "../images/fblogo_bnw.png";
 // import iGLogo from "../images/iglogo_bnw.png";
@@ -22,9 +24,10 @@ export default function Profile() {
         <Contacts />
 
         <div className="profile">
-
-          <h1 className="connectionName">Person's Name</h1>
-
+          <h1 className="connectionName">
+            Person's Name
+            {<ProfileEdit />}
+          </h1>
           <div className="contactTop">
             <div className="mainDetails">
               <h2 className="sectionTitle orange">Personal Info</h2>
@@ -76,13 +79,10 @@ export default function Profile() {
         </div>
       </section>
 
-
       <section className="remindersNotes">
         <Reminders />
         <Notes />
-
       </section>
     </>
   );
 }
-
