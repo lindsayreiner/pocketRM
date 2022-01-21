@@ -93,7 +93,16 @@ export default function Register() {
                 name="email"
                 control={control}
                 // eslint-disable-next-line no-useless-escape
-                render={({ field }) => <Form.Control {...field} {...register('email', { required: true, pattern: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/ })} />}
+                render={({ field }) => (
+                  <Form.Control
+                    {...field}
+                    {...register("email", {
+                      required: true,
+                      pattern:
+                        /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
+                    })}
+                  />
+                )}
               />
             </Form.Group>
             {errors.email && errors.email.type === "required" && (
@@ -111,7 +120,16 @@ export default function Register() {
               <Controller
                 name="password"
                 control={control}
-                render={({ field }) => <Form.Control type="password"{...field} {...register('password', { required: true, pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/ })} />}
+                render={({ field }) => (
+                  <Form.Control
+                    type="password"
+                    {...field}
+                    {...register("password", {
+                      required: true,
+                      pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+                    })}
+                  />
+                )}
               />
             </Form.Group>
             {errors.password && errors.password.type === "required" && (
@@ -129,7 +147,7 @@ export default function Register() {
           </Form>
           <div className="mt-3 d-flex justify-center">
             Already have an account?{" "}
-            <Link to="/login" id="login-link">
+            <Link to="/login" id="login-link" style={{ marginLeft: "0.3rem" }}>
               <b>Log in</b>
             </Link>
           </div>

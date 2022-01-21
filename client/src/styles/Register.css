@@ -19,3 +19,7 @@
   margin-bottom: 1em;
   color: var(--btnColor);
 }
+
+#login-link:hover {
+  color: var(--btnColor);
+}
