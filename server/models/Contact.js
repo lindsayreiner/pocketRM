@@ -24,7 +24,6 @@ const contactSchema = new Schema({
     required: false,
 
     unique: true,
-
   },
   phone: {
     type: String,
@@ -94,15 +93,14 @@ const contactSchema = new Schema({
     required: true,
   },
 
-
- // notes: {
- //   type: Schema.Types.ObjectId,
- //   ref: "Notes",
+  // notes: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: "Notes",
   //},
 
- // reminders: {
- //   type: Schema.Types.ObjectId,
- //   ref: "Reminder",
+  // reminders: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: "Reminder",
   //}
 
   //savedNotes: [noteSchema],

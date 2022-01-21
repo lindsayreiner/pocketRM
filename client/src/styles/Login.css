@@ -1,0 +1,7 @@
+#login-link {
+  margin-left: 0.3rem;
+}
+
+#login-link:hover {
+  color: var(--btnColor);
+}
