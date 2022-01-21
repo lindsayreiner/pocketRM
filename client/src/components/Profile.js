@@ -3,8 +3,6 @@ import "../styles/Profile.css";
 // import { Button, Card } from "react-bootstrap";
 // import { Link } from "react-router-dom";
 import defaultProfilePicture from "../images/avatar.jpg";
-import { Button } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Contacts from "./Contacts";
 import Reminders from "./Reminders";
 import Notes from "./Notes";
