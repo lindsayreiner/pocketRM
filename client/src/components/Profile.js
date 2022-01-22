@@ -5,7 +5,7 @@ import Contacts from "./Contacts";
 import Reminders from "./Reminders";
 import Notes from "./Notes";
 
-import ProfileEdit from "./modals/ProfileEdit";
+import ProfileEdit from "../components/Modals/ProfileEdit";
 
 
 
@@ -23,6 +23,7 @@ export default function Profile() {
             </h1>
             {<ProfileEdit />}
           </div>
+
 
           <div className="cardsCont">
             <div className="wrapper">
