@@ -86,7 +86,7 @@ const typeDefs = gql`
       lastName: String!
       email: String!
       password: String!
-    ): User
+    ): Auth
     addContact(id: ID!, contactInput: ContactInput!): Contact
     deleteContact(contactId: ID!): Contact
   }
