@@ -23,11 +23,15 @@
   background-color: var(--profile2);
 }
 
-.remindersCont {
+.remindersCont,
+.notesCont {
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin: 1rem;
+  /* margin: 1rem; */
+  background-color: white;
+  box-shadow: 5px 10px 8px #888888;
+  border-radius: 8px;
 }
 
 .remindersHead {
@@ -36,10 +40,14 @@
   font-weight: bold;
   text-align: center;
   width: 100%;
+  height: 4rem;
+  display: flex;
+  align-items: center;
 }
 
 .remindersTitle {
   font-size: 1.9rem;
+  margin-right: 13rem;
 }
 
 .btn-secondary {

@@ -53,17 +53,6 @@
   box-shadow: 5px 10px 8px #888888;
 }
 
-.reminderCont {
-  display: flex;
-  flex-flow: row wrap;
-  width: 100%;
-  border: 5px outset gray;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-  background-color: rgb(199, 201, 202);
-  box-shadow: 5px 10px 8px #888888;
-}
-
 .upcomingTitle {
   font-size: 1.8em;
   text-align: center;

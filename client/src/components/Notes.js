@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/Notes.css";
-import { Button, Modal, Form } from "react-bootstrap";
+import { Button, Modal, Form, Card, ListGroup } from "react-bootstrap";
 
 
 export default function Notes() {
@@ -44,6 +44,52 @@ export default function Notes() {
                             <Button variant="primary">Save</Button>
                         </Modal.Footer>
                     </Modal>
+                </div>
+
+                <div className="notesBody">
+                    <Card className="profileContentUl">
+                        <ListGroup variant="flush">
+                            <ListGroup.Item className="profileContentLi">
+                                <Form>
+                                    {['checkbox'].map((type) => (
+                                        <div key={`default-${type}`} className="mb-3">
+                                            <Form.Check
+                                                type={type}
+                                                id={`default-${type}`}
+                                                label={'I want to remember this.'}
+                                            />
+                                        </div>
+                                    ))}
+                                </Form>
+                            </ListGroup.Item>
+                            <ListGroup.Item className="profileContentLi">
+                                <Form>
+                                    {['checkbox'].map((type) => (
+                                        <div key={`default-${type}`} className="mb-3">
+                                            <Form.Check
+                                                type={type}
+                                                id={`default-${type}`}
+                                                label={'Conversation reminders, '}
+                                            />
+                                        </div>
+                                    ))}
+                                </Form>
+                            </ListGroup.Item>
+                            <ListGroup.Item className="profileContentLi">
+                                <Form>
+                                    {['checkbox'].map((type) => (
+                                        <div key={`default-${type}`} className="mb-3">
+                                            <Form.Check
+                                                type={type}
+                                                id={`default-${type}`}
+                                                label={'Click the checkbox to discard the note.'}
+                                            />
+                                        </div>
+                                    ))}
+                                </Form>
+                            </ListGroup.Item>
+                        </ListGroup>
+                    </Card>
                 </div>
             </div>
         </>

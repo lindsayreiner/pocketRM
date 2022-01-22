@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "../styles/Reminders.css"
-import { Button, Modal, Form } from "react-bootstrap";
+import { Button, Modal, Form, Card, ListGroup } from "react-bootstrap";
 import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
@@ -58,6 +58,77 @@ export default function Reminders() {
                             <Button variant="primary">Save</Button>
                         </Modal.Footer>
                     </Modal>
+                </div>
+                <div className="remindersBody">
+                    <Card className="profileContentUl">
+                        <ListGroup variant="flush">
+                            <ListGroup.Item className="profileContentLi">
+                                <Form>
+                                    {['checkbox'].map((type) => (
+                                        <div key={`default-${type}`} className="mb-3">
+                                            <Form.Check
+                                                type={type}
+                                                id={`default-${type}`}
+                                                label={'1/25/22: Send bae flowers'}
+                                            />
+                                        </div>
+                                    ))}
+                                </Form>
+                            </ListGroup.Item>
+                            <ListGroup.Item className="profileContentLi">
+                                <Form>
+                                    {['checkbox'].map((type) => (
+                                        <div key={`default-${type}`} className="mb-3">
+                                            <Form.Check
+                                                type={type}
+                                                id={`default-${type}`}
+                                                label={'2/14/22: Get Valentines Gift'}
+                                            />
+                                        </div>
+                                    ))}
+                                </Form>
+                            </ListGroup.Item>
+                            <ListGroup.Item className="profileContentLi">
+                                <Form>
+                                    {['checkbox'].map((type) => (
+                                        <div key={`default-${type}`} className="mb-3">
+                                            <Form.Check
+                                                type={type}
+                                                id={`default-${type}`}
+                                                label={'1/25/22: Send bae flowers'}
+                                            />
+                                        </div>
+                                    ))}
+                                </Form>
+                            </ListGroup.Item>
+                            <ListGroup.Item className="profileContentLi">
+                                <Form>
+                                    {['checkbox'].map((type) => (
+                                        <div key={`default-${type}`} className="mb-3">
+                                            <Form.Check
+                                                type={type}
+                                                id={`default-${type}`}
+                                                label={'2/14/22: Get Valentines Gift'}
+                                            />
+                                        </div>
+                                    ))}
+                                </Form>
+                            </ListGroup.Item>
+                            <ListGroup.Item className="profileContentLi">
+                                <Form>
+                                    {['checkbox'].map((type) => (
+                                        <div key={`default-${type}`} className="mb-3">
+                                            <Form.Check
+                                                type={type}
+                                                id={`default-${type}`}
+                                                label={'2/14/22: Get Valentines Gift'}
+                                            />
+                                        </div>
+                                    ))}
+                                </Form>
+                            </ListGroup.Item>
+                        </ListGroup>
+                    </Card>
                 </div>
             </div>
         </>

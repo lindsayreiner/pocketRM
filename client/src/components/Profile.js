@@ -1,19 +1,11 @@
 import React from "react";
 import "../styles/Profile.css";
-// import { Button, Card } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 // import { Link } from "react-router-dom";
-import defaultProfilePicture from "../images/avatar.jpg";
-// import { Button } from "react-bootstrap";
 import Contacts from "./Contacts";
 import Reminders from "./Reminders";
 import Notes from "./Notes";
-
-// import fbLogo from "../images/fblogo_bnw.png";
-// import iGLogo from "../images/iglogo_bnw.png";
-// import twtLogo from "../images/twitter_bnw.png";
-// import snapLogo from "../images/snapchatlogo_bnw.png";
-// import yTLogo from "../images/youtubelogo_bnw.png";
-// import tikTokLogo from "../images/tiktok_bnw.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Profile() {
   return (
@@ -23,56 +15,64 @@ export default function Profile() {
 
         <div className="profile">
 
-          <h1 className="connectionName">Person's Name</h1>
+          <div className="nameEditWrapper">
+            <h1 className="connectionName">Person's Name</h1>
+            <Button className="editContactBtn"
+              style={{
+                marginLeft: '35em'
+              }}
+            ><FontAwesomeIcon icon="edit" /></Button>
+          </div>
 
-          <div className="contactTop">
-            <div className="mainDetails">
-              <h2 className="sectionTitle orange">Personal Info</h2>
-              <ul className="profileContentUl">
-                <li className="profileContentLi">Met at: </li>
-                <li className="profileContentLi">Phone: </li>
-                <li className="profileContentLi">Email: </li>
-                <li className="profileContentLi">Address: </li>
-              </ul>
-            </div>
+          <div className="cardsCont">
 
-            <div className="profilePicCont">
-              <div className="profilePictureGrad">
-                <img
-                  className="profilePicture"
-                  src={defaultProfilePicture}
-                  alt="profile"
-                />
+            <div className="wrapper">
+              <p className="upcomingTitle orange">Main</p>
+              <div id="mainProfile" className="upcomingDiv">
+                <ul className="upcomingUl">
+                  <li className="upcomingLi">Relationship: </li>
+                  <li className="upcomingLi">Met at: </li>
+                  <li className="upcomingLi">Phone: </li>
+                  <li className="upcomingLi">Email: </li>
+                  <li className="upcomingLi">Address: </li>
+                </ul>
               </div>
             </div>
+
+            <div className="wrapper">
+              <p className="upcomingTitle blue">Personal</p>
+              <div id="importantDates" className="upcomingDiv">
+                <ul className="upcomingUl">
+                  <li className="upcomingLi">Birthday: </li>
+                  <li className="upcomingLi">Hometown: </li>
+                  <li className="upcomingLi">Partner: </li>
+                  <li className="upcomingLi">Children: </li>
+                  <li className="upcomingLi">Pet Name(s): </li>
+                  <li className="upcomingLi">Occupation: </li>
+                  <li className="upcomingLi">Hometown: </li>
+                  <li className="upcomingLi">Partner: </li>
+                  <li className="upcomingLi">Children: </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+          <div className="cardWrapperBottom">
+            <div className="wrapper">
+              <p className="upcomingTitle pink">General</p>
+              <div id="importantDates" className="upcomingDiv">
+                <ul className="upcomingUl">
+                  <li className="upcomingLi">Interests & Hobbies:</li>
+                  <li className="upcomingLi"><b>Important Dates: </b> February 24</li>
+                  <li className="upcomingLi"><b>Gift Ideas:</b></li>
+                  <li className="upcomingLi"><b>Address:</b></li>
+                </ul>
+              </div>
+            </div>
+
+
           </div>
 
-          <div className="contactMid">
-            <div className="demoDetails">
-              <h2 className="sectionTitle blue">Home Life</h2>
-              <ul className="profileContentUl">
-                <li className="profileContentLi">Birthday: </li>
-                <li className="profileContentLi">Hometown: </li>
-                <li className="profileContentLi">Partner: </li>
-                <li className="profileContentLi">Children: </li>
-                <li className="profileContentLi">Pets: </li>
-                <li className="profileContentLi">Birthday: </li>
-                <li className="profileContentLi">Hometown: </li>
-                <li className="profileContentLi">Partner: </li>
-                <li className="profileContentLi">Children: </li>
-                <li className="profileContentLi">Pets: </li>
-              </ul>
-            </div>
-            <div className="demoDetails">
-              <h2 className="sectionTitle pink">General Info</h2>
-              <ul className="profileContentUl">
-                <li className="profileContentLi">Met at: </li>
-                <li className="profileContentLi">Phone: </li>
-                <li className="profileContentLi">Email: </li>
-                <li className="profileContentLi">Address: </li>
-              </ul>
-            </div>
-          </div>
         </div>
       </section>
 
