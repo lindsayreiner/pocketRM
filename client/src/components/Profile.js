@@ -1,11 +1,15 @@
 import React from "react";
 import "../styles/Profile.css";
-import { Button } from "react-bootstrap";
 // import { Link } from "react-router-dom";
 import Contacts from "./Contacts";
 import Reminders from "./Reminders";
 import Notes from "./Notes";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+
+
+import ProfileEdit from "./modals/ProfileEdit";
+
+
 
 export default function Profile() {
   return (
@@ -16,16 +20,13 @@ export default function Profile() {
         <div className="profile">
 
           <div className="nameEditWrapper">
-            <h1 className="connectionName">Person's Name</h1>
-            <Button className="editContactBtn"
-              style={{
-                marginLeft: '35em'
-              }}
-            ><FontAwesomeIcon icon="edit" /></Button>
+            <h1 className="connectionName">
+              Person's Name
+            </h1>
+            {<ProfileEdit />}
           </div>
 
           <div className="cardsCont">
-
             <div className="wrapper">
               <p className="upcomingTitle orange">Main</p>
               <div id="mainProfile" className="upcomingDiv">
@@ -73,16 +74,13 @@ export default function Profile() {
 
           </div>
 
-        </div>
-      </section>
-
+        </div >
+      </section >
 
       <section className="remindersNotes">
         <Reminders />
         <Notes />
-
       </section>
     </>
   );
 }
-

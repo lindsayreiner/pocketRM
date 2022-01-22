@@ -38,6 +38,7 @@
 .connectionName {
   padding: 1rem;
   margin-left: 2rem;
+  margin-right: 27rem;
 }
 
 .cardsCont {
@@ -71,6 +72,13 @@
   background-color: var(--profile2);
 }
 
+.btn-primary:focus {
+  background-color: var(--btnColor);
+  border: unset;
+  box-shadow: unset;
+  border: 3px outset var(--btnColor);
+}
+
 .profileContentUl {
   height: 200px;
   padding-top: 1rem;
@@ -94,4 +102,14 @@
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+/* Modal */
+.modal-content {
+  border: none;
+}
+
+.my-modal {
+  width: 40vw; /* Occupy the 90% of the screen width */
+  max-width: 40vw;
 }
