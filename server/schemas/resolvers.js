@@ -4,8 +4,11 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-
     user: async (parent, args, context) => {
+      if (context.user) {
+        const userData = await User.findOne({})
+          .select("-__v -password")
+          .populate("contacts");
 
       if (context.user) {
         const userData = await User.findOne({})
@@ -34,10 +37,11 @@ const resolvers = {
     },
   },
   Mutation: {
-    addUser: async (parent, { firstName, lastName, email, password }) => {
-      const user = await User.create({ firstName, lastName, email, password });
+    addUser: async (parent, args) => {
+      const user = await User.create(args);
       const token = signToken(user);
-      return user;
+      console.log(user);
+      return { token, user };
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email }).populate('contacts');
