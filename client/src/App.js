@@ -18,8 +18,19 @@ import "./styles/App.css";
 import "aos/dist/aos.css";
 
 const client = new ApolloClient({
-  uri: "/graphql",
+  // uri: 'http://localhost:3001/graphql'
+  request: operation => {
+    const token = localStorage.getItem('id_token');
+
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : ''
+      }
+    })
+  },
   cache: new InMemoryCache(),
+  
+  uri: '/graphql'
 });
 
 function App() {
