@@ -13,12 +13,6 @@ const typeDefs = gql`
     important: [Event]
     reminders: [Event]
   }
-  type Event {
-  _id: id
-  firstName: String
-  lastName: String
-  date: String 
-  }
   type Contact {
     _id: ID
     firstName: String
@@ -27,11 +21,13 @@ const typeDefs = gql`
     email: String
     phone: String
     address: String
+    hometown: String
     birthday: String
     occupation: String
     company: String
     partner: Boolean
     partnerName: String
+    anniversary: String
     children: Boolean
     childName: String
     childBirthday: String
@@ -56,17 +52,19 @@ const typeDefs = gql`
     time: Int
   }
   input ContactInput {
-    firstName: String!
-    lastName: String!
-    relationship: String!
+    firstName: String
+    lastName: String
+    relationship: String
     email: String
-    phone: String!
+    phone: String
     address: String
+    hometown: String
     birthday: String
     occupation: String
     company: String
     partner: Boolean
     partnerName: String
+    anniversary: String
     children: Boolean
     childName: String
     childBirthday: String
@@ -75,7 +73,7 @@ const typeDefs = gql`
     interestsHobbies: String
     importantDates: String
     giftIdeas: String
-    metAt: String!
+    metAt: String
   }
   type Auth {
     token: ID!
