@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button, Form, FormControl } from "react-bootstrap";
@@ -61,15 +62,6 @@ export default function Navbar() {
                       </NavLink>
                     </li>
                   </ul> */}
-                    <Form className="d-flex">
-                      <FormControl
-                        type="search"
-                        placeholder="Search Contacts"
-                        className="me-2"
-                        aria-label="Search"
-                      />
-                      <Button>Search</Button>
-                    </Form>
                   </>
                 ) : (
                   <div className="acctBtns">
