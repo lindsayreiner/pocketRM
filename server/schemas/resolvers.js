@@ -4,21 +4,22 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-
     user: async (parent, args, context) => {
+      if (context.user) {
+        const userData = await User.findOne({})
+          .select("-__v -password")
+          .populate("contacts");
 
-      if(context.user) {
-          const userData = await User.findOne({})
-          .select('-__v -password')
-          .populate('contacts')
-      
-          return userData;
+        return userData;
       }
 
-      throw new AuthenticationError('Not logged in') },
+      throw new AuthenticationError("Not logged in");
+    },
+    users: async () => {
+      return User.find();
+    },
 
     contacts: async (parent, args) => {
-      
       console.log(args.id);
       return User.findOne({ _id: args.id }).populate("contacts");
     },
@@ -40,6 +41,7 @@ const resolvers = {
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
+      console.log(user);
       if (!user) {
         throw new AuthenticationError("Incorrect email or password!");
       }

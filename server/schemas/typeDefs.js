@@ -45,14 +45,9 @@ const typeDefs = gql`
     date: String
     time: Int
   }
-  type Query {
-    users: [User]
-
+  type Auth {
+    token: ID!
     user: User
-    contacts(id: ID!): User
-    notes: [Notes]
-    remindersContact: [Contact]
-    remindersUser: [User]
   }
   input ContactInput {
     firstName: String!
@@ -76,6 +71,14 @@ const typeDefs = gql`
     giftIdeas: String
     metAt: String!
   }
+  type Query {
+    users: [User]
+    user: User
+    contacts(id: ID!): User
+    notes: [Notes]
+    remindersContact: [Contact]
+    remindersUser: [User]
+  }
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(
@@ -86,10 +89,6 @@ const typeDefs = gql`
     ): User
     addContact(id: ID!, contactInput: ContactInput!): Contact
     deleteContact(contactId: ID!): Contact
-  }
-  type Auth {
-    token: ID!
-    user: User
   }
 `;
 
