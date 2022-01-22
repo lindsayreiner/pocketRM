@@ -192,7 +192,7 @@ body > footer {
   background-color: #fff;
   background-image: -webkit-linear-gradient(
     90deg,
-    rgba(105, 105, 105, 1) 0%,
+    rgb(95, 95, 95) 0%,
     rgba(105, 105, 105, 1) 25%,
     transparent 100%,
     rgba(105, 105, 105, 1) 75%,
@@ -209,6 +209,97 @@ body > footer {
     rgb(135, 92, 116) 25%,
     transparent 100%,
     rgb(135, 92, 116) 75%,
+    transparent
+  );
+}
+
+#anniversaries::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #fff;
+  background-image: -webkit-linear-gradient(
+    90deg,
+    rgb(100, 135, 103) 0%,
+    rgb(100, 135, 103) 25%,
+    transparent 100%,
+    rgb(100, 135, 103) 75%,
+    transparent
+  );
+}
+
+#importantDates::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #fff;
+  background-image: -webkit-linear-gradient(
+    90deg,
+    rgb(190, 124, 77) 0%,
+    rgb(190, 124, 77) 25%,
+    transparent 100%,
+    rgb(190, 124, 77) 75%,
+    transparent
+  );
+}
+
+#reminders::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #fff;
+  background-image: -webkit-linear-gradient(
+    90deg,
+    rgb(7, 79, 117) 0%,
+    rgb(7, 79, 117) 25%,
+    transparent 100%,
+    rgb(7, 79, 117) 75%,
+    transparent
+  );
+}
+
+#mainProfile::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #fff;
+  background-image: -webkit-linear-gradient(
+    90deg,
+    rgb(190, 124, 77) 0%,
+    rgb(190, 124, 77) 25%,
+    transparent 100%,
+    rgb(190, 124, 77) 75%,
+    transparent
+  );
+}
+
+#personalProfile::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #fff;
+  background-image: -webkit-linear-gradient(
+    90deg,
+    rgb(7, 79, 117) 0%,
+    rgb(7, 79, 117) 25%,
+    transparent 100%,
+    rgb(7, 79, 117) 75%,
+    transparent
+  );
+}
+
+#generalProfile::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #fff;
+  background-image: -webkit-linear-gradient(
+    90deg,
+    rgb(135, 92, 116) 0%,
+    rgb(135, 92, 116) 25%,
+    transparent 100%,
+    rgb(135, 92, 116) 75%,
+    transparent
+  );
+}
+
+#remindersProfile::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #fff;
+  background-image: -webkit-linear-gradient(
+    90deg,
+    rgb(100, 135, 103) 0%,
+    rgb(100, 135, 103) 25%,
+    transparent 100%,
+    rgb(100, 135, 103) 75%,
     transparent
   );
 }
