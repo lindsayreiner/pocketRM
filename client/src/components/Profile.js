@@ -5,7 +5,7 @@ import Contacts from "./Contacts";
 import Reminders from "./Reminders";
 import Notes from "./Notes";
 
-import ProfileEdit from "../components/Modals/ProfileEdit";
+import ProfileEdit from "./Modals/ProfileEdit";
 
 
 

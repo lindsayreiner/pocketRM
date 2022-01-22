@@ -192,10 +192,23 @@ body > footer {
   background-color: #fff;
   background-image: -webkit-linear-gradient(
     90deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 1) 25%,
+    rgba(105, 105, 105, 1) 0%,
+    rgba(105, 105, 105, 1) 25%,
     transparent 100%,
-    rgba(0, 0, 0, 1) 75%,
+    rgba(105, 105, 105, 1) 75%,
+    transparent
+  );
+}
+
+#birthdays::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #fff;
+  background-image: -webkit-linear-gradient(
+    90deg,
+    rgb(135, 92, 116) 0%,
+    rgb(135, 92, 116) 25%,
+    transparent 100%,
+    rgb(135, 92, 116) 75%,
     transparent
   );
 }
