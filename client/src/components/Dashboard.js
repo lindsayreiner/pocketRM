@@ -12,7 +12,7 @@ export default function Dashboard() {
                 <div className="upcomingCont">
                     <h1 className="upcomingMain">Upcoming</h1>
                     <div className="reminderCont">
-                        <div className="wrapper">
+                        <div id="birthdays" className="wrapper ">
                             <p className="upcomingTitle pink">Birthdays</p>
                             <div id="birthdays" className="upcomingDiv">
                                 <ul className="upcomingUl">

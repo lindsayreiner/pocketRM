@@ -25,52 +25,35 @@
   border-radius: 8px;
 }
 
-.connectionName {
-  text-align: center;
+.nameEditWrapper {
   color: var(--main);
   background-color: var(--profile);
   height: 5rem;
   display: flex;
   align-items: center;
-  justify-content: center;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
 
-.contactTop {
-  display: flex;
-  flex-flow: row-wrap;
-  width: 100%;
+.connectionName {
+  padding: 1rem;
+  margin-left: 2rem;
+  margin-right: 27rem;
 }
 
-/* .profilePicCont {
-
-} */
-
-.mainDetails {
-  margin-top: 3rem;
-  margin-right: 4rem;
-  margin-left: 2rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-bottom: 4rem;
-  padding-top: 2rem;
-  width: 50%;
-  background-color: rgb(199, 201, 202);
-  box-shadow: 5px 10px 8px #888888;
-  border: 5px inset gray;
-  border-radius: 8px;
+.cardsCont {
+  display: flex;
+  flex-flow: row-wrap;
 }
 
 .sectionTitle {
-  font-weight: bold;
+  font-size: 1.8em;
   text-align: center;
-  color: var(--main);
-  /* margin-bottom: 1.5rem; */
+  font-weight: bold;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  padding: 1rem;
-  font-size: 1.9rem;
+  padding: 0.3rem;
+  color: white;
 }
 
 .green {
@@ -97,67 +80,28 @@
 }
 
 .profileContentUl {
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  background-color: white;
-  overflow: scroll;
-  height: 80%;
+  height: 200px;
+  padding-top: 1rem;
+  overflow-y: scroll;
 }
 
 .profileContentLi {
   list-style: none;
-  font-style: italic;
-  margin-top: 0.3rem;
-}
-
-.profilePicCont {
-  left: 40rem;
-}
-
-.profilePictureGrad {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, var(--profile) 100%);
-  height: 15.75rem;
-  width: 15.75rem;
-  margin-top: 1rem;
-  margin-left: 1;
-  margin-bottom: 0.25rem;
-  margin-right: 1rem;
-}
-
-.profilePicture {
-  position: absolute;
-  border: 0.1875rem white solid;
-  margin-top: 0.9375rem;
-  margin-left: 0.9375rem;
-  height: 13.875rem;
-  width: 13.875rem;
-}
-
-.contactMid {
-  display: flex;
-  flex-direction: row-wrap;
-}
-
-.demoDetails {
-  width: 50%;
-  background-color: rgb(199, 201, 202);
-  box-shadow: 5px 10px 8px #888888;
-  border: 5px inset gray;
-  border-radius: 8px;
-  margin-top: 3rem;
-  margin-right: 1rem;
-  margin-left: 2rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-bottom: 2rem;
-  padding-top: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .remindersNotes {
   display: flex;
   box-shadow: 5px 10px 8px #888888;
   border: 5px inset gray;
-  margin: 0 1rem;
+  margin: 1rem;
+  padding: 2rem;
+}
+
+.cardWrapperBottom {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 /* Modal */
