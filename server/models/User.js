@@ -31,9 +31,12 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  contacts: [contactSchema],
-  //savedContacts: [contactSchema],
-  // savedReminders: [reminderSchema]
+  contacts: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Contacts'
+    }
+  ]
 });
 
 userSchema.pre("save", async function (next) {

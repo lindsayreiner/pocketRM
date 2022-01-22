@@ -92,19 +92,22 @@ const contactSchema = new Schema({
     type: String,
     required: true,
   },
-
-  // notes: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: "Notes",
-  //},
-
-  // reminders: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: "Reminder",
-  //}
-
-  //savedNotes: [noteSchema],
-  //savedReminders: [reminderSchema]
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  },
+  notes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Notes'
+    }
+  ],
+  reminders: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Reminders'
+    }
+  ]
 });
 
 const Contact = model("Contact", contactSchema);
