@@ -10,19 +10,13 @@ const resolvers = {
           .select("-__v -password")
           .populate("contacts");
 
-      if (context.user) {
-        const userData = await User.findOne({})
-          .select('-__v -password')
-          .populate('contacts')
-
         return userData;
       }
 
-      throw new AuthenticationError('Not logged in')
+      throw new AuthenticationError("Not logged in");
     },
 
     contacts: async (parent, args) => {
-
       console.log(args.id);
       return User.findOne({ _id: args.id }).populate("contacts");
     },
@@ -44,7 +38,7 @@ const resolvers = {
       return { token, user };
     },
     login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email }).populate('contacts');
+      const user = await User.findOne({ email }).populate("contacts");
       if (!user) {
         throw new AuthenticationError("Incorrect email or password!");
       }
@@ -53,10 +47,11 @@ const resolvers = {
         throw new AuthenticationError("Wrong signon credentials");
       }
       const now = new Date();
-      const twoWeeksFromNow = moment().add(2, 'weeks');
-      const upcomingBirthdays = user.contacts.filter(contact => moment(contact.birthday).isBetween(now, twoWeeksFromNow));
+      const twoWeeksFromNow = moment().add(2, "weeks");
+      const upcomingBirthdays = user.contacts.filter((contact) =>
+        moment(contact.birthday).isBetween(now, twoWeeksFromNow)
+      );
       user.birthdays = upcomingBirthdays;
-
 
       const token = signToken(user);
       return { token, user };
