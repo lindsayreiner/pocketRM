@@ -1,8 +1,6 @@
 .searchCont {
   border: 1px solid rgb(179, 179, 179, 0.5);
-  max-width: 350px;
   margin: 1rem;
-  /* min-height: 90%; */
   background-color: rgb(179, 179, 179, 0.5);
   border-radius: 8px;
   box-shadow: 5px 10px 8px #888888;
