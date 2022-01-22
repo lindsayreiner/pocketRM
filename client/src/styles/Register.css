@@ -23,3 +23,10 @@
 #login-link:hover {
   color: var(--btnColor);
 }
+
+.btn-primary:disabled,
+.btn-primary.disabled {
+  color: #fff;
+  background-color: var(--btnColor);
+  border: 3px outset var(--btnColor);
+}

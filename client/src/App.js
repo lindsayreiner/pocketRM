@@ -6,34 +6,60 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import LandingPage from "./components/LandingPage";
 
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useEffect } from "react";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import {
+  ApolloClient,
+  ApolloProvider,
+  InMemoryCache,
+  createHttpLink,
+} from "@apollo/client";
 import AOS from "aos";
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-
+import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import { setContext } from "@apollo/client/link/context";
 import "./styles/App.css";
 import "aos/dist/aos.css";
 
-const client = new ApolloClient({
-  // uri: 'http://localhost:3001/graphql'
-  request: operation => {
-    const token = localStorage.getItem('id_token');
+// const client = new ApolloClient({
+//   // uri: 'http://localhost:3001/graphql'
+//   request: (operation) => {
+//     const token = localStorage.getItem("id_token");
 
-    operation.setContext({
-      headers: {
-        authorization: token ? `Bearer ${token}` : ''
-      }
-    })
-  },
+//     operation.setContext({
+//       headers: {
+//         authorization: token ? `Bearer ${token}` : "",
+//       },
+//     });
+//   },
+//   cache: new InMemoryCache(),
+
+//   uri: "/graphql",
+// });
+
+const PUBLIC_URL = process.env.PUBLIC_URL || "http://localhost:3001";
+
+const httpLink = createHttpLink({
+  uri: `${PUBLIC_URL}/graphql`,
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem("id_token");
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
-  
-  uri: '/graphql'
 });
 
 function App() {
+  console.log(authLink);
   // AOS init
   useEffect(() => {
     AOS.init();
