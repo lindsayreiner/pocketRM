@@ -18,19 +18,20 @@ const resolvers = {
       throw new AuthenticationError('Not logged in')
     },
 
-    contacts: async (parent, args) => {
-
+    contacts: async (parent, args,) => {
       console.log(args.id);
-      return User.findOne({ _id: args.id }).populate("contacts");
+      const contactData =  await User.findById({ _id: args.id }).populate('contacts');
+      
+      const contactsArray = await contactData.contacts.map(contact => {
+        console.log(contact)
+        const x =  Contact.findById({_id: contact._id})
+        console.log(x)
+      })
+      //console.log(contactsArray)
+      return contactsArray;
     },
     contact: async (parent, args) => {
       return Contact.findOne({ _id: args.id }).populate("notes");
-    },
-    remindersContact: async (parent, args) => {
-      return Contact.find(args.id).populate("reminders");
-    },
-    remindersUser: async (parent, args) => {
-      return User.find(args.id).populate("reminders");
     },
   },
   Mutation: {
@@ -48,6 +49,7 @@ const resolvers = {
       if (!correctPassword) {
         throw new AuthenticationError("Wrong signon credentials");
       }
+
       const now = new Date();
       const twoWeeksFromNow = moment().add(2, 'weeks');
       const upcomingBirthdays = user.contacts.filter(contact => moment(contact.birthday).isBetween(now, twoWeeksFromNow));
@@ -61,20 +63,14 @@ const resolvers = {
       console.log(id, contactInput); // { id: "61e75985920d77064a3ff74a" }
       try {
         const newContact = await Contact.create(contactInput);
-        console.log(User);
-
+        console.log(newContact);
         // const addToUserContact = await
         // prettier-ignore
-        User.findOneAndUpdate(
+        const addToUserContact = await User.findOneAndUpdate(
           { _id: id },
-
           { $addToSet: { "contacts": newContact._id } },
           { new: true, runValidators: true }
-        ).then((res) => {
-          console.log(res);
-          return res;
-        });
-
+        );
         return addToUserContact;
       } catch (e) {
         return `Unable to save contacts due to error: ${e}`;

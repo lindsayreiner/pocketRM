@@ -14,7 +14,7 @@ const typeDefs = gql`
     reminders: [Event]
   }
   type Event {
-  _id: id
+  _id: ID
   firstName: String
   lastName: String
   date: String 
@@ -56,11 +56,11 @@ const typeDefs = gql`
     time: Int
   }
   input ContactInput {
-    firstName: String!
-    lastName: String!
-    relationship: String!
+    firstName: String
+    lastName: String
+    relationship: String
     email: String
-    phone: String!
+    phone: String
     address: String
     birthday: String
     occupation: String
@@ -75,7 +75,7 @@ const typeDefs = gql`
     interestsHobbies: String
     importantDates: String
     giftIdeas: String
-    metAt: String!
+    metAt: String
   }
   type Auth {
     token: ID!
