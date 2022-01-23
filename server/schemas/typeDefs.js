@@ -14,7 +14,7 @@ const typeDefs = gql`
     reminders: [Event]
   }
   type Event {
-  _id: id
+  _id: ID
   firstName: String
   lastName: String
   date: String 
