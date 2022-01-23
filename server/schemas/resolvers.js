@@ -22,13 +22,11 @@ const resolvers = {
       console.log(args.id);
       const contactData =  await User.findById({ _id: args.id }).populate('contacts');
       
-      const contactsArray = await contactData.contacts.map(contact => {
-        console.log(contact)
-        const x =  Contact.findById({_id: contact._id})
-        console.log(x)
-      })
-      //console.log(contactsArray)
-      return contactsArray;
+      // const contactsArray = await contactData.contacts.map(contact => {
+      //    Contact.findById({_id: contact._id})
+      // })
+      // console.log(contactsArray)
+      return contactData;
     },
     contact: async (parent, args) => {
       return Contact.findOne({ _id: args.id }).populate("notes");
