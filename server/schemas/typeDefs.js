@@ -14,7 +14,7 @@ const typeDefs = gql`
     reminders: [Event]
   }
   type Event {
-  _id: id
+  _id: ID
   firstName: String
   lastName: String
   date: String 
@@ -103,7 +103,7 @@ const typeDefs = gql`
       password: String!
     ): Auth
     addContact(id: ID!, contactInput: ContactInput!): Contact
-    deleteContact(contactId: ID!): Contact
+    deleteContact(id: ID!): Contact
   }
 `
 
