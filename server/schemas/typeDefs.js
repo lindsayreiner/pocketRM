@@ -13,6 +13,12 @@ const typeDefs = gql`
     important: [Event]
     reminders: [Event]
   }
+  type Event {
+  _id: id
+  firstName: String
+  lastName: String
+  date: String 
+  }
   type Contact {
     _id: ID
     firstName: String
@@ -82,10 +88,10 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user: User
-    contacts(id: ID!): User
-    contact(contactId: ID!): Contact
-    notes: [Notes]
-    remindersContact: [Contact]
+    contacts(id: ID!): User #is this right?
+    contact(contactId: ID!): Contact #is this right?
+    notes: [Notes] #is a contact id needed?
+    remindersContact: [Contact] #what does this do?
     remindersUser: [User]
   }
   type Mutation {
@@ -99,7 +105,7 @@ const typeDefs = gql`
     addContact(id: ID!, contactInput: ContactInput!): Contact
     deleteContact(contactId: ID!): Contact
   }
-`;
+`
 
 module.exports = typeDefs;
 // relationship: String
