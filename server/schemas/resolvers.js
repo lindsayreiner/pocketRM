@@ -4,21 +4,20 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-
     user: async (parent, args, context) => {
-
       if (context.user) {
         const userData = await User.findOne({})
-          .select('-__v -password')
-          .populate('contacts')
+          .select("-__v -password")
+          .populate("contacts");
 
         return userData;
       }
 
-      throw new AuthenticationError('Not logged in')
+      throw new AuthenticationError("Not logged in");
     },
 
     contacts: async (parent, args,) => {
+
       console.log(args.id);
       const contactData =  await User.findById({ _id: args.id }).populate('contacts');
       
@@ -33,13 +32,14 @@ const resolvers = {
     },
   },
   Mutation: {
-    addUser: async (parent, { firstName, lastName, email, password }) => {
-      const user = await User.create({ firstName, lastName, email, password });
+    addUser: async (parent, args) => {
+      const user = await User.create(args);
       const token = signToken(user);
-      return user;
+      console.log(user);
+      return { token, user };
     },
     login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email }).populate('contacts');
+      const user = await User.findOne({ email }).populate("contacts");
       if (!user) {
         throw new AuthenticationError("Incorrect email or password!");
       }
@@ -49,10 +49,11 @@ const resolvers = {
       }
 
       const now = new Date();
-      const twoWeeksFromNow = moment().add(2, 'weeks');
-      const upcomingBirthdays = user.contacts.filter(contact => moment(contact.birthday).isBetween(now, twoWeeksFromNow));
+      const twoWeeksFromNow = moment().add(2, "weeks");
+      const upcomingBirthdays = user.contacts.filter((contact) =>
+        moment(contact.birthday).isBetween(now, twoWeeksFromNow)
+      );
       user.birthdays = upcomingBirthdays;
-
 
       const token = signToken(user);
       return { token, user };

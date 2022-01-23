@@ -19,7 +19,7 @@ export default function Profile() {
 
           <div className="nameEditWrapper">
             <h1 className="connectionName">
-              Person's Name
+              Lindsay Reiner
             </h1>
             {<ProfileEdit />}
           </div>
@@ -41,7 +41,7 @@ export default function Profile() {
 
             <div className="wrapper">
               <p className="upcomingTitle blue">Personal</p>
-              <div id="importantDates" className="upcomingDiv">
+              <div id="personalProfile" className="upcomingDiv">
                 <ul className="upcomingUl">
                   <li className="upcomingLi">Birthday: </li>
                   <li className="upcomingLi">Hometown: </li>
@@ -60,7 +60,7 @@ export default function Profile() {
           <div className="cardWrapperBottom">
             <div className="wrapper">
               <p className="upcomingTitle pink">General</p>
-              <div id="importantDates" className="upcomingDiv">
+              <div id="generalProfile" className="upcomingDiv">
                 <ul className="upcomingUl">
                   <li className="upcomingLi">Interests & Hobbies:</li>
                   <li className="upcomingLi"><b>Important Dates: </b> February 24</li>

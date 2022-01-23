@@ -60,7 +60,7 @@ export default function Reminders() {
                     </Modal>
                 </div>
                 <div className="remindersBody">
-                    <Card className="profileContentUl">
+                    <Card id="remindersProfile" className="profileContentUl">
                         <ListGroup variant="flush">
                             <ListGroup.Item className="profileContentLi">
                                 <Form>

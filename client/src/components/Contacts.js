@@ -1,10 +1,13 @@
 import React from 'react';
+// import { QUERY_ALL_CONTACTS, QUERY_SINGLE_CONTACT } from '../utils/queries.js';
+// import { useQuery } from '@apollo/client';
 import { Button, Form, FormControl } from "react-bootstrap";
 import '../styles/Contacts.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 export default function Contacts() {
+    // const { loading, data } = useQuery(QUERY_ALL_CONTACTS, QUERY_SINGLE_CONTACT)
     return (
         <>
             <section className="contactList">

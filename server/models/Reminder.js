@@ -16,6 +16,10 @@ const reminderSchema = new Schema({
     type: Number,
     required: true,
   },
+  contact: {
+    type: Schema.Types.ObjectId,
+    ref: 'Contact'
+  }
 });
 
 const Reminder = model("Reminder", reminderSchema);
