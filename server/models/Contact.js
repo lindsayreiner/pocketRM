@@ -33,11 +33,19 @@ const contactSchema = new Schema({
     type: String,
     required: false,
   },
+  hometown: {
+    type: String,
+    required: false
+  },
   birthday: {
     type: String,
     required: false,
   },
   occupation: {
+    type: String,
+    required: false,
+  },
+  company: {
     type: String,
     required: false,
   },
@@ -50,12 +58,16 @@ const contactSchema = new Schema({
     type: String,
     required: false,
   },
+  anniversary: {
+    type: String,
+    required: false,
+  },
   children: {
     type: Boolean,
     required: false,
   },
 
-  childrenName: {
+  childName: {
     type: String,
     required: false,
   },
@@ -75,7 +87,7 @@ const contactSchema = new Schema({
     required: false,
   },
 
-  interestHobbies: {
+  interestsHobbies: {
     type: String,
     required: false,
   },
