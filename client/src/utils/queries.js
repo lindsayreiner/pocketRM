@@ -4,11 +4,12 @@ import gql from 'graphql-tag';
 export const GET_ME = gql`
 {
     me {
-      _id
-      username
+    _id
+      firstName
+      lastName
       email
-       {
-        # _id
+    contacts {
+        _id
         firstName
         lastName
         relationship

@@ -10,21 +10,24 @@ const resolvers = {
           .select("-__v -password")
           .populate("contacts");
 
+      if (context.user) {
+        const userData = await User.findOne({})
+          .select('-__v -password')
+          .populate('contacts')
+
         return userData;
       }
 
-      throw new AuthenticationError("Not logged in");
-    },
-    users: async () => {
-      return User.find();
+      throw new AuthenticationError('Not logged in')
     },
 
     contacts: async (parent, args) => {
+
       console.log(args.id);
       return User.findOne({ _id: args.id }).populate("contacts");
     },
-    notes: async (parent, args) => {
-      return Contact.find(args.id).populate("notes");
+    contact: async (parent, args) => {
+      return Contact.findOne({ _id: args.id }).populate("notes");
     },
     remindersContact: async (parent, args) => {
       return Contact.find(args.id).populate("reminders");
@@ -41,8 +44,7 @@ const resolvers = {
       return { token, user };
     },
     login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
-      console.log(user);
+      const user = await User.findOne({ email }).populate('contacts');
       if (!user) {
         throw new AuthenticationError("Incorrect email or password!");
       }
@@ -50,6 +52,12 @@ const resolvers = {
       if (!correctPassword) {
         throw new AuthenticationError("Wrong signon credentials");
       }
+      const now = new Date();
+      const twoWeeksFromNow = moment().add(2, 'weeks');
+      const upcomingBirthdays = user.contacts.filter(contact => moment(contact.birthday).isBetween(now, twoWeeksFromNow));
+      user.birthdays = upcomingBirthdays;
+
+
       const token = signToken(user);
       return { token, user };
     },
@@ -63,7 +71,7 @@ const resolvers = {
         // prettier-ignore
         User.findOneAndUpdate(
           { _id: id },
-          
+
           { $addToSet: { "contacts": newContact._id } },
           { new: true, runValidators: true }
         ).then((res) => {
