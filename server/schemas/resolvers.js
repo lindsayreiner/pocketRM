@@ -74,13 +74,13 @@ const resolvers = {
         return `Unable to save contacts due to error: ${e}`;
       }
     },
-    deleteContact: async (parent, args, context) => {
+    deleteContact: async (parent, {id}) => {
       try {
-        const removeFromUserContact = await User.findOneAndUpdate(
-          { _id: context.contact._id },
-          { $pull: { contacts: { _id: args._id } } },
-          { new: true, runValidators: true }
+        console.log(id)
+        const removeFromUserContact = await Contact.findOneAndRemove(
+          { _id: id }
         );
+      
         return removeFromUserContact;
       } catch (e) {
         return `Unable to delete contact due to error: ${e}`;

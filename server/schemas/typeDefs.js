@@ -99,7 +99,7 @@ const typeDefs = gql`
       password: String!
     ): User
     addContact(id: ID!, contactInput: ContactInput!): Contact
-    deleteContact(contactId: ID!): Contact
+    deleteContact(id: ID!): Contact
   }
 `;
 
