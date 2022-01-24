@@ -5,25 +5,6 @@ import { Link } from "react-router-dom";
 import Contacts from "./Contacts";
 
 export default function Dashboard() {
-  //     return (
-  //         <>
-  //             <section className="dashboardCont" data-aos="fade-up" data-aos-delay="10">
-  //                 <Contacts />
-
-  //   //       if (!expired) {
-  //   //         return false;
-  //   //       }
-
-  //   //       setIsLoggedIn(expired);
-  //   //     } catch (err) {
-  //   //       console.error(err);
-  //   //     }
-  //   //   }, [isLoggedIn]);
-
-  //   //   if (!isLoggedIn) {
-  //   //     return <Navigate to="/login" />;
-  //   //   }
-
   return (
     <>
       <section className="dashboardCont" data-aos="fade-up" data-aos-delay="10">
