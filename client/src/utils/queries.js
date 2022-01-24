@@ -47,12 +47,23 @@ export const GET_SINGLE_CONTACT = gql`
         importantDates
         giftIdeas
         metAt
-        notes
-        reminders
       }
       }
     }
 `
+
+export const GET_ALL_CONTACTS = gql`
+{
+query getAllContacts ($userId: ID!)  {
+  contacts(userID: $userId) {
+    contacts {
+      _id
+      firstName
+      lastName
+    }
+  }
+  }
+}`
 
 export const GET_ALL_BIRTHDAYS = gql`
 {

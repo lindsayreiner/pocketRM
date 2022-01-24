@@ -39,4 +39,47 @@ export const ADD_USER = gql`
   }
 `;
 
-//add mutations for contacts here
+export const EDIT_CONTACT = gql`
+  mutation editUser(
+    $firstName: String!
+    $lastName: String!
+    $email: String!
+    $password: String!
+  ) {
+    addUser(
+      firstName: $firstName
+      lastName: $lastName
+      password: $password
+      email: $email
+    ) {
+      token
+      user {
+        _id
+        email
+      }
+    }
+  }
+`;
+
+export const DELETE_CONTACT = gql`
+  mutation deleteUser(
+    $firstName: String!
+    $lastName: String!
+    $email: String!
+    $password: String!
+  ) {
+    addUser(
+      firstName: $firstName
+      lastName: $lastName
+      password: $password
+      email: $email
+    ) {
+      token
+      user {
+        _id
+        email
+      }
+    }
+  }
+`;
+

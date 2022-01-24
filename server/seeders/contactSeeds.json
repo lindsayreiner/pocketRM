@@ -18,8 +18,7 @@
     "interestHobbies": "Web Development, Hiking",
     "importantDates": "",
     "giftIdeas": "",
-    "metAt": "School",
-    "user": "61edb20092b2102b1ab2326e"
+    "metAt": "School"
   },
   {
     "firstName": "Ben",
@@ -40,8 +39,7 @@
     "interestHobbies": "Cosplay, Halloween, Reading",
     "importantDates": "Engaged: Dec 5, 2021, Wedding date: May 5, 2022",
     "giftIdeas": "",
-    "metAt": "Party",
-    "user": "61edb20092b2102b1ab2326e"
+    "metAt": "Party"
   },
   {
     "firstName": "Mandee",
@@ -62,73 +60,6 @@
     "interestHobbies": "",
     "importantDates": "",
     "giftIdeas": "",
-    "metAt": "Through Naomi Smith",
-    "user": "61edb20092b2102b1ab2326e"
-  },
-  {
-    "firstName": "Phillip",
-    "lastName": "Browning",
-    "relationship": "Colleague",
-    "email": "pbrowning@pocketrm.com",
-    "phone": "555-555-5555",
-    "address": "",
-    "birthday": "January 21",
-    "occupation": "Linux Admin",
-    "partner": "false",
-    "partnerName": "",
-    "children": "true",
-    "childrenName": "Abby Browning",
-    "childBirthday": "November 24",
-    "pets": "true",
-    "petName": "Duke",
-    "interestHobbies": "Tech, Boxing, Carpentry",
-    "importantDates": "",
-    "giftIdeas": "",
-    "metAt": "Work",
-    "user": "61edb20092b2102b1ab2326e"
-  },
-  {
-    "firstName": "Sean",
-    "lastName": "McCarthy",
-    "relationship": "Friend",
-    "email": "seanm@gmail.com",
-    "phone": "555-555-5555",
-    "address": "123 Happy St, Rainbow, NC 55555",
-    "birthday": "September 17",
-    "occupation": "QA",
-    "partner": "false",
-    "partnerName": "",
-    "children": "false",
-    "childrenName": "",
-    "childBirthday": "",
-    "pets": "true",
-    "petName": "Harley",
-    "interestHobbies": "Gaming, Coding, Building Computers",
-    "importantDates": "Closing first home: April 2",
-    "giftIdeas": "",
-    "metAt": "Grade School",
-    "user": "61edb20092b2102b1ab2326e"
-  },
-  {
-    "firstName": "Terrence",
-    "lastName": "Meikle",
-    "relationship": "Classmate",
-    "email": "",
-    "phone": "555-555-5555",
-    "address": "",
-    "birthday": "March 10",
-    "occupation": "U.S. Military",
-    "partner": "false",
-    "partnerName": "",
-    "children": "true",
-    "childrenName": "Brian Meikle",
-    "childBirthday": "March 23",
-    "pets": "false",
-    "petName": "",
-    "interestHobbies": "Fitness, Health, Cooking, Fishing",
-    "importantDates": "",
-    "giftIdeas": "",
-    "metAt": "School",
-    "user": "61edb20092b2102b1ab2326e"
+    "metAt": "Through Naomi Smith"
   }
 ]

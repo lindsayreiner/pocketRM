@@ -22,21 +22,24 @@ const resolvers = {
     contacts: async (parent, args,) => {
 
       console.log(args.id);
-      const contactData = await User.findById({ _id: args.id }).populate('contacts');
-      const userContacts = contactData.contacts;
+      const contactData = await User.findById({ _id: args.userID }).populate("contacts", ["_id", "firstName", "lastName"]);
+      console.log(contactData);
+      // const userContacts = contactData.contacts;
 
-      const contactArray = await userContacts.array.forEach(element => {
-        Contact.findById({ _id: userContacts._id })
-        console.log(contactArray)
+      // const contactArray = await userContacts.array.forEach(element => {
+      //   Contact.findById({ _id: userContacts._id })
+      //   console.log(contactArray)
 
-      });
-      console.log(contactData)
+      // });
+      // console.log(contactData)
       return contactData;
 
     },
-
     contact: async (parent, args) => {
-      return Contact.findOne({ _id: args.id }).populate("notes");
+      console.log(args.id)
+      const singleContact = Contact.findOne({ _id: args.id }).populate();
+      console.log(singleContact)
+      return singleContact
     },
   },
   Mutation: {
