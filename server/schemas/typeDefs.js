@@ -27,11 +27,13 @@ const typeDefs = gql`
     email: String
     phone: String
     address: String
+    hometown: String
     birthday: String
     occupation: String
     company: String
     partner: Boolean
     partnerName: String
+    anniversary: String
     children: Boolean
     childName: String
     childBirthday: String
@@ -62,11 +64,13 @@ const typeDefs = gql`
     email: String
     phone: String
     address: String
+    hometown: String
     birthday: String
     occupation: String
     company: String
     partner: Boolean
     partnerName: String
+    anniversary: String
     children: Boolean
     childName: String
     childBirthday: String
@@ -84,10 +88,10 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user: User
-    contacts(id: ID!): User
-    contact(contactId: ID!): Contact
-    notes: [Notes]
-    remindersContact: [Contact]
+    contacts(id: ID!): User #is this right?
+    contact(contactId: ID!): Contact #is this right?
+    notes: [Notes] #is a contact id needed?
+    remindersContact: [Contact] #what does this do?
     remindersUser: [User]
   }
   type Mutation {
@@ -97,12 +101,17 @@ const typeDefs = gql`
       lastName: String!
       email: String!
       password: String!
+<<<<<<< HEAD
     ): User
     createContact(id: ID!, contactInput: ContactInput!): Contact
+=======
+    ): Auth
+    addContact(id: ID!, contactInput: ContactInput!): Contact
+>>>>>>> 616d0b1a25af191f6022430bf95cf1c5209411db
     deleteContact(id: ID!): Contact
     editContact(id:ID!, contactInput: ContactInput!): Contact
   }
-`;
+`
 
 module.exports = typeDefs;
 // relationship: String

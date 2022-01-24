@@ -18,7 +18,9 @@ const resolvers = {
       throw new AuthenticationError('Not logged in')
     },
 
+
     contacts: async (parent, args,) => {
+
       console.log(args.id);
       const contactData =  await User.findById({ _id: args.id }).populate('contacts');
       const userContacts = contactData.contacts;
@@ -51,6 +53,7 @@ const resolvers = {
       if (!correctPassword) {
         throw new AuthenticationError("Wrong signon credentials");
       }
+
 
       // if (fasle){
       // const now = new Date();

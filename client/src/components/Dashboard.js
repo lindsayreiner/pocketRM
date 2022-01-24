@@ -1,9 +1,12 @@
 import React from 'react';
+// import { QUERY_ALL_BIRTHDAYS, QUERY_ALL_ANNIVERSARIES } from '../utils/queries.js'
 import "../styles/Dashboard.css"
 import { Link } from "react-router-dom";
 import Contacts from "./Contacts"
 
 export default function Dashboard() {
+
+
     return (
         <>
             <section className="dashboardCont" data-aos="fade-up" data-aos-delay="10">
