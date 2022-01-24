@@ -15,9 +15,20 @@ const RegisterForm = () => {
     email: "",
     password: "",
   });
-  const [validated] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
 
+  const [errors] = useState({
+    email: {
+      pattern: {
+        value: "^([a-z0-9_.-]+)@([da-z.-]+).([a-z.]{2,6})$",
+      },
+    },
+    password: {
+      pattern: { value: "^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$" },
+    },
+  });
+
+  const [validated, setValidated] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
   const [addUser, { error }] = useMutation(ADD_USER);
 
   const handleInputChange = (event) => {
@@ -33,6 +44,8 @@ const RegisterForm = () => {
       event.preventDefault();
       event.stopPropagation();
     }
+
+    setValidated(true);
 
     console.log(userFormData);
 
@@ -89,17 +102,11 @@ const RegisterForm = () => {
               First name is required!
             </Form.Control.Feedback>
           </Form.Group>
-          {/* {errors.firstName && errors.firstName.type === "required" && (
-              <p style={{ color: "red", marginBottom: "0.85rem" }}>
-                First name field is required.
-              </p>
-            )}
-
-            {errors.firstName && errors.firstName.type === "pattern" && (
-              <p style={{ color: "red", marginBottom: "0.85rem" }}>
-                Fix first name spelling.
-              </p>
-            )} */}
+          {/* {errors.firstName && (
+            <p style={{ color: "red", marginBottom: "0.85rem" }}>
+              First name field is required.
+            </p> 
+          )}*/}
           <Form.Group>
             <Form.Label>Last Name</Form.Label>
             <Form.Control
@@ -114,40 +121,32 @@ const RegisterForm = () => {
               Last name is required!
             </Form.Control.Feedback>
           </Form.Group>
-          {/* {errors.lastName && errors.lastName.type === "required" && (
-              <p style={{ color: "red", marginBottom: "0.85rem" }}>
-                Last name field is required.
-              </p>
-            )}
-            {errors.lastName && errors.lastName.type === "pattern" && (
-              <p style={{ color: "red", marginBottom: "0.85rem" }}>
-                Fix last name spelling.
-              </p>
-            )} */}
+          {/* {userFormData.lastName && (
+            <p style={{ color: "red", marginBottom: "0.85rem" }}>
+              Last name field is required.
+            </p>
+          )} */}
           <Form.Group>
             <Form.Label htmlFor="email">Email Address</Form.Label>
             <Form.Control
-              type="text"
+              type="email"
               placeholder="Your email"
               name="email"
               onChange={handleInputChange}
               value={userFormData.email}
               required
+              // pattern="^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$"
             />
             <Form.Control.Feedback type="invalid">
-              Email is required!
+              Email is required and must be a valid email address.
             </Form.Control.Feedback>
           </Form.Group>
           {/* {errors.email && errors.email.type === "required" && (
-              <p style={{ color: "red", marginBottom: "0.85rem" }}>
-                Email field is required.
-              </p>
-            )}
-            {errors.email && errors.email.type === "pattern" && (
-              <p style={{ color: "red", marginBottom: "0.85rem" }}>
-                Enter a valid email address.
-              </p>
-            )} */}
+            <p style={{ color: "red", marginBottom: "0.85rem" }}>
+              Email field is required.
+            </p>
+          )} */}
+
           <Form.Group>
             <Form.Label htmlFor="password">Password</Form.Label>
             <Form.Control
@@ -157,30 +156,33 @@ const RegisterForm = () => {
               onChange={handleInputChange}
               value={userFormData.password}
               required
-              // pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
+              // pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
             />
             <Form.Control.Feedback type="invalid">
-              Password is required!
+              Password is required and must be a minimum of 8 characters, and
+              include at least one letter and one number.
             </Form.Control.Feedback>
           </Form.Group>
           {/* {errors.password && errors.password.type === "required" && (
               <p style={{ color: "red", marginBottom: "0.85rem" }}>
                 Password field is required.
               </p>
-            )}
-            {errors.password && errors.password.type === "pattern" && (
-              <p style={{ color: "red", marginBottom: "0.85rem" }}>
-                Passwords must be a minimum of 8 characters, and include at
-                least one letter and one number.
-              </p>
             )} */}
+          {errors.password && (
+            <p style={{ marginBottom: "0.85rem" }}>
+              Passwords must be a minimum of 8 characters, and include at least
+              one letter and one number.
+            </p>
+          )}
           <Button
             disabled={
               !(
                 userFormData.firstName &&
                 userFormData.lastName &&
                 userFormData.email &&
-                userFormData.password
+                !errors.email &&
+                userFormData.password &&
+                !errors.password
               )
             }
             type="submit"

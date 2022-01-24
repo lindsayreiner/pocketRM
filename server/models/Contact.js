@@ -7,25 +7,25 @@ const { Schema, model } = require("mongoose");
 const contactSchema = new Schema({
   firstName: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
   },
   lastName: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
   },
   relationship: {
     type: String,
-    required: true,
+    required: false,
   },
   email: {
     type: String,
-    required: false
+    required: false,
   },
   phone: {
     type: String,
-    required: true,
+    required: false,
   },
   address: {
     type: String,
@@ -100,7 +100,7 @@ const contactSchema = new Schema({
 
   metAt: {
     type: String,
-    required: true,
+    required: false,
   },
   user: {
     type: Schema.Types.ObjectId,

@@ -15,7 +15,6 @@ export const GET_USER = gql`
         birthday
         anniversary
         importantDates
-        reminders
       }
     }
   }
@@ -85,18 +84,8 @@ query getImportantDates {
 }
 `
 
-export const GET_ALL_REMINDERS = gql`
-{
-query getAllReminders {
-  contact {
-      reminders {
-        name
-        date
-        time
-      }
-    }
-  }
-}
-`
+
+
+
 
 

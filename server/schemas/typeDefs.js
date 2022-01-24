@@ -101,12 +101,10 @@ const typeDefs = gql`
       lastName: String!
       email: String!
       password: String!
-    ): Auth
+    ): User
     createContact(id: ID!, contactInput: ContactInput!): Contact
-    #is this necessary?
-    editContact(id: ID!, contactInput: ContactInput!): Contact
-    deleteContact(contactId: ID!): Contact
-    #do we need add and delete for reminders and notes?
+    deleteContact(id: ID!): Contact
+    editContact(id:ID!, contactInput: ContactInput!): Contact
   }
 `
 

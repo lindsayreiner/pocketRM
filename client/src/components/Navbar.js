@@ -41,26 +41,42 @@ export default function Navbar() {
         </Link>
 
         {location.pathname !== "/login" ? (
-          location.pathname !== "/register" ? (
-            location.pathname !== "/dashboard" ? (
-              location.pathname !== "/profile" ? (
-                isLoggedIn ? (
-                  <>
-
-                  </>
+          location.pathname !== "/" ? (
+            location.pathname !== "/register" ? (
+              location.pathname !== "/dashboard" ? (
+                location.pathname !== "/profile" ? (
+                  isLoggedIn ? (
+                    <>
+                      <Button style={{ marginRight: "2rem" }} to="/">
+                        Logout
+                      </Button>
+                    </>
+                  ) : (
+                    <div className="acctBtns">
+                      <Link to="/login">
+                        <Button id="login-button">Login</Button>
+                      </Link>
+                      <Link to="/register">
+                        {" "}
+                        <Button id="register-button">Sign up</Button>
+                      </Link>
+                    </div>
+                  )
                 ) : (
-                  <div className="acctBtns">
-                    <Link to="/login">
-                      <Button id="login-button">Login</Button>
-                    </Link>
-                    <Link to="/register">
-                      {" "}
-                      <Button id="register-button">Sign up</Button>
-                    </Link>
-                  </div>
+                  <>
+                    {" "}
+                    <Button style={{ marginRight: "2rem" }} to="/">
+                      Logout
+                    </Button>
+                  </>
                 )
               ) : (
-                <> </>
+                <>
+                  {" "}
+                  <Button style={{ marginRight: "2rem" }} to="/">
+                    Logout
+                  </Button>
+                </>
               )
             ) : (
               <> </>
