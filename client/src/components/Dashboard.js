@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+// import { QUERY_ALL_BIRTHDAYS, QUERY_ALL_ANNIVERSARIES } from '../utils/queries.js'
 import "../styles/Dashboard.css";
-import { Navigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Contacts from "./Contacts";
-import auth from "../utils/auth";
 
 export default function Dashboard() {
-  //   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  //   useEffect(() => {
-  //     try {
-  //       const expired = auth.loggedIn();
+  //     return (
+  //         <>
+  //             <section className="dashboardCont" data-aos="fade-up" data-aos-delay="10">
+  //                 <Contacts />
 
-  //       if (!expired) {
-  //         return false;
-  //       }
+  //   //       if (!expired) {
+  //   //         return false;
+  //   //       }
 
-  //       setIsLoggedIn(expired);
-  //     } catch (err) {
-  //       console.error(err);
-  //     }
-  //   }, [isLoggedIn]);
+  //   //       setIsLoggedIn(expired);
+  //   //     } catch (err) {
+  //   //       console.error(err);
+  //   //     }
+  //   //   }, [isLoggedIn]);
 
-  //   if (!isLoggedIn) {
-  //     return <Navigate to="/login" />;
-  //   }
+  //   //   if (!isLoggedIn) {
+  //   //     return <Navigate to="/login" />;
+  //   //   }
 
   return (
     <>

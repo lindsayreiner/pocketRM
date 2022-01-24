@@ -7,37 +7,43 @@ const { Schema, model } = require("mongoose");
 const contactSchema = new Schema({
   firstName: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
   },
   lastName: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
   },
   relationship: {
     type: String,
-    required: true,
+    required: false,
   },
   email: {
     type: String,
     required: false,
-
-    unique: true,
   },
   phone: {
     type: String,
-    required: true,
+    required: false,
   },
   address: {
     type: String,
     required: false,
+  },
+  hometown: {
+    type: String,
+    required: false
   },
   birthday: {
     type: String,
     required: false,
   },
   occupation: {
+    type: String,
+    required: false,
+  },
+  company: {
     type: String,
     required: false,
   },
@@ -50,12 +56,16 @@ const contactSchema = new Schema({
     type: String,
     required: false,
   },
+  anniversary: {
+    type: String,
+    required: false,
+  },
   children: {
     type: Boolean,
     required: false,
   },
 
-  childrenName: {
+  childName: {
     type: String,
     required: false,
   },
@@ -75,7 +85,7 @@ const contactSchema = new Schema({
     required: false,
   },
 
-  interestHobbies: {
+  interestsHobbies: {
     type: String,
     required: false,
   },
@@ -90,21 +100,24 @@ const contactSchema = new Schema({
 
   metAt: {
     type: String,
-    required: true,
+    required: false,
   },
-
-  // notes: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: "Notes",
-  //},
-
-  // reminders: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: "Reminder",
-  //}
-
-  //savedNotes: [noteSchema],
-  //savedReminders: [reminderSchema]
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  },
+  notes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Notes'
+    }
+  ],
+  reminders: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Reminders'
+    }
+  ]
 });
 
 const Contact = model("Contact", contactSchema);

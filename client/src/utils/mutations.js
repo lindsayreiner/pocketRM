@@ -14,6 +14,7 @@ mutation loginUser($email: String!, $password: String!) {
       reminders
     }
   }
+  }
 `;
 
 export const ADD_USER = gql`

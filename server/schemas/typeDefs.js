@@ -14,7 +14,7 @@ const typeDefs = gql`
     reminders: [Event]
   }
   type Event {
-  _id: id
+  _id: ID
   firstName: String
   lastName: String
   date: String 
@@ -27,11 +27,13 @@ const typeDefs = gql`
     email: String
     phone: String
     address: String
+    hometown: String
     birthday: String
     occupation: String
     company: String
     partner: Boolean
     partnerName: String
+    anniversary: String
     children: Boolean
     childName: String
     childBirthday: String
@@ -56,17 +58,19 @@ const typeDefs = gql`
     time: Int
   }
   input ContactInput {
-    firstName: String!
-    lastName: String!
-    relationship: String!
+    firstName: String
+    lastName: String
+    relationship: String
     email: String
-    phone: String!
+    phone: String
     address: String
+    hometown: String
     birthday: String
     occupation: String
     company: String
     partner: Boolean
     partnerName: String
+    anniversary: String
     children: Boolean
     childName: String
     childBirthday: String
@@ -75,7 +79,7 @@ const typeDefs = gql`
     interestsHobbies: String
     importantDates: String
     giftIdeas: String
-    metAt: String!
+    metAt: String
   }
   type Auth {
     token: ID!
@@ -84,10 +88,10 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user: User
-    contacts(id: ID!): User
-    contact(contactId: ID!): Contact
-    notes: [Notes]
-    remindersContact: [Contact]
+    contacts(id: ID!): User #is this right?
+    contact(contactId: ID!): Contact #is this right?
+    notes: [Notes] #is a contact id needed?
+    remindersContact: [Contact] #what does this do?
     remindersUser: [User]
   }
   type Mutation {
@@ -99,9 +103,9 @@ const typeDefs = gql`
       password: String!
     ): Auth
     addContact(id: ID!, contactInput: ContactInput!): Contact
-    deleteContact(contactId: ID!): Contact
+    deleteContact(id: ID!): Contact
   }
-`;
+`
 
 module.exports = typeDefs;
 // relationship: String

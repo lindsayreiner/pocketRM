@@ -10,30 +10,25 @@ const resolvers = {
           .select("-__v -password")
           .populate("contacts");
 
-      if (context.user) {
-        const userData = await User.findOne({})
-          .select('-__v -password')
-          .populate('contacts')
-
         return userData;
       }
 
-      throw new AuthenticationError('Not logged in')
+      throw new AuthenticationError("Not logged in");
     },
 
-    contacts: async (parent, args) => {
+    contacts: async (parent, args,) => {
 
       console.log(args.id);
-      return User.findOne({ _id: args.id }).populate("contacts");
+      const contactData =  await User.findById({ _id: args.id }).populate('contacts');
+      
+      // const contactsArray = await contactData.contacts.map(contact => {
+      //    Contact.findById({_id: contact._id})
+      // })
+      // console.log(contactsArray)
+      return contactData;
     },
     contact: async (parent, args) => {
       return Contact.findOne({ _id: args.id }).populate("notes");
-    },
-    remindersContact: async (parent, args) => {
-      return Contact.find(args.id).populate("reminders");
-    },
-    remindersUser: async (parent, args) => {
-      return User.find(args.id).populate("reminders");
     },
   },
   Mutation: {
@@ -44,7 +39,7 @@ const resolvers = {
       return { token, user };
     },
     login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email }).populate('contacts');
+      const user = await User.findOne({ email }).populate("contacts");
       if (!user) {
         throw new AuthenticationError("Incorrect email or password!");
       }
@@ -52,11 +47,13 @@ const resolvers = {
       if (!correctPassword) {
         throw new AuthenticationError("Wrong signon credentials");
       }
-      const now = new Date();
-      const twoWeeksFromNow = moment().add(2, 'weeks');
-      const upcomingBirthdays = user.contacts.filter(contact => moment(contact.birthday).isBetween(now, twoWeeksFromNow));
-      user.birthdays = upcomingBirthdays;
 
+      const now = new Date();
+      const twoWeeksFromNow = moment().add(2, "weeks");
+      const upcomingBirthdays = user.contacts.filter((contact) =>
+        moment(contact.birthday).isBetween(now, twoWeeksFromNow)
+      );
+      user.birthdays = upcomingBirthdays;
 
       const token = signToken(user);
       return { token, user };
@@ -65,32 +62,26 @@ const resolvers = {
       console.log(id, contactInput); // { id: "61e75985920d77064a3ff74a" }
       try {
         const newContact = await Contact.create(contactInput);
-        console.log(User);
-
+        console.log(newContact);
         // const addToUserContact = await
         // prettier-ignore
-        User.findOneAndUpdate(
+        const addToUserContact = await User.findOneAndUpdate(
           { _id: id },
-
           { $addToSet: { "contacts": newContact._id } },
           { new: true, runValidators: true }
-        ).then((res) => {
-          console.log(res);
-          return res;
-        });
-
+        );
         return addToUserContact;
       } catch (e) {
         return `Unable to save contacts due to error: ${e}`;
       }
     },
-    deleteContact: async (parent, args, context) => {
+    deleteContact: async (parent, {id}) => {
       try {
-        const removeFromUserContact = await User.findOneAndUpdate(
-          { _id: context.contact._id },
-          { $pull: { contacts: { _id: args._id } } },
-          { new: true, runValidators: true }
+        console.log(id)
+        const removeFromUserContact = await Contact.findOneAndRemove(
+          { _id: id }
         );
+      
         return removeFromUserContact;
       } catch (e) {
         return `Unable to delete contact due to error: ${e}`;
