@@ -22,27 +22,6 @@ const resolvers = {
       console.log(args.id);
       return User.findOne({ _id: args.id }).populate("contacts");
     },
-    //NEW find one Contact and include reminders and notes
-    //can also try findById({args.id})
-    contact: async (args) => {
-      return Contact.findOne({ _id: args.id })
-        .populate("reminders", "notes")
-    },
-
-    //find the notes for a specific Contact
-    contact: async (parent, args) => {
-      return Contact.findOne({ _id: args.id }).populate("notes");
-    },
-
-    //find reminders for a specific Contact
-    remindersContact: async (parent, args) => {
-      return Contact.find(args.id).populate("reminders");
-    },
-
-    //find reminders for a specific User?
-    remindersUser: async (parent, args) => {
-      return User.find(args.id).populate("reminders");
-    },
   },
   Mutation: {
     addUser: async (parent, args) => {

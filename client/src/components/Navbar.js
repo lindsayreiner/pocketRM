@@ -36,32 +36,17 @@ export default function Navbar() {
             className="navLogo"
             src={pocketRMLogo}
             alt="PocketRM Logo"
-            height="40px"
+            height="45px"
           />
         </Link>
-        {/* <input type="checkbox" id="navToggle" className="navToggle" />
-        <label htmlFor="navToggle" className="navToggleLabel">
-          <span></span>
-        </label> */}
-        {/* Search Bar */}
+
         {location.pathname !== "/login" ? (
           location.pathname !== "/register" ? (
             location.pathname !== "/dashboard" ? (
               location.pathname !== "/profile" ? (
                 isLoggedIn ? (
                   <>
-                    {/* <ul className="navBtnCont">
-                    <li className="navBtn">
-                      <NavLink className="navBtnLink" to="/dashboard">
-                        Dashboard
-                      </NavLink>
-                    </li>
-                    <li className="navBtn">
-                      <NavLink className="navBtnLink" to="/contacts">
-                        Contact
-                      </NavLink>
-                    </li>
-                  </ul> */}
+
                   </>
                 ) : (
                   <div className="acctBtns">

@@ -75,6 +75,16 @@ export const GET_ALL_ANNIVERSARY = gql`
 }
 `
 
+export const GET_ALL_IMPORTANT = gql`
+{
+query getImportantDates {
+  contact {
+     importantDates
+    }
+  }
+}
+`
+
 export const GET_ALL_REMINDERS = gql`
 {
 query getAllReminders {
@@ -89,12 +99,4 @@ query getAllReminders {
 }
 `
 
-export const GET_ALL_IMPORTANT = gql`
-{
-query getImportantDates {
-  contact {
-     importantDates
-    }
-  }
-}
-`
+
