@@ -101,13 +101,8 @@ const typeDefs = gql`
       lastName: String!
       email: String!
       password: String!
-<<<<<<< HEAD
     ): User
-    createContact(id: ID!, contactInput: ContactInput!): Contact
-=======
-    ): Auth
-    addContact(id: ID!, contactInput: ContactInput!): Contact
->>>>>>> 616d0b1a25af191f6022430bf95cf1c5209411db
+    createContact(id: ID!, contactInput: ContactInput!): Contac
     deleteContact(id: ID!): Contact
     editContact(id:ID!, contactInput: ContactInput!): Contact
   }
