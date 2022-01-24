@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/Profile.css";
 // import { Link } from "react-router-dom";
 // import { GET_SINGLE_CONTACT } from '../utils/queries.js';
@@ -10,33 +10,35 @@ import Reminders from "./Reminders";
 import Notes from "./Notes";
 
 import ProfileEdit from "./Modals/ProfileEdit";
-
-
+import Login from "./Login";
+import auth from "../utils/auth";
 
 export default function Profile() {
+ const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    const redirect = async () => {
+      try {
+        const expired = auth.loggedIn();
 
-  //query single contact
-  // const { contactID } = useParams();
+        if (!expired) {
+          return false;
+        }
 
-  // const { loading, data } = useQuery(GET_SINGLE_CONTACT, {
+        setIsLoggedIn(expired);
+      } catch (err) {
+        console.error(err);
+      }
+    };
 
-  //   variables: { contactID: contactID },
-  // });
+    redirect();
+  }, [isLoggedIn]);
 
-  // const contact = data?.contact || {};
-
-
-
-
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
+  if (isLoggedIn) {
   return (
     <>
       <section className="profileCont">
         <Contacts />
 
-        <div className="profile">
 
           <div className="nameEditWrapper">
             <h1 className="connectionName">
@@ -44,6 +46,19 @@ export default function Profile() {
             </h1>
             {<ProfileEdit />}
           </div>
+
+  if (isLoggedIn) {
+    return (
+      <>
+        <section className="profileCont">
+          <Contacts />
+
+
+          <div className="profile">
+            <div className="nameEditWrapper">
+              <h1 className="connectionName">Lindsay Reiner</h1>
+              {<ProfileEdit />}
+            </div>
 
 
           <div className="cardsCont">
@@ -58,7 +73,6 @@ export default function Profile() {
                   <li className="upcomingLi">Address:{''} </li>
                 </ul>
               </div>
-            </div>
 
             <div className="wrapper">
               <p className="upcomingTitle blue">Personal</p>
@@ -88,19 +102,18 @@ export default function Profile() {
                   <li className="upcomingLi"><b>Gift Ideas: </b>{''}</li>
                   <li className="upcomingLi"><b>Address:</b>{''}</li>
                 </ul>
+
               </div>
             </div>
-
-
           </div>
+        </section>
 
-        </div >
-      </section >
-
-      <section className="remindersNotes">
-        <Reminders />
-        <Notes />
-      </section>
-    </>
-  );
+        <section className="remindersNotes">
+          <Reminders />
+          <Notes />
+        </section>
+      </>
+    );
+  }
+  return <Login />;
 }

@@ -81,22 +81,11 @@ const LoginForm = () => {
               onChange={handleInputChange}
               value={userFormData.email}
               required
-              // pattern: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
             />
             <Form.Control.Feedback type="invalid">
               Email is required!
             </Form.Control.Feedback>
           </Form.Group>
-          {/* {errors.email && errors.email.type === "required" && (
-            <p style={{ color: "red", marginBottom: "0.85rem" }}>
-              Email field is required.
-            </p>
-          )}
-          {errors.email && errors.email.type === "pattern" && (
-            <p style={{ color: "red", marginBottom: "0.85rem" }}>
-              Enter a valid email address.
-            </p>
-          )} */}
           <Form.Group>
             <Form.Label htmlFor="password">Password</Form.Label>
             <Form.Control
@@ -106,23 +95,11 @@ const LoginForm = () => {
               onChange={handleInputChange}
               value={userFormData.password}
               required
-              // pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
             />
             <Form.Control.Feedback type="invalid">
               Password is required!
             </Form.Control.Feedback>
           </Form.Group>
-          {/* {errors.password && errors.password.type === "required" && (
-            <p style={{ color: "red", marginBottom: "0.85rem" }}>
-              Password field is required.
-            </p>
-          )}
-          {errors.password && errors.password.type === "pattern" && (
-            <p style={{ color: "red", marginBottom: "0.85rem" }}>
-              Passwords must be a minimum of 8 characters, and include at least
-              one letter and one number.
-            </p>
-          )} */}
           <Button
             disabled={!(userFormData.email && userFormData.password)}
             type="submit"
@@ -135,7 +112,7 @@ const LoginForm = () => {
 
         <div className="mt-3 d-flex justify-center">
           New to PocketRM?{" "}
-          <Link to="/register" id="login-link">
+          <Link to="/dashboard">
             <b>Sign Up</b>
           </Link>
         </div>
