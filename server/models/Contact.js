@@ -102,20 +102,16 @@ const contactSchema = new Schema({
     type: String,
     required: false,
   },
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: 'User'
-  },
   notes: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Notes'
+      ref: 'Note'
     }
   ],
   reminders: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Reminders'
+      ref: 'Reminder'
     }
   ]
 });

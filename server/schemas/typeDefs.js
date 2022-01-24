@@ -88,11 +88,8 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user: User
-    contacts(id: ID!): User #is this right?
-    contact(contactId: ID!): Contact #is this right?
-    notes: [Notes] #is a contact id needed?
-    remindersContact: [Contact] #what does this do?
-    remindersUser: [User]
+    contacts(userID: ID!): User 
+    contact(id: ID!): Contact
   }
   type Mutation {
     login(email: String!, password: String!): Auth

@@ -22,20 +22,24 @@ const resolvers = {
     contacts: async (parent, args,) => {
 
       console.log(args.id);
-      const contactData =  await User.findById({ _id: args.id }).populate('contacts');
-      const userContacts = contactData.contacts;
+      const contactData = await User.findById({ _id: args.userID }).populate("contacts", ["_id", "firstName", "lastName"]);
+      console.log(contactData);
+      // const userContacts = contactData.contacts;
 
-      const contactArray = await userContacts.array.forEach(element => { Contact.findById({_id: userContacts._id})
-        console.log(contactArray)
-        
-      });
-      console.log(contactData)
+      // const contactArray = await userContacts.array.forEach(element => {
+      //   Contact.findById({ _id: userContacts._id })
+      //   console.log(contactArray)
+
+      // });
+      // console.log(contactData)
       return contactData;
-        
-    },
 
-  contact: async (parent, args) => {
-      return Contact.findOne({ _id: args.id }).populate("notes");
+    },
+    contact: async (parent, args) => {
+      console.log(args.id)
+      const singleContact = Contact.findOne({ _id: args.id }).populate();
+      console.log(singleContact)
+      return singleContact
     },
   },
   Mutation: {
@@ -55,7 +59,7 @@ const resolvers = {
       }
 
 
-      // if (fasle){
+      // if (false){
       // const now = new Date();
       // const twoWeeksFromNow = moment().add(2, 'weeks');
       // const upcomingBirthdays = user.contacts.filter(contact => moment(contact.birthday).isBetween(now, twoWeeksFromNow));
@@ -84,47 +88,49 @@ const resolvers = {
       }
     },
 
-    editContact: async (parent, {id, contactInput}) => {
+    editContact: async (parent, { id, contactInput }) => {
       try {
         console.log(id)
         const editContact = await Contact.findByIdAndUpdate(
-          { _id: id},
-          {$set: {
-            firstName: contactInput.firstName,
-            lastName: contactInput.lastName,
-            relationship: contactInput.relationship,
-            email: contactInput.email,
-            phone: contactInput.phone,
-            address: contactInput.address,
-            birthday: contactInput.birthday,
-            occupation: contactInput.occupation,
-            company: contactInput.company,
-            partner: contactInput.partner,
-            partnerName: contactInput.partnerName,
-            children: contactInput.children,
-            childName: contactInput.childName,
-            childBirthday: contactInput.childBirthday,
-            pets: contactInput.pets,
-            petName: contactInput.petName,
-            interestsHobbies: contactInput.interestsHobbies,
-            importantDates: contactInput.importantDates,
-            giftIdeas: contactInput.giftIdeas,
-            metAt: contactInput.metAt,
-          }}
+          { _id: id },
+          {
+            $set: {
+              firstName: contactInput.firstName,
+              lastName: contactInput.lastName,
+              relationship: contactInput.relationship,
+              email: contactInput.email,
+              phone: contactInput.phone,
+              address: contactInput.address,
+              birthday: contactInput.birthday,
+              occupation: contactInput.occupation,
+              company: contactInput.company,
+              partner: contactInput.partner,
+              partnerName: contactInput.partnerName,
+              children: contactInput.children,
+              childName: contactInput.childName,
+              childBirthday: contactInput.childBirthday,
+              pets: contactInput.pets,
+              petName: contactInput.petName,
+              interestsHobbies: contactInput.interestsHobbies,
+              importantDates: contactInput.importantDates,
+              giftIdeas: contactInput.giftIdeas,
+              metAt: contactInput.metAt,
+            }
+          }
         );
-      
+
         return editContact;
       } catch (e) {
         return `Unable to delete contact due to error: ${e}`;
       }
     },
-    deleteContact: async (parent, {id}) => {
+    deleteContact: async (parent, { id }) => {
       try {
         console.log(id)
         const removeFromUserContact = await Contact.findOneAndRemove(
           { _id: id }
         );
-      
+
         return removeFromUserContact;
       } catch (e) {
         return `Unable to delete contact due to error: ${e}`;

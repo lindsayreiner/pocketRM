@@ -12,28 +12,9 @@ export const GET_USER = gql`
         _id
         firstName
         lastName
-        relationship
-        email
-        phone
-        address
-        hometown
         birthday
-        occupation
-        company
-        partner
-        partnerName
         anniversary
-        children
-        childName
-        childBirthday
-        pets
-        petName
-        interestsHobbies
         importantDates
-        giftIdeas
-        metAt
-        notes
-        reminders
       }
     }
   }
@@ -66,12 +47,23 @@ export const GET_SINGLE_CONTACT = gql`
         importantDates
         giftIdeas
         metAt
-        notes
-        reminders
       }
       }
     }
 `
+
+export const GET_ALL_CONTACTS = gql`
+{
+query getAllContacts ($userId: ID!)  {
+  contacts(userID: $userId) {
+    contacts {
+      _id
+      firstName
+      lastName
+    }
+  }
+  }
+}`
 
 export const GET_ALL_BIRTHDAYS = gql`
 {
@@ -93,20 +85,6 @@ export const GET_ALL_ANNIVERSARY = gql`
 }
 `
 
-export const GET_ALL_REMINDERS = gql`
-{
-query getAllReminders {
-  contact {
-      reminders {
-        name
-        date
-        time
-      }
-    }
-  }
-}
-`
-
 export const GET_ALL_IMPORTANT = gql`
 {
 query getImportantDates {
@@ -116,3 +94,9 @@ query getImportantDates {
   }
 }
 `
+
+
+
+
+
+

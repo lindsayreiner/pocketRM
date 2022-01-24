@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-// import { QUERY_ALL_BIRTHDAYS, QUERY_ALL_ANNIVERSARIES } from '../utils/queries.js'
-import "../styles/Dashboard.css";
+// import { GET_ALL_BIRTHDAYS, GET_ALL_ANNIVERSARIES, GET_ALL_REMINDERS, GET_ALL_IMPORTANT } from '../utils/queries.js'
+import "../styles/Dashboard.css"
+
 import { Link } from "react-router-dom";
 import Contacts from "./Contacts";
 import Login from "./Login";
