@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/Profile.css";
 // import { Link } from "react-router-dom";
+// import { GET_SINGLE_CONTACT } from '../utils/queries.js'
 import Contacts from "./Contacts";
 import Reminders from "./Reminders";
 import Notes from "./Notes";

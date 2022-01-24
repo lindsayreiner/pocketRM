@@ -14,7 +14,7 @@ const typeDefs = gql`
     reminders: [Event]
   }
   type Event {
-  _id: id
+  _id: ID
   firstName: String
   lastName: String
   date: String 
@@ -27,11 +27,13 @@ const typeDefs = gql`
     email: String
     phone: String
     address: String
+    hometown: String
     birthday: String
     occupation: String
     company: String
     partner: Boolean
     partnerName: String
+    anniversary: String
     children: Boolean
     childName: String
     childBirthday: String
@@ -56,17 +58,19 @@ const typeDefs = gql`
     time: Int
   }
   input ContactInput {
-    firstName: String!
-    lastName: String!
-    relationship: String!
+    firstName: String
+    lastName: String
+    relationship: String
     email: String
-    phone: String!
+    phone: String
     address: String
+    hometown: String
     birthday: String
     occupation: String
     company: String
     partner: Boolean
     partnerName: String
+    anniversary: String
     children: Boolean
     childName: String
     childBirthday: String
@@ -75,7 +79,7 @@ const typeDefs = gql`
     interestsHobbies: String
     importantDates: String
     giftIdeas: String
-    metAt: String!
+    metAt: String
   }
   type Auth {
     token: ID!
@@ -84,11 +88,11 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user: User
-    contacts(id: ID!): User
-    contact(contactId: ID!): Contact
-    notes: [Notes]
-    remindersContact: [Contact]
-    remindersUser: [User]
+    contacts(userID: ID!): Contact 
+    contact(contactID: ID!): Contact 
+    notes(contactID: ID!): [Notes]
+    remindersContact(contactID: ID!): [Contact]
+    remindersUser(userID: ID!): [Contact]
   }
   type Mutation {
     login(email: String!, password: String!): Auth
@@ -98,10 +102,13 @@ const typeDefs = gql`
       email: String!
       password: String!
     ): Auth
-    addContact(id: ID!, contactInput: ContactInput!): Contact
+    createContact(id: ID!, contactInput: ContactInput!): Contact
+    #is this necessary?
+    editContact(id: ID!, contactInput: ContactInput!): Contact
     deleteContact(contactId: ID!): Contact
+    #do we need add and delete for reminders and notes?
   }
-`;
+`
 
 module.exports = typeDefs;
 // relationship: String
