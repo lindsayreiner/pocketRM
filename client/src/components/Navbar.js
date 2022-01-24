@@ -28,6 +28,24 @@ export default function Navbar() {
 
     displaySearchBar();
   }, [isLoggedIn]);
+
+  // logout feature
+  const logout = () => {
+    try {
+      const expired = auth.loggedIn();
+
+      if (!expired) {
+        return false;
+      }
+
+      setIsLoggedIn(expired);
+    } catch (err) {
+      console.error(err);
+    }
+    window.localStorage.clear();
+    window.location.href = "/login";
+  };
+
   return (
     <>
       <nav className="navbar">
@@ -51,7 +69,11 @@ export default function Navbar() {
                 location.pathname !== "/profile" ? (
                   isLoggedIn ? (
                     <>
-                      <Button style={{ marginRight: "2rem" }} to="/">
+                      <Button
+                        onClick={logout}
+                        style={{ marginRight: "2rem" }}
+                        to="/"
+                      >
                         Logout
                       </Button>
                     </>
@@ -69,7 +91,11 @@ export default function Navbar() {
                 ) : (
                   <>
                     {" "}
-                    <Button style={{ marginRight: "2rem" }} to="/">
+                    <Button
+                      onClick={logout}
+                      style={{ marginRight: "2rem" }}
+                      to="/"
+                    >
                       Logout
                     </Button>
                   </>
@@ -77,7 +103,11 @@ export default function Navbar() {
               ) : (
                 <>
                   {" "}
-                  <Button style={{ marginRight: "2rem" }} to="/">
+                  <Button
+                    onClick={logout}
+                    style={{ marginRight: "2rem" }}
+                    to="/"
+                  >
                     Logout
                   </Button>
                 </>
