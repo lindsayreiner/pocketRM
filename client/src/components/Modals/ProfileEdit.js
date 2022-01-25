@@ -93,7 +93,6 @@ export default function ProfileEdit() {
         variant="primary"
         onClick={handleShow}
         className="getStartedBtn btn-lg"
-        color="violet"
       >
         Edit <FontAwesomeIcon icon="edit" />
       </Button>

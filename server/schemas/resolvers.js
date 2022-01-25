@@ -22,7 +22,7 @@ const resolvers = {
     contacts: async (parent, args,) => {
 
       console.log(args.id);
-      const contactData = await User.findById({ _id: args.userID }).populate("contacts", ["_id", "firstName", "lastName"]);
+      const contactData = await User.findById({ _id: args.userID }).populate("contacts");
       console.log(contactData);
       // const userContacts = contactData.contacts;
 

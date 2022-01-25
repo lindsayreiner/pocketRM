@@ -27,7 +27,6 @@ const typeDefs = gql`
     email: String
     phone: String
     address: String
-    hometown: String
     birthday: String
     occupation: String
     company: String
@@ -64,7 +63,6 @@ const typeDefs = gql`
     email: String
     phone: String
     address: String
-    hometown: String
     birthday: String
     occupation: String
     company: String
