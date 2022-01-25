@@ -35,6 +35,15 @@ export const ADD_USER = gql`
   }
 `;
 
+export const CREATE_CONTACT = gql`
+mutation createContact( $contactInput: ContactInput!) {
+  createContact( contactInput: $contactInput) {
+    firstName
+    lastName
+  }
+}
+`
+
 export const EDIT_CONTACT = gql`
   mutation editUser(
     $firstName: String!

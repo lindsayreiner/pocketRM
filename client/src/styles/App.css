@@ -352,3 +352,8 @@ body > footer {
     padding-top: 2rem;
   }
 }
+
+.profileModal {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
