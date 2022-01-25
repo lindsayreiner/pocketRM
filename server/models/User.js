@@ -30,12 +30,8 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  contacts: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Contact'
-    }
-  ]
+  contacts: [contactSchema],
+
 });
 
 userSchema.pre("save", async function (next) {
