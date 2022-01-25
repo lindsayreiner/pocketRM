@@ -113,7 +113,7 @@ const LoginForm = () => {
 
         <div className="mt-3 d-flex justify-center">
           New to PocketRM?{" "}
-          <Link to="/dashboard">
+          <Link to="/register">
             <b>Sign Up</b>
           </Link>
         </div>
