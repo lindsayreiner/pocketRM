@@ -59,7 +59,7 @@ export default function Profile() {
               <p className="upcomingTitle pink">General</p>
               <div id="generalProfile" className="upcomingDiv">
                 <ul className="upcomingUl">
-                  <li className="upcomingLi">Interests & Hobbies: {""}</li>
+                  <li className="upcomingLi">Interests and Hobbies: {""}</li>
                   <li className="upcomingLi">
                     <b>Important Dates: </b> {""}
                   </li>

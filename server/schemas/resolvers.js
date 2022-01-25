@@ -109,7 +109,6 @@ const resolvers = {
               interestsHobbies: contactInput.interestsHobbies,
               importantDates: contactInput.importantDates,
               giftIdeas: contactInput.giftIdeas,
-              metAt: contactInput.metAt,
             },
           }
         );
