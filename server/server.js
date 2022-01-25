@@ -15,7 +15,6 @@ const startServer = async () => {
     typeDefs,
     resolvers,
     context: authMiddleware
-
   });
   await server.start();
   await server.applyMiddleware({ app });

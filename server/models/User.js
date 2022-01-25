@@ -31,6 +31,7 @@ const userSchema = new Schema({
     minlength: 5,
   },
   contacts: [contactSchema],
+
 });
 
 userSchema.pre("save", async function (next) {
