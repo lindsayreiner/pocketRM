@@ -70,22 +70,22 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    createContact: async (parent, { contactInput }, context) => {
-      console.log(contactInput); // { id: "61e75985920d77064a3ff74a" }
-      try {
-        const newContact = await Contact.create(contactInput);
-        console.log(newContact);
-        // const addToUserContact = await
-        // prettier-ignore
-        const addToUserContact = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { "contacts": newContact._id } },
-          { new: true, runValidators: true }
+    createContact: async (parent, { userId, input }, context) => {
+      // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
+      if (context.user) {
+        return User.findOneAndUpdate(
+          { _id: userId },
+          {
+            $addToSet: { contacts: input },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
         );
-        return addToUserContact;
-      } catch (e) {
-        return `Unable to save contacts due to error: ${e}`;
       }
+      // If user attempts to execute this mutation and isn't logged in, throw an error
+      throw new AuthenticationError('You need to be logged in!');
     },
 
     editContact: async (parent, { id, contactInput }) => {
