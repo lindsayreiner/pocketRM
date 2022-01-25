@@ -11,13 +11,11 @@ const userSchema = new Schema({
   firstName: {
     type: String,
     required: true,
-    unique: true,
     trim: true,
   },
   lastName: {
     type: String,
     required: true,
-    unique: true,
     trim: true,
   },
   email: {
@@ -30,7 +28,12 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  contacts: [contactSchema],
+  contacts: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Contact'
+    }
+  ],
 
 });
 

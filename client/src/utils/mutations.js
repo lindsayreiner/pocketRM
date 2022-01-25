@@ -1,17 +1,13 @@
 import gql from "graphql-tag";
 
 export const LOGIN_USER = gql`
-mutation login($email: String!, $password: String!) {
+mutation loginUser($email: String!, $password: String!) {
   login(email: $email, password: $password) {
     token
     user {
       _id
       firstName
       lastName
-      birthdays
-      anniversaries
-      important
-      reminders
     }
   }
   }
@@ -38,6 +34,15 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const CREATE_CONTACT = gql`
+mutation createContact( $contactInput: ContactInput!) {
+  createContact( contactInput: $contactInput) {
+    firstName
+    lastName
+  }
+}
+`
 
 export const EDIT_CONTACT = gql`
   mutation editUser(

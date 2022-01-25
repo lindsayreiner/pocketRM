@@ -1,13 +1,18 @@
 import React from 'react';
+// import { useQuery } from '@apollo/client';
+// import { GET_ALL_CONTACTS } from '../utils/queries';
 
 import { Button, Form, FormControl } from "react-bootstrap";
 import '../styles/Contacts.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import ProfileCreate from "./Modals/ProfileCreate.js"
+
 
 export default function Contacts() {
 
-
+    // const { data } = useQuery(GET_ALL_CONTACTS);
+    // const contacts = data?.contacts || [];
 
     return (
         <>
@@ -26,39 +31,14 @@ export default function Contacts() {
                             aria-label="Search"
                         />
                         <Button variant="outline-secondary">Search</Button>
-                        <Button className="addContactBtn"
-                            style={{
-                                marginLeft: '1em'
-                            }}
-                        ><FontAwesomeIcon icon="plus" /></Button>
+                        <ProfileCreate />
+
                     </Form>
                     <div className="searchContactList">
                         <ul className="contactListUl">
                             <li className="contactListLi"><Button className="profileBtn" to="/profile:id">Aaron Fernandez</Button></li>
-                            <li className="contactListLi"><Button className="profileBtn" to="/profile:id">Andrew Matthews</Button></li>
-                            <li className="contactListLi"><Button className="profileBtn" to="/profile:id">Anita Smith</Button></li>
-                            <li className="contactListLi"><Button className="profileBtn" to="/profile:id">Brian Cruz</Button></li>
-                            <li className="contactListLi"><Button className="profileBtn" to="/profileclassName">Aaron Fernandez</Button></li>
-                            <li className="contactListLi"><Button className="profileBtn" to="/profile:id">Andrew Matthews</Button></li>
-                            <li className="contactListLi"><Button className="profileBtn" to="/profileclassName">Aaron Fernandez</Button></li>
-                            <li className="contactListLi"><Button className="profileBtn" to="/profile:id">Andrew Matthews</Button></li>
-                            <li className="contactListLi"><Button className="profileBtn" to="/profile:id">Anita Smith</Button></li>
-                            <li className="contactListLi"><Button className="profileBtn" to="/profile:id">Brian Cruz</Button></li>
-                            <li className="contactListLi"><Button className="profileBtn" to="/profileclassName">Aaron Fernandez</Button></li>
-                            <li className="contactListLi"><Button className="profileBtn" to="/profile:id">Andrew Matthews</Button></li>
-                            <li className="contactListLi"><Button className="profileBtn" to="/profileclassName">Aaron Fernandez</Button></li>
-                            <li className="contactListLi"><Button className="profileBtn" to="/profile:id">Andrew Matthews</Button></li>
-                            <li className="contactListLi"><Button className="profileBtn" to="/profile:id">Anita Smith</Button></li>
-                            <li className="contactListLi"><Button className="profileBtn" to="/profile:id">Brian Cruz</Button></li>
-                            <li className="contactListLi"><Button className="profileBtn" to="/profileclassName">Aaron Fernandez</Button></li>
-                            <li className="contactListLi"><Button className="profileBtn" to="/profile:id">Andrew Matthews</Button></li>
-                            <li className="contactListLi"><Button className="profileBtn" to="/profileclassName">Aaron Fernandez</Button></li>
-                            <li className="contactListLi"><Button className="profileBtn" to="/profile:id">Andrew Matthews</Button></li>
-                            <li className="contactListLi"><Button className="profileBtn" to="/profile:id">Anita Smith</Button></li>
-                            <li className="contactListLi"><Button className="profileBtn" to="/profile:id">Brian Cruz</Button></li>
-                            <li className="contactListLi"><Button className="profileBtn" to="/profileclassName">Aaron Fernandez</Button></li>
-                            <li className="contactListLi"><Button className="profileBtn" to="/profile:id">Andrew Matthews</Button></li>
                         </ul>
+
                     </div>
                 </div>
             </section>

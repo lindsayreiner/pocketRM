@@ -27,7 +27,6 @@ const typeDefs = gql`
     email: String
     phone: String
     address: String
-    hometown: String
     birthday: String
     occupation: String
     company: String
@@ -64,7 +63,6 @@ const typeDefs = gql`
     email: String
     phone: String
     address: String
-    hometown: String
     birthday: String
     occupation: String
     company: String
@@ -98,8 +96,8 @@ const typeDefs = gql`
       lastName: String!
       email: String!
       password: String!
-    ): User
-    createContact(id: ID!, contactInput: ContactInput!): Contact
+    ): Auth
+    createContact( contactInput: ContactInput!): Contact
     deleteContact(id: ID!): Contact
     editContact(id:ID!, contactInput: ContactInput!): Contact
   }

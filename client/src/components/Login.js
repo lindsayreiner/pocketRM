@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 // import { useForm, Controller } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
@@ -14,8 +14,9 @@ const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
+  const navigate = useNavigate();
 
-  const [loginUser, { error, data }] = useMutation(LOGIN_USER);
+  const [loginUser, { error }] = useMutation(LOGIN_USER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -30,6 +31,7 @@ const LoginForm = () => {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
+      console.log('hi')
     }
 
     console.log(userFormData);
@@ -40,11 +42,12 @@ const LoginForm = () => {
       });
 
       // Store the token in local storage
-      const { token } = await data.login.token;
-      Auth.login(token);
-      event.authenticate(true);
-    } catch (err) {
-      console.error(err);
+      console.log(data);
+      Auth.login(data.login.token);
+      navigate("/dashboard")
+
+    } catch (e) {
+      console.error(e);
       setShowAlert(true);
     }
 
@@ -105,7 +108,6 @@ const LoginForm = () => {
             disabled={!(userFormData.email && userFormData.password)}
             type="submit"
             className="btn-primary"
-            href="/dashboard"
           >
             Submit
           </Button>
@@ -113,7 +115,7 @@ const LoginForm = () => {
 
         <div className="mt-3 d-flex justify-center">
           New to PocketRM?{" "}
-          <Link to="/dashboard">
+          <Link to="/register">
             <b>Sign Up</b>
           </Link>
         </div>
