@@ -6,13 +6,9 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import LandingPage from "./components/LandingPage";
 
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+
 import {
   ApolloClient,
   ApolloProvider,
