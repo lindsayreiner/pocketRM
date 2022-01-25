@@ -15,22 +15,7 @@ import ProfileEdit from "./Modals/ProfileEdit";
 
 export default function Profile() {
 
-  //query single contact
-  // const { contactID } = useParams();
 
-  // const { loading, data } = useQuery(GET_SINGLE_CONTACT, {
-
-  //   variables: { contactID: contactID },
-  // });
-
-  // const contact = data?.contact || {};
-
-
-
-
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
   return (
     <>
       <section className="profileCont">
