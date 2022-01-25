@@ -4,11 +4,7 @@
     "lastName": "Taylor",
     "email": "wesleytaylor@pocketrm.com",
     "password": "password01",
-    "contacts": [
-      "61ef09aaace3a8b15c144042",
-      "61ef09aaace3a8b15c144043",
-      "61ef09aaace3a8b15c144044"
-    ]
+    "contacts": ["61ef645c988afadf4c0d8176"]
   },
   {
     "firstName": "Lyman",

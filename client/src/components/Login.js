@@ -40,8 +40,9 @@ const LoginForm = () => {
       });
 
       // Store the token in local storage
-      Auth.login(data.login.token);
       console.log(data);
+      Auth.login(data.login.token);
+
     } catch (e) {
       console.error(e);
       setShowAlert(true);
@@ -104,7 +105,6 @@ const LoginForm = () => {
             disabled={!(userFormData.email && userFormData.password)}
             type="submit"
             className="btn-primary"
-            href="/dashboard"
           >
             Submit
           </Button>
@@ -112,7 +112,7 @@ const LoginForm = () => {
 
         <div className="mt-3 d-flex justify-center">
           New to PocketRM?{" "}
-          <Link to="/dashboard">
+          <Link to="/register">
             <b>Sign Up</b>
           </Link>
         </div>

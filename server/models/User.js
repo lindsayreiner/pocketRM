@@ -30,7 +30,12 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  contacts: [contactSchema],
+  contacts: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Contact'
+    }
+  ],
 
 });
 
