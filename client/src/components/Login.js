@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 // import { useForm, Controller } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
@@ -14,6 +14,7 @@ const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
+  const navigate = useNavigate();
 
   const [loginUser, { error }] = useMutation(LOGIN_USER);
 
@@ -30,6 +31,7 @@ const LoginForm = () => {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
+      console.log('hi')
     }
 
     console.log(userFormData);
@@ -42,6 +44,7 @@ const LoginForm = () => {
       // Store the token in local storage
       console.log(data);
       Auth.login(data.login.token);
+      navigate("/dashboard")
 
     } catch (e) {
       console.error(e);
