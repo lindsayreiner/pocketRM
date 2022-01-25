@@ -3,33 +3,37 @@ import React, { useState } from "react";
 import { Button, Form, Alert } from "react-bootstrap";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Auth from "../utils/auth";
 
 import "../styles/Register.css";
 
 const RegisterForm = () => {
+  const navigate = useNavigate();
+
   const [userFormData, setUserFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
   });
-
+  /*eslint-disable */
   const [errors] = useState({
     email: {
       pattern: {
-        value: "^([a-z0-9_.-]+)@([da-z.-]+).([a-z.]{2,6})$",
+        value: "^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$",
       },
     },
     password: {
-      pattern: { value: "^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$" },
+      pattern: { value: "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" },
     },
   });
 
+  /*eslint-enable */
   const [validated, setValidated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [addUser, { error }] = useMutation(ADD_USER);
+
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -54,19 +58,23 @@ const RegisterForm = () => {
       const { data } = await addUser({
         variables: { ...userFormData },
       });
-      Auth.login(data.addUser.token);
+
       console.log(data);
+
+      Auth.login(data.addUser.token);
+      navigate("/profile")
+
     } catch (e) {
       console.error(e);
       setShowAlert(true);
     }
 
-    setUserFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-    });
+    // setUserFormData({
+    //   firstName: "",
+    //   lastName: "",
+    //   email: "",
+    //   password: "",
+    // });
   };
 
   return (
@@ -75,7 +83,7 @@ const RegisterForm = () => {
         <h1 className="regTitle">Register for PocketRM</h1>
         <Form
           className="form"
-          noValidate
+          // noValidate
           validated={validated}
           onSubmit={handleFormSubmit}
           style={{ maxWidth: 450 }}
@@ -98,9 +106,9 @@ const RegisterForm = () => {
               value={userFormData.firstName}
               required
             />
-            <Form.Control.Feedback type="invalid">
+            {/* <Form.Control.Feedback type="invalid">
               First name is required!
-            </Form.Control.Feedback>
+            </Form.Control.Feedback> */}
           </Form.Group>
           {/* {errors.firstName && (
             <p style={{ color: "red", marginBottom: "0.85rem" }}>
@@ -117,9 +125,9 @@ const RegisterForm = () => {
               value={userFormData.lastName}
               required
             />
-            <Form.Control.Feedback type="invalid">
+            {/* <Form.Control.Feedback type="invalid">
               Last name is required!
-            </Form.Control.Feedback>
+            </Form.Control.Feedback> */}
           </Form.Group>
           {/* {userFormData.lastName && (
             <p style={{ color: "red", marginBottom: "0.85rem" }}>
@@ -135,11 +143,11 @@ const RegisterForm = () => {
               onChange={handleInputChange}
               value={userFormData.email}
               required
-              // pattern="^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$"
+            // pattern="^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$"
             />
-            <Form.Control.Feedback type="invalid">
+            {/* <Form.Control.Feedback type="invalid">
               Email is required and must be a valid email address.
-            </Form.Control.Feedback>
+            </Form.Control.Feedback> */}
           </Form.Group>
           {/* {errors.email && errors.email.type === "required" && (
             <p style={{ color: "red", marginBottom: "0.85rem" }}>
@@ -156,27 +164,27 @@ const RegisterForm = () => {
               onChange={handleInputChange}
               value={userFormData.password}
               required
-              // pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+            // pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
             />
-            <Form.Control.Feedback type="invalid">
+            {/* <Form.Control.Feedback type="invalid">
               Password is required and must be a minimum of 8 characters, and
               include at least one letter and one number.
-            </Form.Control.Feedback>
+            </Form.Control.Feedback> */}
           </Form.Group>
           {/* {errors.password && errors.password.type === "required" && (
               <p style={{ color: "red", marginBottom: "0.85rem" }}>
                 Password field is required.
               </p>
             )} */}
-          {errors.password && (
+          {/* {errors.password && (
             <p style={{ marginBottom: "0.85rem" }}>
               Passwords must be a minimum of 8 characters, and include at least
               one letter and one number.
             </p>
-          )}
+          )} */}
           <Button
             disabled={
-              !(
+              (
                 userFormData.firstName &&
                 userFormData.lastName &&
                 userFormData.email &&
@@ -187,7 +195,6 @@ const RegisterForm = () => {
             }
             type="submit"
             className="btn-primary"
-            href="/dashboard"
           >
             Submit
           </Button>
