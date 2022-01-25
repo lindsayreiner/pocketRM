@@ -2,7 +2,7 @@ const { Schema, model } = require("mongoose");
 const dateFormat = require('../utils/dateFormat');
 
 const noteSchema = new Schema({
-  notes: {
+  note: {
     type: String,
     required: false,
     trim: true,
@@ -18,6 +18,6 @@ const noteSchema = new Schema({
   }
 });
 
-const Notes = model('Notes', noteSchema);
+const Note = model('Note', noteSchema);
 
-module.exports = Notes;
+module.exports = Note;

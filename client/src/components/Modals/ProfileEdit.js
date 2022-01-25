@@ -3,10 +3,23 @@ import { Modal, Button, Form } from "react-bootstrap";
 import { useForm, Controller } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { useMutation, useQuery } from "@apollo/react-hooks";
+// import { GET_SINGLE_CONTACT } from '../utils/queries.js';
+// import { EDIT_CONTACT } from '../utils/mutations';
 
 // TODO: add mutation for edit user
 
 export default function ProfileEdit() {
+  //query contact
+  // const { contactID } = useParams();
+
+  // const { loading, data } = useQuery(GET_SINGLE_CONTACT, {
+
+  //   variables: { contactID: contactID },
+  // });
+
+  // const contact = data?.contact || {};
+
+  //modal functionality
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -19,32 +32,60 @@ export default function ProfileEdit() {
   } = useForm({
     defaultValues: {
       // TODO: Need to query for default values
-      firstName: "",
-      lastName: "",
-      relationship: "",
-      email: "",
-      phone: "",
-      address: "",
-      birthday: "",
-      occupation: "",
-      company: "",
-      partner: "",
-      partnerName: "",
-      children: "",
-      childName: "",
-      childBirthday: "",
-      pets: "",
-      petName: "",
-      interestsHobbies: "",
-      importantDates: "",
-      giftIdeas: "",
-      metAt: "",
+      firstName: "{contact.firstName}",
+      lastName: "{contact.lastName}",
+      relationship: "{contact.relationship}",
+      email: "{contact.email}",
+      phone: "{contact.phone}",
+      address: "{contact.address}",
+      birthday: "{contact.birthday}",
+      occupation: "{contact.occupation}",
+      hometown: "{contact.hometown}",
+      company: "{contact.company}",
+      partner: "{contact.partner}",
+      partnerName: "{contact.partnerName}",
+      children: "{contact.children}",
+      childName: "{contact.childName}",
+      childBirthday: "{contact.childBirthday}",
+      pets: "{contact.pets}",
+      petName: "{contact.petName}",
+      interestsHobbies: "{contact.interestsHobbies}",
+      importantDates: "{contact.importantDates}",
+      giftIdeas: "{contact.giftIdeas}",
+      metAt: "{contact.metAt}",
     },
   });
 
   const onSubmit = (data) => {
     console.log(data);
   };
+
+
+
+  //edit contact
+
+  // let history = useHistory();
+
+  // const [editContact, { error }] = useMutation(EDIT_CONTACT);
+
+  // const handleInputChange = (event) => {
+  //   const { name, value } = event.target;
+  //   setFormData({ ...formData, [name]: value });
+  // };
+
+  // const handleFormSubmit = async (event) => {
+  //   event.preventDefault();
+
+  //   try {
+  //     const { data } = await editContact({
+  //       variables: { ...formData },
+  //     });
+
+  //     history.push(`/matchup/${data.createMatchup._id}`);
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+
 
   return (
     <>

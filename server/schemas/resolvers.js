@@ -17,21 +17,24 @@ const resolvers = {
 
     contacts: async (parent, args) => {
       console.log(args.id);
-      const contactData = await User.findById({ _id: args.id }).populate(
-        "contacts"
-      );
-      const userContacts = contactData.contacts;
-
-      const contactArray = await userContacts.array.forEach((element) => {
-        Contact.findById({ _id: userContacts._id });
-        console.log(contactArray);
-      });
+      const contactData = await User.findById({ _id: args.userID }).populate("contacts", ["_id", "firstName", "lastName"]);
       console.log(contactData);
-      return contactData;
-    },
+      // const userContacts = contactData.contacts;
 
+      // const contactArray = await userContacts.array.forEach(element => {
+      //   Contact.findById({ _id: userContacts._id })
+      //   console.log(contactArray)
+
+      // });
+      // console.log(contactData)
+      return contactData;
+
+    },
     contact: async (parent, args) => {
-      return Contact.findOne({ _id: args.id }).populate("notes");
+      console.log(args.id)
+      const singleContact = Contact.findOne({ _id: args.id }).populate();
+      console.log(singleContact)
+      return singleContact
     },
   },
   Mutation: {
@@ -50,7 +53,8 @@ const resolvers = {
         throw new AuthenticationError("Wrong signon credentials");
       }
 
-      // if (fasle){
+
+      // if (false){
       // const now = new Date();
       // const twoWeeksFromNow = moment().add(2, 'weeks');
       // const upcomingBirthdays = user.contacts.filter(contact => moment(contact.birthday).isBetween(now, twoWeeksFromNow));
@@ -104,8 +108,7 @@ const resolvers = {
               interestsHobbies: contactInput.interestsHobbies,
               importantDates: contactInput.importantDates,
               giftIdeas: contactInput.giftIdeas,
-              metAt: contactInput.metAt,
-            },
+            }
           }
         );
 
@@ -116,10 +119,10 @@ const resolvers = {
     },
     deleteContact: async (parent, { id }) => {
       try {
-        console.log(id);
-        const removeFromUserContact = await Contact.findOneAndRemove({
-          _id: id,
-        });
+        console.log(id)
+        const removeFromUserContact = await Contact.findOneAndRemove(
+          { _id: id }
+        );
 
         return removeFromUserContact;
       } catch (e) {
