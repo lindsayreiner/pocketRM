@@ -5,7 +5,7 @@ require("dotenv").config();
 mongoose
   .connect(
     process.env.MONGODB_URI ||
-    "mongodb://localhost/pocketRM",
+    "mongodb://localhost/pocketrm",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
