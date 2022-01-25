@@ -45,8 +45,6 @@ const RegisterForm = () => {
       event.stopPropagation();
     }
 
-    setValidated(true);
-
     console.log(userFormData);
 
     try {
@@ -175,16 +173,16 @@ const RegisterForm = () => {
             </p>
           )}
           <Button
-            disabled={
-              !(
-                userFormData.firstName &&
-                userFormData.lastName &&
-                userFormData.email &&
-                !errors.email &&
-                userFormData.password &&
-                !errors.password
-              )
-            }
+            // disabled={
+            //   !(
+            //     userFormData.firstName &&
+            //     userFormData.lastName &&
+            //     userFormData.email &&
+            //     !errors.email &&
+            //     userFormData.password &&
+            //     !errors.password
+            //   )
+            // }
             type="submit"
             className="btn-primary"
             href="/dashboard"
