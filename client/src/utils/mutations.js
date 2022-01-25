@@ -36,10 +36,12 @@ export const ADD_USER = gql`
 `;
 
 export const CREATE_CONTACT = gql`
-mutation createContact( $contactInput: ContactInput!) {
-  createContact( contactInput: $contactInput) {
+mutation createContact($userId: ID!, $input: ContactInput!) {
+  createContact(userId: $userId, input: $input) {
+  _id
     firstName
     lastName
+    contacts
   }
 }
 `

@@ -67,31 +67,44 @@ query getAllContacts ($userId: ID!)  {
 
 export const GET_ALL_BIRTHDAYS = gql`
 {
-  query getAllBirthdays {
-    contact(id: $id) {
-      birthday
+  query getAllBirthdays($birthdaysId: ID!) {
+  birthdays(id: $birthdaysId) {
+    birthdays {
+      firstName
+      lastName
+      date
     }
   }
 }
+}
 `
+
 
 export const GET_ALL_ANNIVERSARY = gql`
 {
-  query getAllAniversaries {
-    contact(id: $id) {
-      anniversary
+  query Query($anniversariesId: ID!) {
+  anniversaries(id: $anniversariesId) {
+    anniversaries {
+      firstName
+      lastName
+      date
     }
   }
+}
 }
 `
 
 export const GET_ALL_IMPORTANT = gql`
 {
-query getImportantDates {
-  contact {
-     importantDates
+  query Query($importantDatesId: ID!) {
+  importantDates(id: $importantDatesId) {
+    important {
+      firstName
+      lastName
+      date
     }
   }
+}
 }
 `
 

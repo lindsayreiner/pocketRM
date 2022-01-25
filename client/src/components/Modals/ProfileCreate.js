@@ -7,8 +7,8 @@ import { useMutation } from "@apollo/client";
 import { CREATE_CONTACT } from '../../utils/mutations';
 
 
-export default function ProfileEdit() {
-    const [userFormData, setUserFormData] = useState({
+export default function ProfileCreate() {
+    const [formState, setFormState] = useState({
         firstName: "",
         lastName: "",
         relationship: "",
@@ -32,7 +32,7 @@ export default function ProfileEdit() {
         metAt: "",
     });
 
-    const [loginUser, { error }] = useMutation(CREATE_CONTACT);
+    const [createContact, { error, data }] = useMutation(CREATE_CONTACT);
     //modal functionality
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -40,27 +40,20 @@ export default function ProfileEdit() {
     const navigate = useNavigate();
 
 
+
     const handleInputChange = (event) => {
         const { name, value } = event.target;
-        setUserFormData({ ...userFormData, [name]: value });
+        setFormState({ ...formState, [name]: value });
     };
+
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-
-        // check if form has everything (as per react-bootstrap docs)
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-            console.log('hi')
-        }
-
-        console.log(userFormData);
+        console.log(">>>> formState >>>>", formState);
 
         try {
-            const { data } = await loginUser({
-                variables: { ...userFormData },
+            const { data } = await createContact({
+                variables: { ...formState },
             });
 
             navigate("/profile")
@@ -69,11 +62,6 @@ export default function ProfileEdit() {
             console.error(e);
 
         }
-
-        setUserFormData({
-            email: "",
-            password: "",
-        });
     };
 
 
@@ -99,8 +87,8 @@ export default function ProfileEdit() {
                                 placeholder="First Name"
                                 name="firstName"
                                 onChange={handleInputChange}
-                                value={userFormData.firstName}
-                                required
+                                value={formState.firstName || ""}
+
                             />
                         </Form.Group>
                         <Form.Group className="mb-3">
@@ -110,8 +98,8 @@ export default function ProfileEdit() {
                                 placeholder="Last Name"
                                 name="lastName"
                                 onChange={handleInputChange}
-                                value={userFormData.lastName}
-                                required
+                                value={formState.lastName || ""}
+
                             />
                         </Form.Group>
                         <Form.Group className="mb-3">
@@ -121,8 +109,8 @@ export default function ProfileEdit() {
                                 placeholder="e.g. Friend, Colleague, Family, Acquaintance, Dating"
                                 name="relationship"
                                 onChange={handleInputChange}
-                                value={userFormData.relationship}
-                                required
+                                value={formState.relationship || ""}
+
                             />
                         </Form.Group>
                         <Form.Group className="mb-3">
@@ -132,8 +120,8 @@ export default function ProfileEdit() {
                                 placeholder="Email Address"
                                 name="email"
                                 onChange={handleInputChange}
-                                value={userFormData.email}
-                                required
+                                value={formState.email || ""}
+
                             />
                             <Form.Text className="text-muted">Optional</Form.Text>
                         </Form.Group>
@@ -144,8 +132,8 @@ export default function ProfileEdit() {
                                 placeholder="Phone Number"
                                 name="phoneNumber"
                                 onChange={handleInputChange}
-                                value={userFormData.phoneNumber}
-                                required
+                                value={formState.phoneNumber || ""}
+
                             />
                         </Form.Group>
                         <Form.Group className="mb-3">
@@ -155,8 +143,8 @@ export default function ProfileEdit() {
                                 placeholder="e.g. Coffee Shop, School, Tinder, Work"
                                 name="metAt"
                                 onChange={handleInputChange}
-                                value={userFormData.metAt}
-                                required
+                                value={formState.metAt || ""}
+
                             />
                             <Form.Text className="required">Required</Form.Text>
                         </Form.Group>
@@ -168,8 +156,8 @@ export default function ProfileEdit() {
                                 placeholder="Address"
                                 name="address"
                                 onChange={handleInputChange}
-                                value={userFormData.address}
-                                required
+                                value={formState.address || ""}
+
                             />
                             <Form.Text className="text-muted">Optional</Form.Text>
                         </Form.Group>
@@ -180,8 +168,8 @@ export default function ProfileEdit() {
                                 placeholder="Birthday"
                                 name="birthday"
                                 onChange={handleInputChange}
-                                value={userFormData.birthday}
-                                required
+                                value={formState.birthday || ""}
+
                             />
                             <Form.Text className="text-muted">Optional</Form.Text>
                         </Form.Group>
@@ -192,8 +180,8 @@ export default function ProfileEdit() {
                                 placeholder="Occupation"
                                 name="occupation"
                                 onChange={handleInputChange}
-                                value={userFormData.occupation}
-                                required
+                                value={formState.occupation || ""}
+
                             />
                             <Form.Text className="text-muted">Optional</Form.Text>
                         </Form.Group>
@@ -204,8 +192,8 @@ export default function ProfileEdit() {
                                 placeholder="Company Name"
                                 name="company"
                                 onChange={handleInputChange}
-                                value={userFormData.company}
-                                required
+                                value={formState.company || ""}
+
                             />
                             <Form.Text className="text-muted">Optional</Form.Text>
                         </Form.Group>
@@ -217,8 +205,8 @@ export default function ProfileEdit() {
                                 placeholder="Partner Name, if applicable"
                                 name="partnerName"
                                 onChange={handleInputChange}
-                                value={userFormData.partnerName}
-                                required
+                                value={formState.partnerName || ""}
+
                             />
                             <Form.Text className="text-muted">Optional</Form.Text>
                         </Form.Group>
@@ -230,8 +218,7 @@ export default function ProfileEdit() {
                                 placeholder="Children Name(s)"
                                 name="childName"
                                 onChange={handleInputChange}
-                                value={userFormData.childName}
-                                required
+                                value={formState.childName || ""}
                             />
                             <Form.Text className="text-muted">Optional</Form.Text>
                         </Form.Group>
@@ -242,8 +229,7 @@ export default function ProfileEdit() {
                                 placeholder="Child(ren) birthday(s)"
                                 name="childBirthday"
                                 onChange={handleInputChange}
-                                value={userFormData.childBirthday}
-                                required
+                                value={formState.childBirthday || ""}
                             />
                             <Form.Text className="text-muted">Optional</Form.Text>
                         </Form.Group>
@@ -255,8 +241,7 @@ export default function ProfileEdit() {
                                 placeholder="Pet name(s)"
                                 name="petName"
                                 onChange={handleInputChange}
-                                value={userFormData.petName}
-                                required
+                                value={formState.petName || ""}
                             />
                             <Form.Text className="text-muted">Optional</Form.Text>
                         </Form.Group>
@@ -267,8 +252,7 @@ export default function ProfileEdit() {
                                 placeholder="e.g. Basket Weaving, Cosplay, Reading, Fitness"
                                 name="interestsHobbies"
                                 onChange={handleInputChange}
-                                value={userFormData.interestsHobbies}
-                                required
+                                value={formState.interestsHobbies || ""}
                             />
                             <Form.Text className="text-muted">Optional</Form.Text>
                         </Form.Group>
@@ -279,8 +263,7 @@ export default function ProfileEdit() {
                                 placeholder="e.g. Graduation, Wedding, Due Date, Illness"
                                 name="importantDates"
                                 onChange={handleInputChange}
-                                value={userFormData.importantDates}
-                                required
+                                value={formState.importantDates || ""}
                             />
                             <Form.Text className="text-muted">Optional</Form.Text>
                         </Form.Group>
@@ -291,18 +274,17 @@ export default function ProfileEdit() {
                                 placeholder="Gift Ideas"
                                 name="giftIdeas"
                                 onChange={handleInputChange}
-                                value={userFormData.giftIdeas}
-                                required
+                                value={formState.giftIdeas || ""}
                             />
                             <Form.Text className="text-muted">Optional</Form.Text>
                         </Form.Group>
+                        <Button variant="primary" type="submit" >
+                            Save Changes
+                        </Button>
                     </Form>
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="primary" type="submit">
-                        Save Changes
-                    </Button>
-                </Modal.Footer>
+
+
             </Modal>
         </>
     );
