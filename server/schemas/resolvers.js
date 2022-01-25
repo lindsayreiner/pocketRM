@@ -17,7 +17,10 @@ const resolvers = {
 
     contacts: async (parent, args) => {
       console.log(args.id);
-      const contactData = await User.findById({ _id: args.userID }).populate("contacts", ["_id", "firstName", "lastName"]);
+      const contactData = await User.findById({ _id: args.userID }).populate(
+        "contacts",
+        ["_id", "firstName", "lastName"]
+      );
       console.log(contactData);
       // const userContacts = contactData.contacts;
 
@@ -28,13 +31,12 @@ const resolvers = {
       // });
       // console.log(contactData)
       return contactData;
-
     },
     contact: async (parent, args) => {
-      console.log(args.id)
+      console.log(args.id);
       const singleContact = Contact.findOne({ _id: args.id }).populate();
-      console.log(singleContact)
-      return singleContact
+      console.log(singleContact);
+      return singleContact;
     },
   },
   Mutation: {
@@ -52,7 +54,6 @@ const resolvers = {
       if (!correctPassword) {
         throw new AuthenticationError("Wrong signon credentials");
       }
-
 
       // if (false){
       // const now = new Date();
@@ -108,7 +109,7 @@ const resolvers = {
               interestsHobbies: contactInput.interestsHobbies,
               importantDates: contactInput.importantDates,
               giftIdeas: contactInput.giftIdeas,
-            }
+            },
           }
         );
 
@@ -119,10 +120,10 @@ const resolvers = {
     },
     deleteContact: async (parent, { id }) => {
       try {
-        console.log(id)
-        const removeFromUserContact = await Contact.findOneAndRemove(
-          { _id: id }
-        );
+        console.log(id);
+        const removeFromUserContact = await Contact.findOneAndRemove({
+          _id: id,
+        });
 
         return removeFromUserContact;
       } catch (e) {
