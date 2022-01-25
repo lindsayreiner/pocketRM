@@ -7,7 +7,8 @@ import Footer from "./components/Footer";
 import LandingPage from "./components/LandingPage";
 
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+
 import {
   ApolloClient,
   ApolloProvider,
@@ -20,6 +21,7 @@ import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import { setContext } from "@apollo/client/link/context";
 import "./styles/App.css";
 import "aos/dist/aos.css";
+import auth from "./utils/auth";
 
 // const client = new ApolloClient({
 //   // uri: 'http://localhost:3001/graphql'
@@ -59,7 +61,25 @@ const client = new ApolloClient({
 });
 
 function App() {
-  console.log(authLink);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    const redirect = async () => {
+      try {
+        const expired = auth.loggedIn();
+
+        if (!expired) {
+          return false;
+        }
+
+        setIsLoggedIn(expired);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    redirect();
+  }, [isLoggedIn]);
+
   // AOS init
   useEffect(() => {
     AOS.init();
@@ -74,13 +94,25 @@ function App() {
               <Navbar />
               <main>
                 <Routes>
-                  <Route path="/" element={<LandingPage />} />
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/register" element={<Register />} />
-                  <Route path="/profile" element={<Profile />} />
-                  {/* <Route path="/addreminder" element={<AddReminder />} />
-              <Route path="/addnote" element={<AddNote />} /> */}
+                  {!isLoggedIn && (
+                    <>
+                      <Route path="/" element={<LandingPage />} />
+                      <Route path="/login" element={<Login />} />
+                      <Route path="/register" element={<Register />} />
+                    </>
+                  )}
+                  {isLoggedIn && (
+                    <>
+                      <Route path="/dashboard" element={<Dashboard />} />
+                      <Route path="/profile" element={<Profile />} />
+                    </>
+                  )}
+                  <Route
+                    path="*"
+                    element={
+                      <Navigate to={isLoggedIn ? "/dashboard" : "/login"} />
+                    }
+                  />
                 </Routes>
               </main>
             </Router>
