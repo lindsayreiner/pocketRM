@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../styles/Profile.css";
 // import { Link } from "react-router-dom";
 // import { GET_SINGLE_CONTACT } from '../utils/queries.js';
@@ -10,8 +10,6 @@ import Reminders from "./Reminders";
 import Notes from "./Notes";
 
 import ProfileEdit from "./Modals/ProfileEdit";
-import Login from "./Login";
-import auth from "../utils/auth";
 
 export default function Profile() {
  const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -71,8 +69,10 @@ export default function Profile() {
                   <li className="upcomingLi">Phone: {''}</li>
                   <li className="upcomingLi">Email: {''}</li>
                   <li className="upcomingLi">Address:{''} </li>
+
                 </ul>
               </div>
+            </div>
 
             <div className="wrapper">
               <p className="upcomingTitle blue">Personal</p>
@@ -90,7 +90,6 @@ export default function Profile() {
                 </ul>
               </div>
             </div>
-
           </div>
           <div className="cardWrapperBottom">
             <div className="wrapper">
@@ -102,18 +101,16 @@ export default function Profile() {
                   <li className="upcomingLi"><b>Gift Ideas: </b>{''}</li>
                   <li className="upcomingLi"><b>Address:</b>{''}</li>
                 </ul>
-
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="remindersNotes">
-          <Reminders />
-          <Notes />
-        </section>
-      </>
-    );
-  }
-  return <Login />;
+      <section className="remindersNotes">
+        <Reminders />
+        <Notes />
+      </section>
+    </>
+  );
 }
