@@ -9,7 +9,7 @@ import Auth from "../utils/auth";
 import "../styles/Register.css";
 
 const RegisterForm = () => {
-  const [userFormData, setUserFormData] = useState({
+  const [formState, setFormState] = useState({
     firstName: "",
     lastName: "",
     email: "",
@@ -27,44 +27,28 @@ const RegisterForm = () => {
     },
   });
 
-  const [validated, setValidated] = useState(false);
+  const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [addUser, { error }] = useMutation(ADD_USER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setUserFormData({ ...userFormData, [name]: value });
+    setFormState({ ...formState, [name]: value });
   };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-
-    console.log(userFormData);
+    console.log(formState);
 
     try {
       // execute addUser mutation and pass in variable data from form
       const { data } = await addUser({
-        variables: { ...userFormData },
+        variables: { ...formState },
       });
-      Auth.login(data.addUser.token);
-      console.log(data);
+      Auth.login(data.addProfile.token);
     } catch (e) {
       console.error(e);
-      setShowAlert(true);
     }
-
-    setUserFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-    });
   };
 
   return (
@@ -93,7 +77,7 @@ const RegisterForm = () => {
               placeholder="Your first name"
               name="firstName"
               onChange={handleInputChange}
-              value={userFormData.firstName}
+              value={formState.firstName}
               required
             />
             <Form.Control.Feedback type="invalid">
@@ -112,7 +96,7 @@ const RegisterForm = () => {
               placeholder="Your last name"
               name="lastName"
               onChange={handleInputChange}
-              value={userFormData.lastName}
+              value={formState.lastName}
               required
             />
             <Form.Control.Feedback type="invalid">
@@ -131,7 +115,7 @@ const RegisterForm = () => {
               placeholder="Your email"
               name="email"
               onChange={handleInputChange}
-              value={userFormData.email}
+              value={formState.email}
               required
               // pattern="^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$"
             />
@@ -152,7 +136,7 @@ const RegisterForm = () => {
               placeholder="Your password"
               name="password"
               onChange={handleInputChange}
-              value={userFormData.password}
+              value={formState.password}
               required
               // pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
             />
