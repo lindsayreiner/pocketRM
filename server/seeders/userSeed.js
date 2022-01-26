@@ -13,4 +13,3 @@ db.once("open", async () => {
   process.exit(0);
 });
 
-//edit

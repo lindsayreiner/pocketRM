@@ -1,5 +1,5 @@
 import decode from "jwt-decode";
-//edit
+
 
 class AuthService {
   getProfile() {
