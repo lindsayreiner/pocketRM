@@ -1,6 +1,5 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
-//edit
 
 //const contactSchema = require("./Contact")
 //const reminderSchema = require("./Reminder")
