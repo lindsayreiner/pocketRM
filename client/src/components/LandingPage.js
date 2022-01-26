@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/LandingPage.css";
-//edit
+
 
 import { Button, Container, Row, Col, Image } from "react-bootstrap";
 
