@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useMutation } from "@apollo/client";
 import { CREATE_CONTACT } from '../../utils/mutations';
-//edit
+
 
 
 export default function ProfileCreate() {
