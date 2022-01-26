@@ -107,9 +107,3 @@ export const GET_ALL_IMPORTANT = gql`
 }
 }
 `
-
-
-
-
-
-

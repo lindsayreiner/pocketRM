@@ -6,6 +6,7 @@ import { ADD_USER } from "../utils/mutations";
 import { Link, useNavigate } from "react-router-dom";
 import Auth from "../utils/auth";
 
+
 import "../styles/Register.css";
 
 const RegisterForm = () => {

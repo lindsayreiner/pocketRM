@@ -85,7 +85,7 @@ const typeDefs = gql`
   }
   type Query {
     users: [User]
-    user(userId: ID!): User
+    user: User
     contacts(userID: ID!): User 
     contact(id: ID!): Contact
     birthdays(id: ID!): User 

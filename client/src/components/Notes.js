@@ -3,6 +3,7 @@ import "../styles/Notes.css";
 import { Button, Modal, Form, Card, ListGroup } from "react-bootstrap";
 
 
+
 export default function Notes() {
     const [show, setShow] = useState(false);
 

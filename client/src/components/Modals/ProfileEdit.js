@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { GET_SINGLE_CONTACT } from '../utils/queries.js';
 // import { EDIT_CONTACT } from '../utils/mutations';
 
+
 // TODO: add mutation for edit user
 
 export default function ProfileEdit() {

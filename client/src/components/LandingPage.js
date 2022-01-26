@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/LandingPage.css";
 
+
 import { Button, Container, Row, Col, Image } from "react-bootstrap";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

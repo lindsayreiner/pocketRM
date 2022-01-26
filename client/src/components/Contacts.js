@@ -2,6 +2,7 @@ import React from 'react';
 // import { useQuery } from '@apollo/client';
 // import { GET_ALL_CONTACTS } from '../utils/queries';
 
+
 import { Button, Form, FormControl } from "react-bootstrap";
 import '../styles/Contacts.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

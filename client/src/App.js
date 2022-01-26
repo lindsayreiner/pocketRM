@@ -5,11 +5,10 @@ import Profile from "./components/Profile";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import LandingPage from "./components/LandingPage";
-
+//edit
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useEffect } from "react";
-
 import {
   ApolloClient,
   ApolloProvider,
@@ -22,7 +21,6 @@ import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import { setContext } from "@apollo/client/link/context";
 import "./styles/App.css";
 import "aos/dist/aos.css";
-import auth from "./utils/auth";
 
 
 const PUBLIC_URL = process.env.PUBLIC_URL || "http://localhost:3001";
@@ -47,25 +45,7 @@ const client = new ApolloClient({
 });
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  useEffect(() => {
-    const redirect = async () => {
-      try {
-        const expired = auth.loggedIn();
-
-        if (!expired) {
-          return false;
-        }
-
-        setIsLoggedIn(expired);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-
-    redirect();
-  }, [isLoggedIn]);
-
+  console.log(authLink);
   // AOS init
   useEffect(() => {
     AOS.init();
@@ -80,25 +60,13 @@ function App() {
               <Navbar />
               <main>
                 <Routes>
-                  {!isLoggedIn && (
-                    <>
-                      <Route path="/" element={<LandingPage />} />
-                      <Route path="/login" element={<Login />} />
-                      <Route path="/register" element={<Register />} />
-                    </>
-                  )}
-                  {isLoggedIn && (
-                    <>
-                      <Route path="/dashboard" element={<Dashboard />} />
-                      <Route path="/profile" element={<Profile />} />
-                    </>
-                  )}
-                  <Route
-                    path="*"
-                    element={
-                      <Navigate to={isLoggedIn ? "/dashboard" : "/login"} />
-                    }
-                  />
+                  <Route path="/" element={<LandingPage />} />
+                  <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/register" element={<Register />} />
+                  <Route path="/profile" element={<Profile />} />
+                  {/* <Route path="/addreminder" element={<AddReminder />} />
+              <Route path="/addnote" element={<AddNote />} /> */}
                 </Routes>
               </main>
             </Router>

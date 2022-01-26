@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/index.css';
 import App from './App';
 
+
 import { library, dom } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 // import { fab } from '@fortawesome/free-brands-svg-icons';

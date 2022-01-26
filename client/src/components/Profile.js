@@ -5,6 +5,7 @@ import "../styles/Profile.css";
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
+
 import Contacts from "./Contacts";
 import Reminders from "./Reminders";
 import Notes from "./Notes";
