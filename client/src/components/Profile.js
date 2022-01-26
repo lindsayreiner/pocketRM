@@ -4,6 +4,7 @@ import "../styles/Profile.css";
 // import { GET_SINGLE_CONTACT } from '../utils/queries.js';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+//edit
 
 import Contacts from "./Contacts";
 import Reminders from "./Reminders";

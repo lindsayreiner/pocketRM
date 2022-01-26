@@ -1,6 +1,7 @@
 import React from 'react';
 // import { useQuery } from '@apollo/client';
 // import { GET_ALL_CONTACTS } from '../utils/queries';
+//edit
 
 import { Button, Form, FormControl } from "react-bootstrap";
 import '../styles/Contacts.css'

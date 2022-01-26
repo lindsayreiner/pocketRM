@@ -1,11 +1,12 @@
 const mongoose = require("mongoose");
+//edit
 
 require("dotenv").config();
 
 mongoose
   .connect(
     process.env.MONGODB_URI ||
-    "mongodb://localhost/pocketrm",
+    "mongodb://localhost/pocketRM",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,

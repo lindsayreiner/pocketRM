@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { useMutation, useQuery } from "@apollo/react-hooks";
 // import { GET_SINGLE_CONTACT } from '../utils/queries.js';
 // import { EDIT_CONTACT } from '../utils/mutations';
+//edit
 
 // TODO: add mutation for edit user
 
