@@ -12,4 +12,3 @@ db.once("open", async () => {
   console.log("Users seeded!");
   process.exit(0);
 });
-

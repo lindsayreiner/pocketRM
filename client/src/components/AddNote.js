@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Modal } from "react-bootstrap";
-//edit
+
 
 export default function AddNote() {
     const [show, setShow] = useState(false);
