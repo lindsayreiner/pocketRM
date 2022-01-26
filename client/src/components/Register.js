@@ -5,7 +5,7 @@ import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import { Link, useNavigate } from "react-router-dom";
 import Auth from "../utils/auth";
-//edit
+
 
 import "../styles/Register.css";
 
